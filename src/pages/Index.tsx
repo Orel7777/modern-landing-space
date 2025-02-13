@@ -1,3 +1,4 @@
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,6 @@ const Index = () => {
   const contactRef = useRef(null);
 
   useEffect(() => {
-    // Hero section animation
     gsap.from(heroRef.current, {
       opacity: 0,
       y: 100,
@@ -22,7 +22,6 @@ const Index = () => {
       ease: "power4.out"
     });
 
-    // Properties title reveal
     gsap.from(propertiesTitleRef.current, {
       scrollTrigger: {
         trigger: propertiesTitleRef.current,
@@ -34,7 +33,6 @@ const Index = () => {
       ease: "back.out(1.7)"
     });
 
-    // Contact section slide in
     gsap.from(contactRef.current, {
       scrollTrigger: {
         trigger: contactRef.current,
@@ -95,12 +93,13 @@ const Index = () => {
     return true;
   });
 
-  return <div className="font-heebo">
+  return (
+    <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
         <div className="absolute inset-0 bg-cover bg-center" style={{
-        backgroundImage: `url('/lovable-uploads/08be7d32-c3a7-49ce-b996-bd232cedd84f.png')`
-      }}>
+          backgroundImage: `url('/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png')`
+        }}>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
         <div className="relative container mx-auto text-center">
@@ -218,7 +217,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
 
 export default Index;
