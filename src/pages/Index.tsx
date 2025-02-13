@@ -1,3 +1,4 @@
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -105,7 +106,7 @@ const Index = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/lovable-uploads/real-estate-video.mp4" type="video/mp4" />
+            <source src="https://static.videezy.com/system/resources/previews/000/021/809/original/luxuryhouse01.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
