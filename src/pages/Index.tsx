@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -7,21 +6,21 @@ import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 const Index = () => {
   const properties = [
     {
-      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      image: "/lovable-uploads/f529eade-2b26-4667-8ec2-fd2c0b7ad1f9.png",
       title: "פנטהאוז יוקרתי",
       price: "₪5,200,000",
       location: "הרצליה פיתוח",
       details: "5 חדרים | 180 מ״ר | קומה 20",
     },
     {
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
       title: "דירת גן מעוצבת",
       price: "₪3,900,000",
       location: "רמת השרון",
       details: "4 חדרים | 140 מ״ר | גינה 100 מ״ר",
     },
     {
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
       title: "וילה מפוארת",
       price: "₪8,500,000",
       location: "סביון",
@@ -36,8 +35,7 @@ const Index = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')",
+            backgroundImage: `url('${properties[0].image}')`,
           }}
         >
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
