@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -48,48 +47,28 @@ const Index = () => {
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
 
   const allProperties = [{
-    image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
-    title: "דירת גג דופלקס",
-    price: "₪5,200,000",
-    location: "שכונת נופים",
-    details: "5 חדרים | 180 מ״ר | דופלקס",
+    image: "/lovable-uploads/66b62c36-6e66-4b03-9ff5-254a7390ee56.png",
+    title: "דו משפחתי 5 חדרים פלוס ממ״ד",
+    price: "₪2,890,000",
+    location: "שכונת בנימין",
+    details: "5 חדרים | 160 מ״ר | מעוצב אדריכלית",
     isSold: false,
     isExclusive: true
   }, {
-    image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
-    title: "דירת גן מעוצבת",
-    price: "₪3,900,000",
-    location: "רמת השרון",
-    details: "4 חדרים | 140 מ״ר | גינה 100 מ״ר",
+    image: "/lovable-uploads/66b62c36-6e66-4b03-9ff5-254a7390ee56.png",
+    title: "דירת 3 חדרים",
+    price: "₪1,950,000",
+    location: "שכונת הכרמים",
+    details: "3 חדרים | 85 מ״ר | קומה 2",
+    isSold: false,
     isExclusive: true
   }, {
-    image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
-    title: "וילה מפוארת",
-    price: "₪8,500,000",
-    location: "סביון",
-    details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר",
-    isSold: true,
-    isExclusive: true
-  }, {
-    image: "/lovable-uploads/99dfa716-d88a-49a6-b415-37665ea93f58.png",
-    title: "דירות גן בפרויקט חדש",
-    price: "₪2,900,000",
-    location: "רמת גן",
-    details: "4 חדרים | 120 מ״ר | גינה 80 מ״ר",
-    isExclusive: true
-  }, {
-    image: "/lovable-uploads/214411a2-0541-4ba4-b053-d59b0fde3761.png",
-    title: "בניין בוטיק יוקרתי",
-    price: "₪4,100,000",
-    location: "תל אביב",
-    details: "3 חדרים | 95 מ״ר | קומה 3",
-    isExclusive: true
-  }, {
-    image: "/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png",
-    title: "דירת גג מפוארת",
-    price: "₪3,800,000",
-    location: "גבעתיים",
-    details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר",
+    image: "/lovable-uploads/66b62c36-6e66-4b03-9ff5-254a7390ee56.png",
+    title: "דירת גן 4 חדרים",
+    price: "₪2,550,000",
+    location: "שכונת חורשת",
+    details: "4 חדרים | 250 מ״ר | גינה פרטית",
+    isSold: false,
     isExclusive: true
   }];
 
