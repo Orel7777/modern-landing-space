@@ -123,7 +123,7 @@ const Index = () => {
               הכל
             </Button>
             <Button variant={filter === 'available' ? 'default' : 'outline'} onClick={() => setFilter('available')} className="min-w-[120px] hover:scale-105 transition-transform">
-              פנוי למכירה
+              למכירה
             </Button>
             <Button variant={filter === 'sold' ? 'default' : 'outline'} onClick={() => setFilter('sold')} className="min-w-[120px] hover:scale-105 transition-transform">
               נמכר
