@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -87,36 +86,34 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h2 className="text-4xl font-bold text-[#003087]">FOLLOW YOUR DREAMS</h2>
-              <h3 className="text-3xl font-bold text-primary">ליחן ביטון</h3>
-              <p className="text-xl text-primary mb-6">יועצת נדל״ן</p>
+              <div className="bg-white rounded-lg shadow-md p-6 text-center">
+                <img 
+                  src="/lovable-uploads/e696cb46-844c-4c2e-a2da-5e3960ebf8ec.png"
+                  alt="Agent Profile with Dreams"
+                  className="mx-auto mb-6"
+                />
+              </div>
               
-              <div className="space-y-4">
+              <div className="space-y-4 mt-8">
                 <div className="flex items-center gap-3">
-                  <div className="bg-[#ea384c] p-2 rounded-full">
+                  <div className="bg-[#003087] p-2 rounded-full">
                     <Phone className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-lg">050-5150002</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-[#ea384c] p-2 rounded-full">
+                  <div className="bg-[#003087] p-2 rounded-full">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-lg">lihenb84@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-[#ea384c] p-2 rounded-full">
+                  <div className="bg-[#003087] p-2 rounded-full">
                     <Instagram className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-lg">lihen_biton</span>
                 </div>
               </div>
-              
-              <img 
-                src="/lovable-uploads/e52c3d50-c670-428b-8432-18e25fb6b583.png"
-                alt="RE/MAX Unique Logo"
-                className="w-48"
-              />
             </div>
             
             <div className="grid grid-cols-2 gap-6">
