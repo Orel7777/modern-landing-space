@@ -82,29 +82,54 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20">
+      {/* Agent Showcase Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8">קצת עלינו</h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              עם ניסיון של למעלה מ-15 שנה בשוק הנדל״ן, אנו מתמחים במציאת הנכס
-              המושלם עבור לקוחותינו. הידע המקצועי, היחס האישי והמסירות שלנו הם
-              המפתח להצלחה שלכם בתהליך רכישת או מכירת נכס.
-            </p>
-            <div className="flex justify-center space-x-4 space-x-reverse">
-              <div className="text-center px-6">
-                <div className="text-3xl font-bold mb-2">350+</div>
-                <div className="text-gray-600">עסקאות מוצלחות</div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h2 className="text-4xl font-bold text-[#003087]">FOLLOW YOUR DREAMS</h2>
+              <h3 className="text-3xl font-bold text-primary">ליחן ביטון</h3>
+              <p className="text-xl text-primary mb-6">יועצת נדל״ן</p>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="bg-[#ea384c] p-2 rounded-full">
+                    <Phone className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-lg">050-5150002</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-[#ea384c] p-2 rounded-full">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-lg">lihenb84@gmail.com</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-[#ea384c] p-2 rounded-full">
+                    <Instagram className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-lg">lihen_biton</span>
+                </div>
               </div>
-              <div className="text-center px-6">
-                <div className="text-3xl font-bold mb-2">98%</div>
-                <div className="text-gray-600">שביעות רצון</div>
-              </div>
-              <div className="text-center px-6">
-                <div className="text-3xl font-bold mb-2">15+</div>
-                <div className="text-gray-600">שנות ניסיון</div>
-              </div>
+              
+              <img 
+                src="/lovable-uploads/e52c3d50-c670-428b-8432-18e25fb6b583.png"
+                alt="RE/MAX Unique Logo"
+                className="w-48"
+              />
+            </div>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <img
+                src="/lovable-uploads/32ad495c-4ef3-4e48-8628-a36e1d0063c5.png"
+                alt="Agent Profile"
+                className="rounded-lg shadow-lg w-full object-cover"
+              />
+              <img
+                src="/lovable-uploads/0c9261a0-8459-4172-8008-0e76de4161c6.png"
+                alt="Agent With View"
+                className="rounded-lg shadow-lg w-full object-cover"
+              />
             </div>
           </div>
         </div>
