@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -7,12 +6,12 @@ import { useState } from "react";
 
 const Index = () => {
   const allProperties = [{
-    image: "/lovable-uploads/f529eade-2b26-4667-8ec2-fd2c0b7ad1f9.png",
-    title: "פנטהאוז יוקרתי",
+    image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
+    title: "דירת גג דופלקס",
     price: "₪5,200,000",
-    location: "הרצליה פיתוח",
-    details: "5 חדרים | 180 מ״ר | קומה 20",
-    isSold: true
+    location: "שכונת נופים",
+    details: "5 חדרים | 180 מ״ר | דופלקס",
+    isSold: false
   }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דירת גן מעוצבת",
