@@ -58,7 +58,7 @@ const Index = () => {
     image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
     title: "וילה מפוארת",
     price: "₪8,500,000",
-    location: "סביון",
+    location: "שכונת הכרמים",
     details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר",
     isExclusive: true
   }, {
