@@ -103,7 +103,7 @@ export const ContactForm = () => {
           })} className="text-right mt-1" />
             </div>
 
-            <div className="flex items-center flex-row-reverse space-x-2 space-x-reverse">
+            <div className="flex items-center justify-end flex-row-reverse space-x-2 space-x-reverse">
               <Label htmlFor="bankApproval">יש לי אישור עקרוני מהבנק</Label>
               <Checkbox id="bankApproval" checked={formData.bankApproval === "yes"} onCheckedChange={checked => setFormData({
             ...formData,
