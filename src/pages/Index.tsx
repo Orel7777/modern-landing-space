@@ -120,11 +120,48 @@ const Index = () => {
           </p>
           <Button 
             size="lg" 
-            className="text-lg hover:scale-105 transition-transform"
+            className="text-lg hover:scale-105 transition-transform mb-8"
             onClick={scrollToContact}
           >
             צור קשר עכשיו
           </Button>
+          <div className="flex justify-center gap-6">
+            <a 
+              href="https://facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary-foreground transition-colors hover:scale-110 transform"
+            >
+              <Facebook size={24} />
+            </a>
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary-foreground transition-colors hover:scale-110 transform"
+            >
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://wa.me/972500000000" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary-foreground transition-colors hover:scale-110 transform"
+            >
+              <svg 
+                viewBox="0 0 24 24" 
+                width="24" 
+                height="24" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                fill="none" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
