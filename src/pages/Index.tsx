@@ -1,3 +1,4 @@
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ const Index = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center" 
           style={{
-            backgroundImage: `url('/lovable-uploads/7880a348-51a2-4e65-9b34-9627fc7c0e96.png')`
+            backgroundImage: `url('/lovable-uploads/d1d40ad4-36d2-40cf-9934-87a45d1511e0.png')`
           }}
         >
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
