@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,9 +6,10 @@ import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
-
 export const ContactForm = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -20,7 +20,6 @@ export const ContactForm = () => {
     bankApproval: "",
     propertyInterest: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -38,7 +37,6 @@ export const ContactForm = () => {
       propertyInterest: ""
     });
   };
-
   return <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up">
       <div className="space-y-4">
         <div>
@@ -75,20 +73,20 @@ export const ContactForm = () => {
 
         <div className="flex mx-0 my-[13px] py-0 px-0 rounded-md">
           <Label className="block mb-2">מתעניין ב:</Label>
-          <div className="\npr-4">
+          <div className="\\npr-4 mx-0">
             <RadioGroup value={formData.interestType} onValueChange={value => setFormData({
             ...formData,
             interestType: value
           })} className="justify-end mx-[42px] py-0 px-0 my-[6px] flex ">
-              <div className="flex items-center space-x-2 space-x-reverse">
+              <div className="flex items-center space-x-2 space-x-reverse gap-1">
                 <RadioGroupItem value="sale" id="sale" />
                 <Label htmlFor="sale">מכירה</Label>
               </div>
-              <div className="flex items-center space-x-2 space-x-reverse">
+              <div className="flex items-center space-x-2 space-x-reverse gap-1">
                 <RadioGroupItem value="buy" id="buy" />
                 <Label htmlFor="buy">קנייה</Label>
               </div>
-              <div className="flex items-center space-x-2 space-x-reverse">
+              <div className="flex items-center space-x- space-x-reverse gap-1">
                 <RadioGroupItem value="rent" id="rent" />
                 <Label htmlFor="rent">שכירות</Label>
               </div>
@@ -96,8 +94,7 @@ export const ContactForm = () => {
           </div>
         </div>
 
-        {formData.interestType === "buy" && (
-          <div className="space-y-4 border-t pt-4">
+        {formData.interestType === "buy" && <div className="space-y-4 border-t pt-4">
             <div>
               <Label htmlFor="soldProperty">האם כבר מכרתם נכס או לפני מכירה?</Label>
               <Input id="soldProperty" placeholder="פרט את מצב הנכס הנוכחי" value={formData.soldProperty} onChange={e => setFormData({
@@ -121,8 +118,7 @@ export const ContactForm = () => {
             propertyInterest: e.target.value
           })} className="text-right mt-1 min-h-[100px]" />
             </div>
-          </div>
-        )}
+          </div>}
       </div>
 
       <Button type="submit" className="w-full">
