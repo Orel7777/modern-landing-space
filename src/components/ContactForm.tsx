@@ -71,9 +71,9 @@ export const ContactForm = () => {
         })} className="text-right mt-1" required />
         </div>
 
-        <div className="space-y-2">
+        <div className="flex mx-0 my-[13px] py-0 px-0 rounded-md">
           <Label className="block mb-2">מתעניין ב:</Label>
-          <div className="pr-4">
+          <div className="\npr-4">
             <RadioGroup value={formData.interestType} onValueChange={value => setFormData({
             ...formData,
             interestType: value
