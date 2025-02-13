@@ -36,7 +36,7 @@ export const PropertyCard = ({ image, title, price, location, details, isSold = 
         )}
         {isSold && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black/60 text-white px-6 py-2 rounded-full text-xl font-bold transform -rotate-12">
+            <div className="bg-[#ea384c]/60 text-white px-6 py-2 rounded-full text-xl font-bold transform -rotate-12">
               נמכר
             </div>
           </div>
