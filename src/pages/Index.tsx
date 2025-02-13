@@ -60,7 +60,6 @@ const Index = () => {
     price: "₪8,500,000",
     location: "סביון",
     details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר",
-    isSold: true,
     isExclusive: true
   }, {
     image: "/lovable-uploads/99dfa716-d88a-49a6-b415-37665ea93f58.png",
