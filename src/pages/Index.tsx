@@ -41,10 +41,10 @@ const Index = () => {
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
   const allProperties = [{
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
-    title: "דירת גג דופלקס",
+    title: "דו משפחתי 5 חדרים פלוס ממ״ד",
     price: "₪5,200,000",
-    location: "שכונת נופים",
-    details: "5 חדרים | 180 מ״ר | דופלקס",
+    location: "שכונת בוכמן",
+    details: "5 חדרים | 180 מ״ר | דו משפחתי",
     isSold: false,
     isExclusive: true
   }, {
