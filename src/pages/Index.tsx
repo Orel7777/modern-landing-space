@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -6,7 +5,6 @@ import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Logo3D } from "@/components/3DLogo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,9 +104,6 @@ const Index = () => {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
         <div className="relative container mx-auto text-center">
-          <div className="mb-8">
-            <Logo3D />
-          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             נדל״ן ברמה אחרת
           </h1>
