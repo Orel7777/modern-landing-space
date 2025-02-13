@@ -6,10 +6,12 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+
 const Index = () => {
   const heroRef = useRef(null);
   const propertiesTitleRef = useRef(null);
   const contactRef = useRef(null);
+
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -38,7 +40,9 @@ const Index = () => {
       ease: "power2.out"
     });
   }, []);
+
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
+  
   const allProperties = [{
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
     title: "דו משפחתי 5 חדרים פלוס ממ״ד",
@@ -89,12 +93,20 @@ const Index = () => {
     if (filter === 'available') return !property.isSold;
     return true;
   });
+
   return <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
-        <div className="absolute inset-0 bg-cover bg-center" style={{
-        backgroundImage: `url('/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png')`
-      }}>
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/lovable-uploads/real-estate-video.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
         <div className="relative container mx-auto text-center">
@@ -200,4 +212,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
