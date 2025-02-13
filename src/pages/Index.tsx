@@ -1,9 +1,7 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
-
 const Index = () => {
   const properties = [{
     image: "/lovable-uploads/f529eade-2b26-4667-8ec2-fd2c0b7ad1f9.png",
@@ -44,17 +42,12 @@ const Index = () => {
     location: "גבעתיים",
     details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר"
   }];
-
-  return (
-    <div className="font-heebo">
+  return <div className="font-heebo">
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center text-white">
-        <div 
-          className="absolute inset-0 bg-cover bg-center" 
-          style={{
-            backgroundImage: `url('/lovable-uploads/08be7d32-c3a7-49ce-b996-bd232cedd84f.png')`
-          }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center" style={{
+        backgroundImage: `url('/lovable-uploads/08be7d32-c3a7-49ce-b996-bd232cedd84f.png')`
+      }}>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
         <div className="relative container mx-auto text-center animate-fade-up">
@@ -75,9 +68,7 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">נכסים נבחרים</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property, index) => (
-              <PropertyCard key={index} {...property} />
-            ))}
+            {properties.map((property, index) => <PropertyCard key={index} {...property} />)}
           </div>
         </div>
       </section>
@@ -100,7 +91,9 @@ const Index = () => {
                   <Mail className="w-6 h-6" />
                   <div>
                     <h3 className="font-medium mb-1">אימייל</h3>
-                    <p className="text-gray-600">contact@realestate.com</p>
+                    <p className="text-gray-600">lihenb84@gmail.com
+
+                  </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 space-x-reverse">
@@ -129,8 +122,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
