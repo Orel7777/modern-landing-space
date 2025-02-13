@@ -6,10 +6,16 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+
 const Index = () => {
   const heroRef = useRef(null);
   const propertiesTitleRef = useRef(null);
   const contactRef = useRef(null);
+
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -38,6 +44,7 @@ const Index = () => {
       ease: "power2.out"
     });
   }, []);
+
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
   const allProperties = [{
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
@@ -92,9 +99,16 @@ const Index = () => {
   return <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
-        <div className="absolute inset-0 bg-cover bg-center" style={{
-        backgroundImage: `url('/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png')`
-      }}>
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="https://static.videezy.com/system/resources/previews/000/021/809/original/luxuryhouse01.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
         <div className="relative container mx-auto text-center">
@@ -104,7 +118,11 @@ const Index = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             מציאת הבית המושלם עבורך היא המשימה שלנו
           </p>
-          <Button size="lg" className="text-lg hover:scale-105 transition-transform">
+          <Button 
+            size="lg" 
+            className="text-lg hover:scale-105 transition-transform"
+            onClick={scrollToContact}
+          >
             צור קשר עכשיו
           </Button>
         </div>
@@ -200,4 +218,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
