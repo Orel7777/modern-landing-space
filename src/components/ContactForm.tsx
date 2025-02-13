@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -119,26 +120,37 @@ export const ContactForm = () => {
           <div className="space-y-4 border-t pt-4">
             <div>
               <Label htmlFor="soldProperty">האם כבר מכרתם נכס או לפני מכירה?</Label>
-              <Input id="soldProperty" placeholder="פרט את מצב הנכס הנוכחי" value={formData.soldProperty} onChange={e => setFormData({
-            ...formData,
-            soldProperty: e.target.value
-          })} className="text-right mt-1" />
+              <Input
+                id="soldProperty"
+                placeholder="פרט את מצב הנכס הנוכחי"
+                value={formData.soldProperty}
+                onChange={(e) => setFormData({ ...formData, soldProperty: e.target.value })}
+                className="text-right mt-1"
+              />
             </div>
 
-            <div className="flex items-center space-x-2 space-x-reverse">
-              <Checkbox id="bankApproval" checked={formData.bankApproval === "yes"} onCheckedChange={checked => setFormData({
-            ...formData,
-            bankApproval: checked ? "yes" : "no"
-          })} />
+            <div className="flex items-center flex-row-reverse space-x-2 space-x-reverse">
               <Label htmlFor="bankApproval">יש לי אישור עקרוני מהבנק</Label>
+              <Checkbox
+                id="bankApproval"
+                checked={formData.bankApproval === "yes"}
+                onCheckedChange={(checked) =>
+                  setFormData({ ...formData, bankApproval: checked ? "yes" : "no" })
+                }
+              />
             </div>
 
             <div>
               <Label htmlFor="propertyInterest">באיזה נכס אתם מתעניינים?</Label>
-              <Textarea id="propertyInterest" placeholder="תאר את הנכס המבוקש" value={formData.propertyInterest} onChange={e => setFormData({
-            ...formData,
-            propertyInterest: e.target.value
-          })} className="text-right mt-1 min-h-[100px]" />
+              <Textarea
+                id="propertyInterest"
+                placeholder="תאר את הנכס המבוקש"
+                value={formData.propertyInterest}
+                onChange={(e) =>
+                  setFormData({ ...formData, propertyInterest: e.target.value })
+                }
+                className="text-right mt-1 min-h-[100px]"
+              />
             </div>
           </div>
         )}
