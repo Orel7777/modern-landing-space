@@ -56,7 +56,7 @@ const Index = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
-    title: "וילה מפוארת",
+    title: "דירת 3 חדרים",
     price: "₪8,500,000",
     location: "שכונת הכרמים",
     details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר",
