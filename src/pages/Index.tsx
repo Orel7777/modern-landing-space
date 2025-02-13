@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -6,14 +5,11 @@ import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 gsap.registerPlugin(ScrollTrigger);
-
 const Index = () => {
   const heroRef = useRef(null);
   const propertiesTitleRef = useRef(null);
   const contactRef = useRef(null);
-
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -21,22 +17,20 @@ const Index = () => {
       duration: 1.2,
       ease: "power4.out"
     });
-
     gsap.from(propertiesTitleRef.current, {
       scrollTrigger: {
         trigger: propertiesTitleRef.current,
-        start: "top 80%",
+        start: "top 80%"
       },
       opacity: 0,
       y: 50,
       duration: 0.8,
       ease: "back.out(1.7)"
     });
-
     gsap.from(contactRef.current, {
       scrollTrigger: {
         trigger: contactRef.current,
-        start: "top 70%",
+        start: "top 70%"
       },
       opacity: 0,
       x: -100,
@@ -44,9 +38,7 @@ const Index = () => {
       ease: "power2.out"
     });
   }, []);
-
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
-
   const allProperties = [{
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
     title: "דירת גג דופלקס",
@@ -92,20 +84,17 @@ const Index = () => {
     details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר",
     isExclusive: true
   }];
-
   const filteredProperties = allProperties.filter(property => {
     if (filter === 'sold') return property.isSold;
     if (filter === 'available') return !property.isSold;
     return true;
   });
-
-  return (
-    <div className="font-heebo">
+  return <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
         <div className="absolute inset-0 bg-cover bg-center" style={{
-          backgroundImage: `url('/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png')`
-        }}>
+        backgroundImage: `url('/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png')`
+      }}>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
         <div className="relative container mx-auto text-center">
@@ -130,48 +119,34 @@ const Index = () => {
           
           {/* Filter Buttons */}
           <div className="flex justify-center gap-4 mb-8">
-            <Button
-              variant={filter === 'all' ? 'default' : 'outline'}
-              onClick={() => setFilter('all')}
-              className="min-w-[120px] hover:scale-105 transition-transform"
-            >
+            <Button variant={filter === 'all' ? 'default' : 'outline'} onClick={() => setFilter('all')} className="min-w-[120px] hover:scale-105 transition-transform">
               הכל
             </Button>
-            <Button
-              variant={filter === 'available' ? 'default' : 'outline'}
-              onClick={() => setFilter('available')}
-              className="min-w-[120px] hover:scale-105 transition-transform"
-            >
+            <Button variant={filter === 'available' ? 'default' : 'outline'} onClick={() => setFilter('available')} className="min-w-[120px] hover:scale-105 transition-transform">
               פנוי למכירה
             </Button>
-            <Button
-              variant={filter === 'sold' ? 'default' : 'outline'}
-              onClick={() => setFilter('sold')}
-              className="min-w-[120px] hover:scale-105 transition-transform"
-            >
+            <Button variant={filter === 'sold' ? 'default' : 'outline'} onClick={() => setFilter('sold')} className="min-w-[120px] hover:scale-105 transition-transform">
               נמכר
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProperties.map((property, index) => (
-              <div key={index} className="opacity-0" ref={el => {
-                if (el) {
-                  gsap.to(el, {
-                    scrollTrigger: {
-                      trigger: el,
-                      start: "top 85%",
-                    },
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    delay: index * 0.2
-                  });
-                }
-              }}>
+            {filteredProperties.map((property, index) => <div key={index} className="opacity-0" ref={el => {
+            if (el) {
+              gsap.to(el, {
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 85%"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: index * 0.2
+              });
+            }
+          }}>
                 <PropertyCard {...property} />
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -201,7 +176,7 @@ const Index = () => {
                   <MapPin className="w-6 h-6" />
                   <div>
                     <h3 className="font-medium mb-1">כתובת</h3>
-                    <p className="text-gray-600">רחוב הברוש 12, תל אביב</p>
+                    <p className="text-gray-600">???</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-start space-x-6 space-x-reverse pt-4">
@@ -223,8 +198,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
