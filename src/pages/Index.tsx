@@ -10,7 +10,8 @@ const Index = () => {
     title: "פנטהאוז יוקרתי",
     price: "₪5,200,000",
     location: "הרצליה פיתוח",
-    details: "5 חדרים | 180 מ״ר | קומה 20"
+    details: "5 חדרים | 180 מ״ר | קומה 20",
+    isSold: true
   }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דירת גן מעוצבת",
@@ -22,7 +23,26 @@ const Index = () => {
     title: "וילה מפוארת",
     price: "₪8,500,000",
     location: "סביון",
-    details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר"
+    details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר",
+    isSold: true
+  }, {
+    image: "/lovable-uploads/99dfa716-d88a-49a6-b415-37665ea93f58.png",
+    title: "דירות גן בפרויקט חדש",
+    price: "₪2,900,000",
+    location: "רמת גן",
+    details: "4 חדרים | 120 מ״ר | גינה 80 מ״ר"
+  }, {
+    image: "/lovable-uploads/214411a2-0541-4ba4-b053-d59b0fde3761.png",
+    title: "בניין בוטיק יוקרתי",
+    price: "₪4,100,000",
+    location: "תל אביב",
+    details: "3 חדרים | 95 מ״ר | קומה 3"
+  }, {
+    image: "/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png",
+    title: "דירת גג מפוארת",
+    price: "₪3,800,000",
+    location: "גבעתיים",
+    details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר"
   }];
 
   return (
