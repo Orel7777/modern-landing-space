@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const ContactForm = () => {
   const { toast } = useToast();
@@ -11,7 +14,11 @@ export const ContactForm = () => {
     name: "",
     phone: "",
     email: "",
-    message: "",
+    currentLocation: "",
+    interestType: "",
+    soldProperty: "",
+    bankApproval: "",
+    propertyInterest: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,49 +27,133 @@ export const ContactForm = () => {
       title: "הודעה נשלחה בהצלחה",
       description: "נחזור אליך בהקדם האפשרי",
     });
-    setFormData({ name: "", phone: "", email: "", message: "" });
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      currentLocation: "",
+      interestType: "",
+      soldProperty: "",
+      bankApproval: "",
+      propertyInterest: "",
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 animate-fade-up">
-      <div>
-        <Input
-          placeholder="שם מלא"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="text-right"
-          required
-        />
+    <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up">
+      <div className="space-y-4">
+        <div>
+          <Label htmlFor="name">שם מלא</Label>
+          <Input
+            id="name"
+            placeholder="שם מלא"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="text-right mt-1"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="phone">טלפון נייד</Label>
+          <Input
+            id="phone"
+            placeholder="טלפון נייד"
+            type="tel"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            className="text-right mt-1"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="email">אימייל</Label>
+          <Input
+            id="email"
+            placeholder="אימייל"
+            type="email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            className="text-right mt-1"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="currentLocation">מקום מגורים עדכני</Label>
+          <Input
+            id="currentLocation"
+            placeholder="מקום מגורים עדכני"
+            value={formData.currentLocation}
+            onChange={(e) => setFormData({ ...formData, currentLocation: e.target.value })}
+            className="text-right mt-1"
+            required
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label>מתעניין ב:</Label>
+          <RadioGroup
+            value={formData.interestType}
+            onValueChange={(value) => setFormData({ ...formData, interestType: value })}
+            className="flex flex-col space-y-2"
+          >
+            <div className="flex items-center space-x-2 space-x-reverse">
+              <RadioGroupItem value="sale" id="sale" />
+              <Label htmlFor="sale">מכירה</Label>
+            </div>
+            <div className="flex items-center space-x-2 space-x-reverse">
+              <RadioGroupItem value="buy" id="buy" />
+              <Label htmlFor="buy">קנייה</Label>
+            </div>
+            <div className="flex items-center space-x-2 space-x-reverse">
+              <RadioGroupItem value="rent" id="rent" />
+              <Label htmlFor="rent">שכירות</Label>
+            </div>
+          </RadioGroup>
+        </div>
+
+        {formData.interestType === "buy" && (
+          <div className="space-y-4 border-t pt-4">
+            <div>
+              <Label htmlFor="soldProperty">האם כבר מכרתם נכס או לפני מכירה?</Label>
+              <Input
+                id="soldProperty"
+                placeholder="פרט את מצב הנכס הנוכחי"
+                value={formData.soldProperty}
+                onChange={(e) => setFormData({ ...formData, soldProperty: e.target.value })}
+                className="text-right mt-1"
+              />
+            </div>
+
+            <div className="flex items-center space-x-2 space-x-reverse">
+              <Checkbox
+                id="bankApproval"
+                checked={formData.bankApproval === "yes"}
+                onCheckedChange={(checked) =>
+                  setFormData({ ...formData, bankApproval: checked ? "yes" : "no" })
+                }
+              />
+              <Label htmlFor="bankApproval">יש לי אישור עקרוני מהבנק</Label>
+            </div>
+
+            <div>
+              <Label htmlFor="propertyInterest">באיזה נכס אתם מתעניינים?</Label>
+              <Textarea
+                id="propertyInterest"
+                placeholder="תאר את הנכס המבוקש"
+                value={formData.propertyInterest}
+                onChange={(e) =>
+                  setFormData({ ...formData, propertyInterest: e.target.value })
+                }
+                className="text-right mt-1 min-h-[100px]"
+              />
+            </div>
+          </div>
+        )}
       </div>
-      <div>
-        <Input
-          placeholder="טלפון"
-          type="tel"
-          value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className="text-right"
-          required
-        />
-      </div>
-      <div>
-        <Input
-          placeholder="אימייל"
-          type="email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="text-right"
-          required
-        />
-      </div>
-      <div>
-        <Textarea
-          placeholder="הודעה"
-          value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="text-right min-h-[120px]"
-          required
-        />
-      </div>
+
       <Button type="submit" className="w-full">
         שליחה
       </Button>
