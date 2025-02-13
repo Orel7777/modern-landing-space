@@ -5,8 +5,7 @@ import { Suspense } from 'react';
 
 function House() {
   return (
-    <mesh position={[0, 0, 0]}>
-      {/* Main structure */}
+    <mesh>
       <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial color="#ffffff" />
       
