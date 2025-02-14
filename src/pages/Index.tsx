@@ -105,12 +105,18 @@ const Index = () => {
             muted
             loop
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
           >
-            <source src="https://static.videezy.com/system/resources/previews/000/021/809/original/luxuryhouse01.mp4" type="video/mp4" />
+            <source 
+              src="https://res.cloudinary.com/dxrvtimah/video/upload/v1710597470/real-estate_zpjg0t.mp4" 
+              type="video/mp4" 
+            />
+            הדפדפן שלך לא תומך בהצגת וידאו.
           </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
+        
         <div className="relative container mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             נדל״ן ברמה אחרת
