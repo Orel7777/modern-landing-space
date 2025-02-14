@@ -126,12 +126,12 @@ const Index = () => {
           </p>
           <Button 
             size="lg" 
-            className="text-lg hover:scale-105 transition-transform mb-8"
+            className="text-lg hover:scale-105 transition-transform"
             onClick={scrollToContact}
           >
             צור קשר עכשיו
           </Button>
-          <ul className="inline-flex justify-center gap-4 mt-4">
+          <ul className="inline-flex justify-center gap-4">
             <li className="group relative">
               <a 
                 href="https://facebook.com" 
