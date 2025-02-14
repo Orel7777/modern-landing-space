@@ -131,43 +131,59 @@ const Index = () => {
           >
             צור קשר עכשיו
           </Button>
-          <div className="flex justify-center gap-6">
-            <a 
-              href="https://facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-primary-foreground transition-colors hover:scale-110 transform"
-            >
-              <Facebook size={24} />
-            </a>
-            <a 
-              href="https://instagram.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-primary-foreground transition-colors hover:scale-110 transform"
-            >
-              <Instagram size={24} />
-            </a>
-            <a 
-              href="https://wa.me/972500000000" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-primary-foreground transition-colors hover:scale-110 transform"
-            >
-              <svg 
-                viewBox="0 0 24 24" 
-                width="24" 
-                height="24" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                fill="none" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
+          <ul className="inline-flex justify-center gap-4 mt-4">
+            <li className="group relative">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#1877f2]"
               >
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg>
-            </a>
-          </div>
+                <Facebook className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors" />
+              </a>
+              <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-white text-gray-700 text-sm rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap shadow-lg before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent before:border-t-white">
+                Facebook
+              </span>
+            </li>
+            <li className="group relative">
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#e4405f]"
+              >
+                <Instagram className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors" />
+              </a>
+              <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-white text-gray-700 text-sm rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap shadow-lg before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent before:border-t-white">
+                Instagram
+              </span>
+            </li>
+            <li className="group relative">
+              <a 
+                href="https://wa.me/972500000000" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]"
+              >
+                <svg 
+                  viewBox="0 0 24 24" 
+                  width="24" 
+                  height="24" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  fill="none" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="text-gray-600 group-hover:text-white transition-colors"
+                >
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </a>
+              <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-white text-gray-700 text-sm rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap shadow-lg before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent before:border-t-white">
+                WhatsApp
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 
