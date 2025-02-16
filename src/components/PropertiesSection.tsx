@@ -122,12 +122,16 @@ export const PropertiesSection = () => {
     <section className="py-20 bg-muted">
       <div className="container mx-auto">
         <div className="flex flex-col items-center justify-center mb-12">
-          <h2 ref={propertiesTitleRef} className="text-3xl font-bold mb-4">
+          <h2 ref={propertiesTitleRef} className="text-3xl font-bold mb-8">
             נכסים נבחרים
           </h2>
-          <div className="flex items-center space-x-8 rtl:space-x-reverse">
-            <Tree3D />
-            <Tree3D />
+          <div className="flex items-center justify-center gap-24">
+            <div className="flex items-center justify-center">
+              <Tree3D />
+            </div>
+            <div className="flex items-center justify-center">
+              <Tree3D />
+            </div>
           </div>
         </div>
         
