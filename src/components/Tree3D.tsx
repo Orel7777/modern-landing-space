@@ -5,20 +5,14 @@ const Tree3D = () => {
   return (
     <StyledWrapper>
       <div className="container">
-        <div className="tree" style={{ visibility: 'visible', opacity: 1, zIndex: 1 }}>
+        <div className="tree">
           {[0, 1, 2, 3].map(x => (
             <div key={x} className="branch" style={{
-              "--x": x,
-              visibility: 'visible',
-              opacity: 1,
-              zIndex: 2
+              "--x": x
             } as any}>
               {[0, 1, 2, 3].map(i => (
                 <span key={i} style={{
-                  "--i": i,
-                  visibility: 'visible',
-                  opacity: 1,
-                  zIndex: 3
+                  "--i": i
                 } as any} />
               ))}
             </div>
@@ -26,10 +20,7 @@ const Tree3D = () => {
           <div className="stem">
             {[0, 1, 2, 3].map(i => (
               <span key={i} style={{
-                "--i": i,
-                visibility: 'visible',
-                opacity: 1,
-                zIndex: 2
+                "--i": i
               } as any} />
             ))}
           </div>
@@ -42,47 +33,39 @@ const Tree3D = () => {
 
 const StyledWrapper = styled.div`
   .container {
-    width: 20px;
-    height: 20px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(8px);
-    position: relative;
-    z-index: 10;
+    min-height: 40px;
   }
 
   .tree {
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     transform-style: preserve-3d;
-    transform: rotateX(-20deg) rotateY(30deg) scale(0.7);
+    transform: rotateX(-20deg) rotateY(30deg);
     animation: treeAnimate 5s linear infinite;
-    transform-origin: center center;
-    z-index: 1;
-    backface-visibility: visible;
-    perspective: 1000px;
   }
 
   @keyframes treeAnimate {
     0% {
-      transform: rotateX(-20deg) rotateY(360deg) scale(0.7);
+      transform: rotateX(-20deg) rotateY(360deg);
     }
     100% {
-      transform: rotateX(-20deg) rotateY(0deg) scale(0.7);
+      transform: rotateX(-20deg) rotateY(0deg);
     }
   }
 
   .tree div {
     position: absolute;
-    top: -20px;
+    top: -50px;
     left: 0;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transform: translateY(calc(10px * var(--x))) translateZ(0px);
-    backface-visibility: visible;
+    transform: translateY(calc(25px * var(--x))) translateZ(0px);
   }
 
   .tree div.branch span {
@@ -91,25 +74,23 @@ const StyledWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #90EE90, #98FB98);
+    background: linear-gradient(90deg, #69c069, #77dd77);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    border-bottom: 2px solid #00000019;
+    border-bottom: 5px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(12px);
-    backface-visibility: visible;
+    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(28.5px);
   }
 
   .tree div.stem span {
     position: absolute;
-    top: 50px;
-    left: calc(50% - 3px);
-    width: 6px;
-    height: 40%;
+    top: 110px;
+    left: calc(50% - 7.5px);
+    width: 15px;
+    height: 50%;
     background: linear-gradient(90deg, #bb4622, #df7214);
-    border-bottom: 2px solid #00000019;
+    border-bottom: 5px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(3px);
-    backface-visibility: visible;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(7.5px);
   }
 
   .shadow {
@@ -119,9 +100,9 @@ const StyledWrapper = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    filter: blur(15px);
+    filter: blur(20px);
     transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-30px);
+    transform: rotateX(90deg) translateZ(-65px);
   }
 `;
 
