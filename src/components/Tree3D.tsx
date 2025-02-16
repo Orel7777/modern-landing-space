@@ -30,6 +30,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(15px); /* הוספנו את זה כדי ליישר עם הכותרת */
   }
 
   .tree {
@@ -39,6 +40,9 @@ const StyledWrapper = styled.div`
     transform-style: preserve-3d;
     transform: rotateX(-20deg) rotateY(30deg);
     animation: treeAnimate 5s linear infinite;
+    transform-origin: center center;
+    visibility: visible !important; /* הוספנו את זה כדי להבטיח שהעץ תמיד נראה */
+    opacity: 1 !important; /* הוספנו את זה כדי להבטיח שהעץ תמיד נראה */
   }
 
   @keyframes treeAnimate {
@@ -58,6 +62,7 @@ const StyledWrapper = styled.div`
     height: 100%;
     transform-style: preserve-3d;
     transform: translateY(calc(15px * var(--x))) translateZ(0px);
+    visibility: visible !important; /* הוספנו את זה כדי להבטיח שהענפים תמיד נראים */
   }
 
   .tree div.branch span {
@@ -71,6 +76,7 @@ const StyledWrapper = styled.div`
     border-bottom: 3px solid #00000019;
     transform-origin: bottom;
     transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(17px);
+    visibility: visible !important; /* הוספנו את זה כדי להבטיח שהחלקים תמיד נראים */
   }
 
   .tree div.stem span {
@@ -83,6 +89,7 @@ const StyledWrapper = styled.div`
     border-bottom: 3px solid #00000019;
     transform-origin: bottom;
     transform: rotateY(calc(90deg * var(--i))) translateZ(4.5px);
+    visibility: visible !important; /* הוספנו את זה כדי להבטיח שהגזע תמיד נראה */
   }
 
   .shadow {
