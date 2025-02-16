@@ -3,7 +3,7 @@ import MacbookLoader from './MacbookLoader';
 export const Footer = () => {
   return <footer className="py-4 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-4">
           <div className="flex items-center gap-8 justify-center ">
             <img src="/lovable-uploads/214d8cad-0799-43e3-8d05-b68bae52e025.png" alt="Orel Bukris Logo" className="w-12 h-12 object-contain" />
             <MacbookLoader />
