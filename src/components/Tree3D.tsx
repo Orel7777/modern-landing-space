@@ -52,25 +52,25 @@ const StyledWrapper = styled.div`
 
   .building {
     position: relative;
-    width: 30px;
-    height: 35px;
+    width: 20px;
+    height: 25px;
     transform-style: preserve-3d;
-    transform: rotateX(-20deg) rotateY(30deg) scale(0.8);
+    transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
     animation: buildingAnimate 5s linear infinite;
   }
 
   @keyframes buildingAnimate {
     0% {
-      transform: rotateX(-20deg) rotateY(360deg) scale(0.8);
+      transform: rotateX(-20deg) rotateY(360deg) scale(0.6);
     }
     100% {
-      transform: rotateX(-20deg) rotateY(0deg) scale(0.8);
+      transform: rotateX(-20deg) rotateY(0deg) scale(0.6);
     }
   }
 
   .building div {
     position: absolute;
-    top: -20px;
+    top: -15px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -78,40 +78,40 @@ const StyledWrapper = styled.div`
   }
 
   .building div.roof {
-    top: -35px;
-    height: 20px;
+    top: -25px;
+    height: 15px;
   }
 
   .building div.roof span {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #8d4242, #a34d4d);
+    background: linear-gradient(90deg, #555555, #666666);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(10px);
   }
 
   .building div.floor {
-    transform: translateY(calc(15px * var(--x)));
+    transform: translateY(calc(10px * var(--x)));
   }
 
   .building div.floor span {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #e8e8e8, #ffffff);
+    background: linear-gradient(90deg, #c8c8c9, #d4d4d4);
     border: 1px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(10px);
   }
 
   .building div.floor span::after {
     content: '';
     position: absolute;
-    width: 6px;
-    height: 8px;
-    background: #4a4a4a;
+    width: 4px;
+    height: 6px;
+    background: #333333;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -119,26 +119,26 @@ const StyledWrapper = styled.div`
 
   .building div.base span {
     position: absolute;
-    bottom: -30px;
-    left: calc(50% - 8px);
-    width: 16px;
-    height: 35px;
-    background: linear-gradient(90deg, #c7c7c7, #e0e0e0);
+    bottom: -20px;
+    left: calc(50% - 5px);
+    width: 10px;
+    height: 25px;
+    background: linear-gradient(90deg, #555555, #666666);
     border: 1px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(8px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(5px);
   }
 
   .shadow {
     position: absolute;
-    bottom: -30px;
+    bottom: -20px;
     left: 0;
     width: 100%;
-    height: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    filter: blur(5px);
+    height: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    filter: blur(3px);
     transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-5px);
+    transform: rotateX(90deg) translateZ(-3px);
   }
 `;
 
