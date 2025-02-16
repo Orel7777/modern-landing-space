@@ -1,10 +1,8 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import Tree3D from "@/components/Tree3D";
 import { useRef, useState } from "react";
 import gsap from "gsap";
-
 interface Property {
   image: string;
   title: string;
@@ -15,11 +13,9 @@ interface Property {
   isRented?: boolean;
   isExclusive?: boolean;
 }
-
 export const PropertiesSection = () => {
   const propertiesTitleRef = useRef(null);
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
-
   const allProperties: Property[] = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
     title: "דירה במגדל הלבנון",
@@ -111,20 +107,17 @@ export const PropertiesSection = () => {
     details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר",
     isExclusive: true
   }];
-
   const filteredProperties = allProperties.filter(property => {
     if (filter === 'sold') return property.isSold;
     if (filter === 'available') return !property.isSold && !property.isRented;
     return true;
   });
-
-  return (
-    <section className="py-20 bg-muted">
+  return <section className="py-20 bg-muted">
       <div className="container mx-auto">
         <div className="flex items-center justify-center mb-12">
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
             <Tree3D />
-            <h2 ref={propertiesTitleRef} className="text-3xl font-bold">
+            <h2 ref={propertiesTitleRef} className="text-3xl font-bold px-0 py-0 flex justify-center items-center">
               נכסים נבחרים
             </h2>
             <Tree3D />
@@ -132,54 +125,35 @@ export const PropertiesSection = () => {
         </div>
         
         <div className="flex justify-center gap-4 mb-8">
-          <Button 
-            variant={filter === 'all' ? 'default' : 'outline'} 
-            onClick={() => setFilter('all')} 
-            className="min-w-[120px] hover:scale-105 transition-transform"
-          >
+          <Button variant={filter === 'all' ? 'default' : 'outline'} onClick={() => setFilter('all')} className="min-w-[120px] hover:scale-105 transition-transform">
             הכל
           </Button>
-          <Button 
-            variant={filter === 'available' ? 'default' : 'outline'} 
-            onClick={() => setFilter('available')} 
-            className="min-w-[120px] hover:scale-105 transition-transform"
-          >
+          <Button variant={filter === 'available' ? 'default' : 'outline'} onClick={() => setFilter('available')} className="min-w-[120px] hover:scale-105 transition-transform">
             למכירה
           </Button>
-          <Button 
-            variant={filter === 'sold' ? 'default' : 'outline'} 
-            onClick={() => setFilter('sold')} 
-            className="min-w-[120px] hover:scale-105 transition-transform"
-          >
+          <Button variant={filter === 'sold' ? 'default' : 'outline'} onClick={() => setFilter('sold')} className="min-w-[120px] hover:scale-105 transition-transform">
             נמכר
           </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProperties.map((property, index) => (
-            <div 
-              key={index} 
-              className="opacity-0" 
-              ref={el => {
-                if (el) {
-                  gsap.to(el, {
-                    scrollTrigger: {
-                      trigger: el,
-                      start: "top 85%"
-                    },
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    delay: index * 0.2
-                  });
-                }
-              }}
-            >
+          {filteredProperties.map((property, index) => <div key={index} className="opacity-0" ref={el => {
+          if (el) {
+            gsap.to(el, {
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%"
+              },
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              delay: index * 0.2
+            });
+          }
+        }}>
               <PropertyCard {...property} />
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };

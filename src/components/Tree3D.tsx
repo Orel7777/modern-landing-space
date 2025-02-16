@@ -1,30 +1,25 @@
-
 import { styled } from "styled-components";
-
 const Tree3D = () => {
-  return (
-    <StyledWrapper>
-      <div className="container">
+  return <StyledWrapper>
+      <div className="container ">
         <div className="tree">
-          {[0, 1, 2, 3].map((x) => (
-            <div key={x} className="branch" style={{"--x": x} as any}>
-              {[0, 1, 2, 3].map((i) => (
-                <span key={i} style={{"--i": i} as any} />
-              ))}
-            </div>
-          ))}
+          {[0, 1, 2, 3].map(x => <div key={x} className="branch" style={{
+          "--x": x
+        } as any}>
+              {[0, 1, 2, 3].map(i => <span key={i} style={{
+            "--i": i
+          } as any} />)}
+            </div>)}
           <div className="stem">
-            {[0, 1, 2, 3].map((i) => (
-              <span key={i} style={{"--i": i} as any} />
-            ))}
+            {[0, 1, 2, 3].map(i => <span key={i} style={{
+            "--i": i
+          } as any} />)}
           </div>
           <span className="shadow" />
         </div>
       </div>
-    </StyledWrapper>
-  );
+    </StyledWrapper>;
 };
-
 const StyledWrapper = styled.div`
   .container {
     width: 50px;
@@ -98,5 +93,4 @@ const StyledWrapper = styled.div`
     transform: rotateX(90deg) translateZ(-65px);
   }
 `;
-
 export default Tree3D;
