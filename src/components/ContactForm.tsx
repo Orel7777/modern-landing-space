@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,123 +7,193 @@ import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+
+const formSchema = z.object({
+  name: z.string().min(2, "שם חייב להכיל לפחות 2 תווים"),
+  phone: z.string().regex(/^05\d{8}$/, "מספר טלפון לא תקין - חייב להתחיל ב-05 ולהכיל 10 ספרות"),
+  email: z.string().email("כתובת אימייל לא תקינה"),
+  currentLocation: z.string().min(2, "יש להזין מיקום תקין"),
+  interestType: z.enum(["sale", "buy", "rent"], { required_error: "יש לבחור סוג התעניינות" }),
+  soldProperty: z.string().optional(),
+  bankApproval: z.boolean().optional(),
+  propertyInterest: z.string().optional()
+});
+
+type FormData = z.infer<typeof formSchema>;
+
 export const ContactForm = () => {
-  const {
-    toast
-  } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    currentLocation: "",
-    interestType: "",
-    soldProperty: "",
-    bankApproval: "",
-    propertyInterest: ""
-  });
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "הודעה נשלחה בהצלחה",
-      description: "נחזור אליך בהקדם האפשרי"
-    });
-    setFormData({
+  const { toast } = useToast();
+  
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
       name: "",
       phone: "",
       email: "",
       currentLocation: "",
-      interestType: "",
+      interestType: undefined,
       soldProperty: "",
-      bankApproval: "",
+      bankApproval: false,
       propertyInterest: ""
+    }
+  });
+
+  const onSubmit = (data: FormData) => {
+    toast({
+      title: "הודעה נשלחה בהצלחה",
+      description: "נחזור אליך בהקדם האפשרי"
     });
+    form.reset();
   };
-  return <form onSubmit={handleSubmit} className="space-y-6 animate-fade-up">
-      <div className="space-y-4">
-        <div>
-          <Label htmlFor="name">שם מלא</Label>
-          <Input id="name" placeholder="שם מלא" value={formData.name} onChange={e => setFormData({
-          ...formData,
-          name: e.target.value
-        })} className="text-right mt-1" required />
-        </div>
 
-        <div>
-          <Label htmlFor="phone">טלפון נייד</Label>
-          <Input id="phone" placeholder="טלפון נייד" type="tel" value={formData.phone} onChange={e => setFormData({
-          ...formData,
-          phone: e.target.value
-        })} className="text-right mt-1" required />
-        </div>
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 animate-fade-up">
+        <div className="space-y-4">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>שם מלא</FormLabel>
+                <FormControl>
+                  <Input {...field} className="text-right" placeholder="שם מלא" />
+                </FormControl>
+                <FormMessage className="text-right" />
+              </FormItem>
+            )}
+          />
 
-        <div>
-          <Label htmlFor="email">אימייל</Label>
-          <Input id="email" placeholder="אימייל" type="email" value={formData.email} onChange={e => setFormData({
-          ...formData,
-          email: e.target.value
-        })} className="text-right mt-1" required />
-        </div>
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>טלפון נייד</FormLabel>
+                <FormControl>
+                  <Input {...field} type="tel" className="text-right" placeholder="טלפון נייד" />
+                </FormControl>
+                <FormMessage className="text-right" />
+              </FormItem>
+            )}
+          />
 
-        <div>
-          <Label htmlFor="currentLocation">מקום מגורים עדכני</Label>
-          <Input id="currentLocation" placeholder="מקום מגורים עדכני" value={formData.currentLocation} onChange={e => setFormData({
-          ...formData,
-          currentLocation: e.target.value
-        })} className="text-right mt-1" required />
-        </div>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>אימייל</FormLabel>
+                <FormControl>
+                  <Input {...field} type="email" className="text-right" placeholder="אימייל" />
+                </FormControl>
+                <FormMessage className="text-right" />
+              </FormItem>
+            )}
+          />
 
-        <div className="flex mx-0 my-[13px] py-0 px-0 rounded-md">
-          <Label className="block mb-2">מתעניין ב:</Label>
-          <div className="\\npr-4 mx-0">
-            <RadioGroup value={formData.interestType} onValueChange={value => setFormData({
-            ...formData,
-            interestType: value
-          })} className="justify-end mx-[42px] py-0 px-0 my-[6px] flex ">
-              <div className="flex items-center space-x-2 space-x-reverse gap-1">
-                <RadioGroupItem value="sale" id="sale" />
-                <Label htmlFor="sale">מכירה</Label>
-              </div>
-              <div className="flex items-center space-x-2 space-x-reverse gap-1">
-                <RadioGroupItem value="buy" id="buy" />
-                <Label htmlFor="buy">קנייה</Label>
-              </div>
-              <div className="flex items-center space-x- space-x-reverse gap-1">
-                <RadioGroupItem value="rent" id="rent" />
-                <Label htmlFor="rent">שכירות</Label>
-              </div>
-            </RadioGroup>
-          </div>
-        </div>
+          <FormField
+            control={form.control}
+            name="currentLocation"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>מקום מגורים עדכני</FormLabel>
+                <FormControl>
+                  <Input {...field} className="text-right" placeholder="מקום מגורים עדכני" />
+                </FormControl>
+                <FormMessage className="text-right" />
+              </FormItem>
+            )}
+          />
 
-        {formData.interestType === "buy" && <div className="space-y-4 border-t pt-4">
-            <div>
-              <Label htmlFor="soldProperty">האם כבר מכרתם נכס או לפני מכירה?</Label>
-              <Input id="soldProperty" placeholder="פרט את מצב הנכס הנוכחי" value={formData.soldProperty} onChange={e => setFormData({
-            ...formData,
-            soldProperty: e.target.value
-          })} className="text-right mt-1" />
+          <FormField
+            control={form.control}
+            name="interestType"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>מתעניין ב:</FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    className="flex justify-end gap-4 mx-[42px] my-[6px]"
+                  >
+                    <div className="flex items-center gap-1">
+                      <Label htmlFor="sale">מכירה</Label>
+                      <RadioGroupItem value="sale" id="sale" />
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Label htmlFor="buy">קנייה</Label>
+                      <RadioGroupItem value="buy" id="buy" />
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Label htmlFor="rent">שכירות</Label>
+                      <RadioGroupItem value="rent" id="rent" />
+                    </div>
+                  </RadioGroup>
+                </FormControl>
+                <FormMessage className="text-right" />
+              </FormItem>
+            )}
+          />
+
+          {form.watch("interestType") === "buy" && (
+            <div className="space-y-4 border-t pt-4">
+              <FormField
+                control={form.control}
+                name="soldProperty"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>האם כבר מכרתם נכס או לפני מכירה?</FormLabel>
+                    <FormControl>
+                      <Input {...field} className="text-right" placeholder="פרט את מצב הנכס הנוכחי" />
+                    </FormControl>
+                    <FormMessage className="text-right" />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="bankApproval"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row-reverse items-center justify-end gap-2">
+                    <FormLabel>יש לי אישור עקרוני מהבנק</FormLabel>
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="propertyInterest"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>באיזה נכס אתם מתעניינים?</FormLabel>
+                    <FormControl>
+                      <Textarea {...field} className="text-right min-h-[100px]" placeholder="תאר את הנכס המבוקש" />
+                    </FormControl>
+                    <FormMessage className="text-right" />
+                  </FormItem>
+                )}
+              />
             </div>
+          )}
+        </div>
 
-            <div className="flex items-center justify-end flex-row-reverse space-x-2 space-x-reverse">
-              <Label htmlFor="bankApproval">יש לי אישור עקרוני מהבנק</Label>
-              <Checkbox id="bankApproval" checked={formData.bankApproval === "yes"} onCheckedChange={checked => setFormData({
-            ...formData,
-            bankApproval: checked ? "yes" : "no"
-          })} />
-            </div>
-
-            <div>
-              <Label htmlFor="propertyInterest">באיזה נכס אתם מתעניינים?</Label>
-              <Textarea id="propertyInterest" placeholder="תאר את הנכס המבוקש" value={formData.propertyInterest} onChange={e => setFormData({
-            ...formData,
-            propertyInterest: e.target.value
-          })} className="text-right mt-1 min-h-[100px]" />
-            </div>
-          </div>}
-      </div>
-
-      <Button type="submit" className="w-full">
-        שליחה
-      </Button>
-    </form>;
+        <Button type="submit" className="w-full">
+          שליחה
+        </Button>
+      </form>
+    </Form>
+  );
 };
