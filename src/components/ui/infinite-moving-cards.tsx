@@ -33,34 +33,15 @@ export const InfiniteMovingCards = ({
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
-      // כפול את התוכן ארבע פעמים כדי להבטיח רצף חלק
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-      
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
+      // כפול את התוכן שמונה פעמים כדי להבטיח רצף חלק
+      for (let i = 0; i < 8; i++) {
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          if (scrollerRef.current) {
+            scrollerRef.current.appendChild(duplicatedItem);
+          }
+        });
+      }
 
       setStart(true);
     }
@@ -90,7 +71,7 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex min-w-full shrink-0 gap-1 py-1 w-max flex-nowrap",
+          "flex min-w-full shrink-0 gap-2 py-1 w-max flex-nowrap",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
@@ -103,13 +84,13 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] flex-shrink-0 rounded-2xl border bg-primary/5 px-6 py-4 backdrop-blur-sm"
+            className="w-[450px] flex-shrink-0 rounded-2xl border bg-primary/5 px-8 py-6 backdrop-blur-sm"
             key={idx}
           >
             <blockquote>
-              <p className="text-lg leading-[1.7] font-medium font-serif">{item.quote}</p>
-              <p className="mt-2 font-bold text-lg">{item.name}</p>
-              <p className="text-sm font-medium text-muted-foreground">{item.title}</p>
+              <p className="text-xl leading-[1.7] font-medium font-serif">{item.quote}</p>
+              <p className="mt-3 font-bold text-xl">{item.name}</p>
+              <p className="text-base font-medium text-muted-foreground">{item.title}</p>
             </blockquote>
           </li>
         ))}
