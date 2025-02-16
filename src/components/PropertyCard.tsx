@@ -66,7 +66,7 @@ export const PropertyCard = ({
           <img 
             src={image} 
             alt={title} 
-            className="w-full h-full object-contain"
+            className="w-full h-auto max-h-[90vh] object-contain"
           />
         </DialogContent>
       </Dialog>
