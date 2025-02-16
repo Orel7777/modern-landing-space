@@ -50,13 +50,13 @@ export const InfiniteMovingCards = ({
   const getSpeed = () => {
     switch (speed) {
       case "fast":
-        return "30s";
+        return "60s";
       case "normal":
-        return "40s";
+        return "80s";
       case "slow":
-        return "50s";
+        return "100s";
       default:
-        return "50s";
+        return "100s";
     }
   };
 
