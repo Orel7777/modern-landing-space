@@ -252,9 +252,9 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-6 font-serif">
             לקוחות ממליצים
           </h2>
           <div className="h-[400px] flex flex-col items-center justify-center relative overflow-hidden">

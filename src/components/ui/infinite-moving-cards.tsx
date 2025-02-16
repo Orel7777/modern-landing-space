@@ -85,9 +85,9 @@ export const InfiniteMovingCards = ({
             key={idx}
           >
             <blockquote>
-              <p className="text-sm leading-[1.6] font-normal">{item.quote}</p>
-              <p className="mt-4 font-semibold">{item.name}</p>
-              <p className="text-sm font-medium">{item.title}</p>
+              <p className="text-lg leading-[1.7] font-medium font-serif">{item.quote}</p>
+              <p className="mt-4 font-bold text-lg">{item.name}</p>
+              <p className="text-sm font-medium text-muted-foreground">{item.title}</p>
             </blockquote>
           </li>
         ))}
