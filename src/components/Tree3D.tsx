@@ -1,4 +1,3 @@
-
 import { styled } from "styled-components";
 
 const Tree3D = () => {
@@ -18,6 +17,14 @@ const Tree3D = () => {
             </div>
             {/* חלק קדמי של הגג */}
             <div className="roof-front">
+              {[0, 1].map(i => (
+                <span key={i} style={{
+                  "--i": i
+                } as any} />
+              ))}
+            </div>
+            {/* צדדי הגג */}
+            <div className="roof-sides">
               {[0, 1].map(i => (
                 <span key={i} style={{
                   "--i": i
@@ -131,6 +138,23 @@ const StyledWrapper = styled.div`
     clip-path: polygon(0 100%, 50% 0, 100% 100%);
     transform-origin: bottom;
     transform: rotateY(calc(180deg * var(--i))) translateZ(-15px);
+  }
+
+  .roof-sides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .roof-sides span {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, #8b7355, #a0522d);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg + (180deg * var(--i)))) translateZ(0) translateX(-15px);
   }
 
   .walls {
