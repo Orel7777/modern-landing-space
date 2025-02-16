@@ -9,11 +9,12 @@ export const Footer = () => {
             <MacbookLoader />
           </div>
           <div className="text-center">
-            <p className="text-xs text-gray-400">
-              © {new Date().getFullYear()} כל הזכויות שמורות ל
-              <a href="https://orel-bukris-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-400 transition-colors mx-1">
+            <p className="text-xs text-gray-400 flex items-center justify-center gap-1">
+              <a href="https://orel-bukris-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-400 transition-colors">
                 אוראל בוקריס
               </a>
+              <span className="mr-1">©</span>
+              <span>2025</span>
               <span className="block text-[10px] mt-0.5">מפתח אתרים בתלת מימד</span>
             </p>
           </div>
