@@ -257,7 +257,7 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center mb-2 font-serif">
             לקוחות ממליצים
           </h2>
-          <div className="h-[400px] flex flex-col items-center justify-center relative overflow-hidden">
+          <div className="h-[200px] flex flex-col items-center justify-center relative overflow-hidden">
             <InfiniteMovingCards
               items={testimonials}
               direction="right"
