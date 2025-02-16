@@ -7,16 +7,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-
 const Index = () => {
   const heroRef = useRef(null);
   const propertiesTitleRef = useRef(null);
   const contactRef = useRef(null);
-
   const scrollToContact = () => {
-    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+    contactRef.current?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -45,7 +44,6 @@ const Index = () => {
       ease: "power2.out"
     });
   }, []);
-
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
   const allProperties = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
@@ -143,76 +141,53 @@ const Index = () => {
     if (filter === 'available') return !property.isSold && !property.isRented;
     return true;
   });
-
-  const testimonials = [
-    {
-      quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליהי המדהימה. אני ממש רוצה להמליץ על מתווכת שנותנת את כל כולה דאגה לבדוק כל דבר שביקשנו, היתה זמינה לכל שאלה ושיחה, נעימה, עומדת בזמנים. בקיצור מי שמחפש מתווכת All-In שבאמת עושה את העבודה מכל הלב תדברו עם ליהי ביטון 0505150002",
-      name: "טלי קופמן",
-      title: "קנתה דירת 4 חדרים",  
-    },
-    {
-      quote: "מציאת הבית החדש שלנו הייתה חוויה נהדרת. קיבלנו שירות מקצועי ואישי לאורך כל הדרך.",
-      name: "משפחת כהן",
-      title: "רכשו דירת 5 חדרים",
-    },
-    {
-      quote: "הצלחנו למכור את הדירה במחיר מצוין ובזמן קצר. המקצועיות והניסיון ניכרו לאורך כל התהליך.",
-      name: "דן ורונית לוי",
-      title: "מכרו דירת 4 חדרים",
-    },
-    {
-      quote: "ליווי מקצועי ואכפתי שעזר לנו למצוא את הבית המושלם. ממליצים בחום!",
-      name: "משפחת אברהם",
-      title: "רכשו דירת גן",
-    },
-    {
-      quote: "שירות אישי, זמינות מלאה ומקצועיות ללא פשרות. חוויה נהדרת מההתחלה ועד הסוף.",
-      name: "יעל ואלון שמיר",
-      title: "רכשו פנטהאוז",
-    },
-    {
-      quote: "תודה על הליווי המסור והמקצועי. עזרתם לנו להגשים חלום!",
-      name: "משפחת ישראלי",
-      title: "רכשו וילה",
-    },
-    {
-      quote: "שירות יוצא מן הכלל! ליהי הייתה קשובה לכל הצרכים שלנו ומצאה בדיוק את מה שחיפשנו.",
-      name: "רועי ומיכל גולן",
-      title: "רכשו דירת 3 חדרים",
-    },
-    {
-      quote: "המקצועיות והידע העמוק בשוק הנדל״ן ניכרים בכל שלב. תודה על העזרה במציאת הבית המושלם!",
-      name: "משפחת דוידוב",
-      title: "רכשו דירת 5 חדרים",
-    },
-    {
-      quote: "ליהי ליוותה אותנו בסבלנות אין קץ עד שמצאנו את הדירה המושלמת. היא פשוט מדהימה!",
-      name: "שירה ואייל כהן",
-      title: "רכשו דירת 4 חדרים",
-    },
-    {
-      quote: "הגישה האישית והמקצועית הובילה אותנו לעסקה מצוינת. ממליצים בחום!",
-      name: "משפחת לוי",
-      title: "מכרו בית פרטי",
-    }
-  ];
-
+  const testimonials = [{
+    quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליהי המדהימה. אני ממש רוצה להמליץ על מתווכת שנותנת את כל כולה דאגה לבדוק כל דבר שביקשנו, היתה זמינה לכל שאלה ושיחה, נעימה, עומדת בזמנים. בקיצור מי שמחפש מתווכת All-In שבאמת עושה את העבודה מכל הלב תדברו עם ליהי ביטון 0505150002",
+    name: "טלי קופמן",
+    title: "קנתה דירת 4 חדרים"
+  }, {
+    quote: "מציאת הבית החדש שלנו הייתה חוויה נהדרת. קיבלנו שירות מקצועי ואישי לאורך כל הדרך.",
+    name: "משפחת כהן",
+    title: "רכשו דירת 5 חדרים"
+  }, {
+    quote: "הצלחנו למכור את הדירה במחיר מצוין ובזמן קצר. המקצועיות והניסיון ניכרו לאורך כל התהליך.",
+    name: "דן ורונית לוי",
+    title: "מכרו דירת 4 חדרים"
+  }, {
+    quote: "ליווי מקצועי ואכפתי שעזר לנו למצוא את הבית המושלם. ממליצים בחום!",
+    name: "משפחת אברהם",
+    title: "רכשו דירת גן"
+  }, {
+    quote: "שירות אישי, זמינות מלאה ומקצועיות ללא פשרות. חוויה נהדרת מההתחלה ועד הסוף.",
+    name: "יעל ואלון שמיר",
+    title: "רכשו פנטהאוז"
+  }, {
+    quote: "תודה על הליווי המסור והמקצועי. עזרתם לנו להגשים חלום!",
+    name: "משפחת ישראלי",
+    title: "רכשו וילה"
+  }, {
+    quote: "שירות יוצא מן הכלל! ליהי הייתה קשובה לכל הצרכים שלנו ומצאה בדיוק את מה שחיפשנו.",
+    name: "רועי ומיכל גולן",
+    title: "רכשו דירת 3 חדרים"
+  }, {
+    quote: "המקצועיות והידע העמוק בשוק הנדל״ן ניכרים בכל שלב. תודה על העזרה במציאת הבית המושלם!",
+    name: "משפחת דוידוב",
+    title: "רכשו דירת 5 חדרים"
+  }, {
+    quote: "ליהי ליוותה אותנו בסבלנות אין קץ עד שמצאנו את הדירה המושלמת. היא פשוט מדהימה!",
+    name: "שירה ואייל כהן",
+    title: "רכשו דירת 4 חדרים"
+  }, {
+    quote: "הגישה האישית והמקצועית הובילה אותנו לעסקה מצוינת. ממליצים בחום!",
+    name: "משפחת לוי",
+    title: "מכרו בית פרטי"
+  }];
   return <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
         <div className="absolute inset-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-          >
-            <source 
-              src="https://res.cloudinary.com/dxrvtimah/video/upload/v1710597470/real-estate_zpjg0t.mp4" 
-              type="video/mp4" 
-            />
+          <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover">
+            <source src="https://res.cloudinary.com/dxrvtimah/video/upload/v1710597470/real-estate_zpjg0t.mp4" type="video/mp4" />
             הדפדפן שלך לא תומך בהצגת וידאו.
           </video>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
@@ -226,53 +201,24 @@ const Index = () => {
             מציאת הבית המושלם עבורך היא המשימה שלנו
           </p>
           <div className="flex flex-col items-center gap-4">
-            <Button 
-              size="lg" 
-              className="text-lg hover:scale-105 transition-transform"
-              onClick={scrollToContact}
-            >
+            <Button size="lg" className="text-lg hover:scale-105 transition-transform" onClick={scrollToContact}>
               צור קשר עכשיו
             </Button>
             <ul className="flex justify-center gap-4">
               <li className="group relative">
-                <a 
-                  href="https://wa.me/972500000000" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]"
-                >
-                  <svg 
-                    viewBox="0 0 24 24" 
-                    width="24" 
-                    height="24" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    fill="none" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    className="text-gray-600 group-hover:text-white transition-colors"
-                  >
+                <a href="https://wa.me/972500000000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="text-gray-600 group-hover:text-white transition-colors">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                   </svg>
                 </a>
               </li>
               <li className="group relative">
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#e4405f]"
-                >
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#e4405f]">
                   <Instagram className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors" />
                 </a>
               </li>
               <li className="group relative">
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#1877f2]"
-                >
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#1877f2]">
                   <Facebook className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors" />
                 </a>
               </li>
@@ -323,17 +269,13 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-zinc-200 hover:bg-zinc-100">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-2 font-serif">
             לקוחות ממליצים
           </h2>
           <div className="h-[200px] flex flex-col items-center justify-center relative overflow-hidden">
-            <InfiniteMovingCards
-              items={testimonials}
-              direction="right"
-              speed="slow"
-            />
+            <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
           </div>
         </div>
       </section>
@@ -387,5 +329,4 @@ const Index = () => {
       </section>
     </div>;
 };
-
 export default Index;
