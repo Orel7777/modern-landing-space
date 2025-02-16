@@ -26,7 +26,7 @@ export const PropertyCard = ({
 }: PropertyCardProps) => {
   return <Card className="overflow-hidden group transition-all duration-300 hover:shadow-lg animate-fade-up relative">
       <div className="relative">
-        <AspectRatio ratio={4 / 3}>
+        <AspectRatio ratio={16 / 9}>
           <img 
             src={image} 
             alt={title} 
