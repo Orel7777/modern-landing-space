@@ -33,8 +33,8 @@ export const InfiniteMovingCards = ({
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
-      // שכפול התוכן 12 פעמים כדי להבטיח רצף אינסופי
-      for (let i = 0; i < 12; i++) {
+      // שכפול התוכן 24 פעמים כדי להבטיח רצף אינסופי
+      for (let i = 0; i < 24; i++) {
         scrollerContent.forEach((item) => {
           const duplicatedItem = item.cloneNode(true);
           if (scrollerRef.current) {
