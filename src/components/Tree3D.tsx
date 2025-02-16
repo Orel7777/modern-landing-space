@@ -6,16 +6,8 @@ const Tree3D = () => {
     <StyledWrapper>
       <div className="container">
         <div className="building">
-          {/* גג */}
-          <div className="roof">
-            {[0, 1, 2, 3].map(i => (
-              <span key={i} style={{
-                "--i": i
-              } as any} />
-            ))}
-          </div>
           {/* קומות */}
-          {[0, 1].map(x => (
+          {[0, 1, 2, 3].map(x => (
             <div key={x} className="floor" style={{
               "--x": x
             } as any}>
@@ -24,16 +16,24 @@ const Tree3D = () => {
                   "--i": i
                 } as any} />
               ))}
+              {/* מרפסת */}
+              <div className="balcony">
+                {[0, 1, 2, 3].map(i => (
+                  <span key={i} style={{
+                    "--i": i
+                  } as any} />
+                ))}
+              </div>
+              {/* חיפוי עץ */}
+              <div className="wood-panel">
+                {[0, 1, 2, 3].map(i => (
+                  <span key={i} style={{
+                    "--i": i
+                  } as any} />
+                ))}
+              </div>
             </div>
           ))}
-          {/* בסיס */}
-          <div className="base">
-            {[0, 1, 2, 3].map(i => (
-              <span key={i} style={{
-                "--i": i
-              } as any} />
-            ))}
-          </div>
           <span className="shadow" />
         </div>
       </div>
@@ -52,8 +52,8 @@ const StyledWrapper = styled.div`
 
   .building {
     position: relative;
-    width: 20px;
-    height: 25px;
+    width: 25px;
+    height: 60px;
     transform-style: preserve-3d;
     transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
     animation: buildingAnimate 5s linear infinite;
@@ -68,77 +68,71 @@ const StyledWrapper = styled.div`
     }
   }
 
-  .building div {
+  .building div.floor {
     position: absolute;
-    top: -15px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-  }
-
-  .building div.roof {
-    top: -25px;
-    height: 15px;
-  }
-
-  .building div.roof span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #555555, #666666);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(10px);
-  }
-
-  .building div.floor {
-    transform: translateY(calc(10px * var(--x)));
+    transform: translateY(calc(-15px * var(--x)));
   }
 
   .building div.floor span {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #c8c8c9, #d4d4d4);
+    background: linear-gradient(90deg, #f5f5f5, #ffffff);
     border: 1px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(10px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(12.5px);
   }
 
-  .building div.floor span::after {
-    content: '';
+  .building div.floor .balcony {
     position: absolute;
-    width: 4px;
-    height: 6px;
-    background: #333333;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    transform-style: preserve-3d;
   }
 
-  .building div.base span {
+  .building div.floor .balcony span {
     position: absolute;
-    bottom: -20px;
-    left: calc(50% - 5px);
-    width: 10px;
-    height: 25px;
-    background: linear-gradient(90deg, #555555, #666666);
-    border: 1px solid #00000019;
+    width: 100%;
+    height: 100%;
+    background: rgba(169, 169, 169, 0.3);
+    border: 2px solid #a9a9a9;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(5px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
+  }
+
+  .building div.floor .wood-panel {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    right: 0;
+    transform-style: preserve-3d;
+  }
+
+  .building div.floor .wood-panel span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #deb887, #d2691e);
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(4px);
   }
 
   .shadow {
     position: absolute;
-    bottom: -20px;
+    bottom: -10px;
     left: 0;
     width: 100%;
-    height: 8px;
+    height: 10px;
     background: rgba(0, 0, 0, 0.2);
     filter: blur(3px);
     transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-3px);
+    transform: rotateX(90deg) translateZ(-5px);
   }
 `;
 
