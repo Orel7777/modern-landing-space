@@ -43,7 +43,7 @@ export const PropertyCard = ({ image, title, price, location, details, isSold = 
         )}
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-medium mb-2">{title}</h3>
+        <h3 className="text-lg font-medium mb-2">דירת גג דופלקס 5 חדרים</h3>
         <p className="text-sm text-gray-600 mb-2">{location}</p>
         <p className="text-sm text-gray-500">{details}</p>
       </div>
