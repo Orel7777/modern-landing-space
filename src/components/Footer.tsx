@@ -1,3 +1,4 @@
+
 import MacbookLoader from './MacbookLoader';
 export const Footer = () => {
   return <footer className="py-4 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
