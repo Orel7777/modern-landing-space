@@ -1,0 +1,97 @@
+
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+
+export const InfiniteMovingCards = ({
+  items,
+  direction = "right",
+  speed = "slow",
+  pauseOnHover = true,
+  className,
+}: {
+  items: {
+    quote: string;
+    name: string;
+    title: string;
+  }[];
+  direction?: "left" | "right";
+  speed?: "fast" | "normal" | "slow";
+  pauseOnHover?: boolean;
+  className?: string;
+}) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const [start, setStart] = useState(false);
+
+  useEffect(() => {
+    addAnimation();
+  }, []);
+
+  const addAnimation = () => {
+    if (containerRef.current && scrollerRef.current) {
+      const scrollerContent = Array.from(scrollerRef.current.children);
+
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.appendChild(duplicatedItem);
+        }
+      });
+
+      setStart(true);
+    }
+  };
+
+  const getSpeed = () => {
+    switch (speed) {
+      case "fast":
+        return "30s";
+      case "normal":
+        return "40s";
+      case "slow":
+        return "50s";
+      default:
+        return "50s";
+    }
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className={cn(
+        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        className
+      )}
+    >
+      <ul
+        ref={scrollerRef}
+        className={cn(
+          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          start && "animate-scroll",
+          pauseOnHover && "hover:[animation-play-state:paused]"
+        )}
+        style={
+          {
+            "--animation-duration": getSpeed(),
+            animationDirection: direction === "right" ? "normal" : "reverse",
+          } as React.CSSProperties
+        }
+      >
+        {items.map((item, idx) => (
+          <li
+            className="w-[350px] flex-shrink-0 rounded-2xl border bg-primary/5 px-8 py-6 backdrop-blur-sm"
+            key={idx}
+          >
+            <blockquote>
+              <p className="text-sm leading-[1.6] font-normal">{item.quote}</p>
+              <p className="mt-4 font-semibold">{item.name}</p>
+              <p className="text-sm font-medium">{item.title}</p>
+            </blockquote>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};

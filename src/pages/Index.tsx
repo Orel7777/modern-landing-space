@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 const Index = () => {
   const heroRef = useRef(null);
@@ -96,6 +97,35 @@ const Index = () => {
     if (filter === 'available') return !property.isSold;
     return true;
   });
+
+  const testimonials = [
+    {
+      quote: "מציאת הבית החדש שלנו הייתה חוויה נהדרת. קיבלנו שירות מקצועי ואישי לאורך כל הדרך.",
+      name: "משפחת כהן",
+      title: "רכשו דירת 5 חדרים",
+    },
+    {
+      quote: "הצלחנו למכור את הדירה במחיר מצוין ובזמן קצר. המקצועיות והניסיון ניכרו לאורך כל התהליך.",
+      name: "דן ורונית לוי",
+      title: "מכרו דירת 4 חדרים",
+    },
+    {
+      quote: "ליווי מקצועי ואכפתי שעזר לנו למצוא את הבית המושלם. ממליצים בחום!",
+      name: "משפחת אברהם",
+      title: "רכשו דירת גן",
+    },
+    {
+      quote: "שירות אישי, זמינות מלאה ומקצועיות ללא פשרות. חוויה נהדרת מההתחלה ועד הסוף.",
+      name: "יעל ואלון שמיר",
+      title: "רכשו פנטהאוז",
+    },
+    {
+      quote: "תודה על הליווי המסור והמקצועי. עזרתם לנו להגשים חלום!",
+      name: "משפחת ישראלי",
+      title: "רכשו וילה",
+    },
+  ];
+
   return <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
@@ -217,6 +247,22 @@ const Index = () => {
           }}>
                 <PropertyCard {...property} />
               </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            לקוחות ממליצים
+          </h2>
+          <div className="h-[400px] flex flex-col items-center justify-center relative overflow-hidden">
+            <InfiniteMovingCards
+              items={testimonials}
+              direction="right"
+              speed="slow"
+            />
           </div>
         </div>
       </section>
