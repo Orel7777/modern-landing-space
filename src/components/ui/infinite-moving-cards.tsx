@@ -58,7 +58,7 @@ export const InfiniteMovingCards = ({
       "--animation-duration": getSpeed(),
       animationDirection: direction === "right" ? "normal" : "reverse"
     } as React.CSSProperties}>
-        {items.map((item, idx) => <li key={idx} className="w-[350px] flex-shrink-0 rounded-2xl border px-6 py-4 backdrop-blur-sm bg-gray-300 hover:bg-gray-200">
+        {items.map((item, idx) => <li key={idx} className="w-[350px] flex-shrink-0 rounded-2xl border px-6 py-4 backdrop-blur-sm bg-slate-400 hover:bg-slate-300">
             <blockquote>
               <p className="text-lg leading-[1.7] font-medium font-serif">{item.quote}</p>
               <p className="mt-2 font-bold text-lg">{item.name}</p>
