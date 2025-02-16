@@ -55,13 +55,6 @@ export const InfiniteMovingCards = ({
         }
       });
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
       setStart(true);
     }
   };

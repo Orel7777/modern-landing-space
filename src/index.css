@@ -48,5 +48,3 @@
 .animate-scroll {
   animation: scroll var(--animation-duration) linear infinite;
 }
-
-/* Keep existing styles */
