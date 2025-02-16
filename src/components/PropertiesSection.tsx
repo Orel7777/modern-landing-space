@@ -121,9 +121,9 @@ export const PropertiesSection = () => {
   return (
     <section className="py-20 bg-muted">
       <div className="container mx-auto">
-        <div className="flex items-center justify-center gap-4 mb-12">
+        <div className="flex items-center justify-center space-x-4 mb-12 rtl:space-x-reverse">
           <Tree3D />
-          <h2 ref={propertiesTitleRef} className="text-3xl font-bold text-center mx-4">
+          <h2 ref={propertiesTitleRef} className="text-3xl font-bold text-center">
             נכסים נבחרים
           </h2>
           <Tree3D />
