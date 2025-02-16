@@ -269,7 +269,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 bg-zinc-200 hover:bg-zinc-100">
+      <section className="py-12 bg-gray-200 hover:bg-gray-100">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-2 font-serif">
             לקוחות ממליצים
