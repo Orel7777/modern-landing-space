@@ -48,6 +48,13 @@ const Index = () => {
 
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
   const allProperties = [{
+    image: "/lovable-uploads/0afc380f-fe8f-46da-b85d-b329fdfa372a.png",
+    title: "דירת 3 חדרים",
+    price: "₪3,900,000",
+    location: "שכונת הכרמים",
+    details: "3 חדרים | 140 מ״ר | גינה 100 מ״ר",
+    isExclusive: true
+  }, {
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
     title: "דו משפחתי 5 חדרים פלוס ממ״ד",
     price: "₪5,200,000",
