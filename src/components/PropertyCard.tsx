@@ -10,10 +10,11 @@ interface PropertyCardProps {
   location: string;
   details: string;
   isSold?: boolean;
+  isRented?: boolean;
   isExclusive?: boolean;
 }
 
-export const PropertyCard = ({ image, title, price, location, details, isSold = false, isExclusive = false }: PropertyCardProps) => {
+export const PropertyCard = ({ image, title, price, location, details, isSold = false, isRented = false, isExclusive = false }: PropertyCardProps) => {
   return (
     <Card className="overflow-hidden group transition-all duration-300 hover:shadow-lg animate-fade-up relative">
       <div className="relative">
@@ -21,7 +22,7 @@ export const PropertyCard = ({ image, title, price, location, details, isSold = 
           <img
             src={image}
             alt={title}
-            className={`object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 ${isSold ? 'opacity-70' : ''}`}
+            className={`object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 ${isSold || isRented ? 'opacity-70' : ''}`}
           />
         </AspectRatio>
         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
@@ -34,10 +35,10 @@ export const PropertyCard = ({ image, title, price, location, details, isSold = 
             </Badge>
           </div>
         )}
-        {isSold && (
+        {(isSold || isRented) && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-[#ea384c]/60 text-white px-6 py-2 rounded-full text-xl font-bold transform -rotate-12">
-              הושכר
+              {isRented ? 'הושכר' : 'נמכר'}
             </div>
           </div>
         )}

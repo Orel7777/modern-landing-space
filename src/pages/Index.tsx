@@ -91,7 +91,7 @@ const Index = () => {
     price: "₪4,800,000",
     location: "שכונת הפרחים",
     details: "5 חדרים | 150 מ״ר | גינה",
-    isSold: true,
+    isRented: true,
     isExclusive: true
   }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
@@ -132,7 +132,7 @@ const Index = () => {
   }];
   const filteredProperties = allProperties.filter(property => {
     if (filter === 'sold') return property.isSold;
-    if (filter === 'available') return !property.isSold;
+    if (filter === 'available') return !property.isSold && !property.isRented;
     return true;
   });
 
