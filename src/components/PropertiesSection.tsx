@@ -1,5 +1,7 @@
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
+import Tree3D from "@/components/Tree3D";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 
@@ -119,9 +121,13 @@ export const PropertiesSection = () => {
   return (
     <section className="py-20 bg-muted">
       <div className="container mx-auto">
-        <h2 ref={propertiesTitleRef} className="text-3xl font-bold text-center mb-12">
-          נכסים נבחרים
-        </h2>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <Tree3D />
+          <h2 ref={propertiesTitleRef} className="text-3xl font-bold text-center">
+            נכסים נבחרים
+          </h2>
+          <Tree3D />
+        </div>
         
         <div className="flex justify-center gap-4 mb-8">
           <Button 
