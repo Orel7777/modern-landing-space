@@ -78,6 +78,14 @@ const Index = () => {
     isSold: true,
     isExclusive: true
   }, {
+    image: "/lovable-uploads/8eaad152-952f-4d2c-aac2-4b5a46173496.png",
+    title: "דירת 4 חדרים",
+    price: "₪3,500,000",
+    location: "מער",
+    details: "4 חדרים | 120 מ״ר",
+    isSold: true,
+    isExclusive: true
+  }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דירת 3 חדרים",
     price: "₪3,900,000",
