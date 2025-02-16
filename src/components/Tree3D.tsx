@@ -1,69 +1,45 @@
+
 import { styled } from "styled-components";
 
 const Tree3D = () => {
   return (
     <StyledWrapper>
       <div className="container">
-        <div className="house">
-          {/* גג */}
-          <div className="roof">
-            {/* חלק אחורי של הגג */}
-            <div className="roof-back">
-              {[0, 1].map(i => (
-                <span key={i} style={{
-                  "--i": i
-                } as any} />
-              ))}
+        {/* טרקטור */}
+        <div className="tractor">
+          {/* גוף הטרקטור */}
+          <div className="body">
+            <div className="cabin">
+              <div className="window" />
             </div>
-            {/* חלק קדמי של הגג */}
-            <div className="roof-front">
-              {[0, 1].map(i => (
-                <span key={i} style={{
-                  "--i": i
-                } as any} />
-              ))}
-            </div>
-            {/* צדדי הגג */}
-            <div className="roof-sides">
-              {[0, 1].map(i => (
-                <span key={i} style={{
-                  "--i": i
-                } as any} />
-              ))}
-            </div>
+            <div className="hood" />
+            <div className="engine" />
           </div>
-          {/* קירות */}
-          <div className="walls">
-            {[0, 1, 2, 3].map(i => (
-              <div key={i} className="wall" style={{
-                "--i": i
-              } as any}>
-                {/* חלון */}
-                <div className="window">
-                  <span className="frame" />
-                  <span className="shutter left" />
-                  <span className="shutter right" />
-                </div>
-              </div>
+          {/* גלגלים */}
+          <div className="wheels">
+            {[0, 1].map(i => (
+              <div key={i} className="wheel big" style={{ "--i": i } as any} />
+            ))}
+            {[0, 1].map(i => (
+              <div key={i} className="wheel small" style={{ "--i": i } as any} />
             ))}
           </div>
-          {/* מרפסת */}
-          <div className="porch">
+        </div>
+
+        {/* כובע בנייה */}
+        <div className="helmet">
+          {/* חלק עליון */}
+          <div className="top">
             {[0, 1, 2, 3].map(i => (
-              <span key={i} style={{
-                "--i": i
-              } as any} />
+              <span key={i} style={{ "--i": i } as any} />
             ))}
-            {/* עמודים */}
-            <div className="pillars">
-              {[0, 1].map(i => (
-                <span key={i} className="pillar" style={{
-                  "--i": i
-                } as any} />
-              ))}
-            </div>
           </div>
-          <span className="shadow" />
+          {/* שוליים */}
+          <div className="brim">
+            {[0, 1, 2, 3].map(i => (
+              <span key={i} style={{ "--i": i } as any} />
+            ))}
+          </div>
         </div>
       </div>
     </StyledWrapper>
@@ -74,21 +50,23 @@ const StyledWrapper = styled.div`
   .container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    min-height: 30px;
+    min-height: 100px;
+    padding: 0 50px;
   }
 
-  .house {
+  /* טרקטור */
+  .tractor {
     position: relative;
-    width: 30px;
-    height: 25px;
+    width: 60px;
+    height: 40px;
     transform-style: preserve-3d;
     transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
-    animation: houseAnimate 5s linear infinite;
+    animation: tractorAnimate 5s linear infinite;
   }
 
-  @keyframes houseAnimate {
+  @keyframes tractorAnimate {
     0% {
       transform: rotateX(-20deg) rotateY(360deg) scale(0.6);
     }
@@ -97,161 +75,132 @@ const StyledWrapper = styled.div`
     }
   }
 
-  .roof {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    transform-style: preserve-3d;
-  }
-
-  .roof-back {
+  .body {
     position: absolute;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
   }
 
-  .roof-back span {
+  .cabin {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #8b7355, #a0522d);
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    transform-origin: bottom;
-    transform: rotateY(calc(180deg * var(--i))) translateZ(15px);
-  }
-
-  .roof-front {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 40%;
+    height: 60%;
+    right: 5%;
+    top: 10%;
+    background: #333333;
     transform-style: preserve-3d;
-  }
-
-  .roof-front span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #8b7355, #a0522d);
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    transform-origin: bottom;
-    transform: rotateY(calc(180deg * var(--i))) translateZ(-15px);
-  }
-
-  .roof-sides {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  }
-
-  .roof-sides span {
-    position: absolute;
-    width: 30px;
-    height: 100%;
-    background: linear-gradient(90deg, #8b7355, #a0522d);
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg + (180deg * var(--i)))) translateZ(0) translateX(-15px);
-  }
-
-  .walls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  }
-
-  .wall {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #deb887, #d2b48c);
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
   }
 
   .window {
     position: absolute;
-    width: 40%;
+    width: 60%;
     height: 40%;
     top: 20%;
-    left: 30%;
-    transform-style: preserve-3d;
-  }
-
-  .frame {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border: 1px solid #333;
-  }
-
-  .shutter {
-    position: absolute;
-    width: 30%;
-    height: 100%;
-    background: #333;
-  }
-
-  .shutter.left {
-    left: -35%;
-  }
-
-  .shutter.right {
-    right: -35%;
-  }
-
-  .porch {
-    position: absolute;
-    width: 60%;
-    height: 30%;
-    bottom: -5px;
     left: 20%;
+    background: #8E9196;
+    border: 2px solid #222222;
+  }
+
+  .hood {
+    position: absolute;
+    width: 45%;
+    height: 40%;
+    left: 5%;
+    top: 20%;
+    background: #F97316;
     transform-style: preserve-3d;
   }
 
-  .porch span {
+  .engine {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    left: 15%;
+    bottom: 0;
+    background: #555555;
+  }
+
+  .wheels {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    transform-style: preserve-3d;
+  }
+
+  .wheel {
+    position: absolute;
+    border-radius: 50%;
+    background: #222222;
+    border: 2px solid #000000;
+  }
+
+  .wheel.big {
+    width: 30%;
+    height: 45%;
+    bottom: -5%;
+    left: calc(10% + (50% * var(--i)));
+  }
+
+  .wheel.small {
+    width: 20%;
+    height: 30%;
+    bottom: -2%;
+    left: calc(5% + (70% * var(--i)));
+  }
+
+  /* כובע בנייה */
+  .helmet {
+    position: relative;
+    width: 50px;
+    height: 35px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
+    animation: helmetAnimate 5s linear infinite;
+  }
+
+  @keyframes helmetAnimate {
+    0% {
+      transform: rotateX(-20deg) rotateY(360deg) scale(0.6);
+    }
+    100% {
+      transform: rotateX(-20deg) rotateY(0deg) scale(0.6);
+    }
+  }
+
+  .top {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .top span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FFD700;
+    clip-path: polygon(20% 100%, 50% 0, 80% 100%);
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(9px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(25px);
   }
 
-  .pillars {
+  .brim {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 120%;
+    height: 20%;
+    bottom: 0;
+    left: -10%;
     transform-style: preserve-3d;
   }
 
-  .pillar {
+  .brim span {
     position: absolute;
-    width: 10%;
+    width: 100%;
     height: 100%;
-    background: white;
-    left: calc(30% + (40% * var(--i)));
+    background: #FFD700;
     transform-origin: bottom;
-    transform: translateZ(9px);
-  }
-
-  .shadow {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: rgba(0, 0, 0, 0.2);
-    filter: blur(2px);
-    transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-2px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(30px);
   }
 `;
 
