@@ -1,6 +1,8 @@
+
 import { Card } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
+
 interface PropertyCardProps {
   image: string;
   title: string;
@@ -11,6 +13,7 @@ interface PropertyCardProps {
   isRented?: boolean;
   isExclusive?: boolean;
 }
+
 export const PropertyCard = ({
   image,
   title,
@@ -23,8 +26,12 @@ export const PropertyCard = ({
 }: PropertyCardProps) => {
   return <Card className="overflow-hidden group transition-all duration-300 hover:shadow-lg animate-fade-up relative">
       <div className="relative">
-        <AspectRatio ratio={16 / 9}>
-          <img src={image} alt={title} className={`object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 ${isSold || isRented ? 'opacity-70' : ''}`} />
+        <AspectRatio ratio={4 / 3}>
+          <img 
+            src={image} 
+            alt={title} 
+            className={`object-contain w-full h-full transition-transform duration-300 group-hover:scale-105 ${isSold || isRented ? 'opacity-70' : ''}`} 
+          />
         </AspectRatio>
         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
           <span className="text-primary font-medium">{price}</span>
