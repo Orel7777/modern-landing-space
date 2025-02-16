@@ -7,7 +7,6 @@ import { PropertiesSection } from "@/components/PropertiesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import BoxLoader from "@/components/BoxLoader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +36,6 @@ const Index = () => {
       <ContactSection contactRef={contactRef} />
       <TestimonialsSection />
       <Footer />
-      <BoxLoader />
     </div>
   );
 };
