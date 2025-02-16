@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { PropertiesSection } from "@/components/PropertiesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
+import { Footer } from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,9 +35,9 @@ const Index = () => {
       <PropertiesSection />
       <ContactSection contactRef={contactRef} />
       <TestimonialsSection />
+      <Footer />
     </div>
   );
 };
 
 export default Index;
-
