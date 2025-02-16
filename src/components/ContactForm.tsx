@@ -61,7 +61,11 @@ export const ContactForm = () => {
               <FormItem>
                 <FormLabel>שם מלא</FormLabel>
                 <FormControl>
-                  <Input {...field} className="text-right" placeholder="שם מלא" />
+                  <Input 
+                    {...field} 
+                    className={`text-right ${form.formState.errors.name ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                    placeholder="שם מלא" 
+                  />
                 </FormControl>
                 <FormMessage className="text-right" />
               </FormItem>
@@ -75,7 +79,12 @@ export const ContactForm = () => {
               <FormItem>
                 <FormLabel>טלפון נייד</FormLabel>
                 <FormControl>
-                  <Input {...field} type="tel" className="text-right" placeholder="טלפון נייד" />
+                  <Input 
+                    {...field} 
+                    type="tel" 
+                    className={`text-right ${form.formState.errors.phone ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                    placeholder="טלפון נייד" 
+                  />
                 </FormControl>
                 <FormMessage className="text-right" />
               </FormItem>
@@ -89,7 +98,12 @@ export const ContactForm = () => {
               <FormItem>
                 <FormLabel>אימייל</FormLabel>
                 <FormControl>
-                  <Input {...field} type="email" className="text-right" placeholder="אימייל" />
+                  <Input 
+                    {...field} 
+                    type="email" 
+                    className={`text-right ${form.formState.errors.email ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                    placeholder="אימייל" 
+                  />
                 </FormControl>
                 <FormMessage className="text-right" />
               </FormItem>
@@ -103,7 +117,11 @@ export const ContactForm = () => {
               <FormItem>
                 <FormLabel>מקום מגורים עדכני</FormLabel>
                 <FormControl>
-                  <Input {...field} className="text-right" placeholder="מקום מגורים עדכני" />
+                  <Input 
+                    {...field} 
+                    className={`text-right ${form.formState.errors.currentLocation ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                    placeholder="מקום מגורים עדכני" 
+                  />
                 </FormControl>
                 <FormMessage className="text-right" />
               </FormItem>
@@ -120,7 +138,7 @@ export const ContactForm = () => {
                   <RadioGroup
                     onValueChange={field.onChange}
                     value={field.value}
-                    className="flex justify-end gap-4 mx-[42px] my-[6px]"
+                    className={`flex justify-end gap-4 mx-[42px] my-[6px] ${form.formState.errors.interestType ? 'text-red-500' : ''}`}
                   >
                     <div className="flex items-center gap-1">
                       <Label htmlFor="sale">מכירה</Label>
@@ -150,7 +168,11 @@ export const ContactForm = () => {
                   <FormItem>
                     <FormLabel>האם כבר מכרתם נכס או לפני מכירה?</FormLabel>
                     <FormControl>
-                      <Input {...field} className="text-right" placeholder="פרט את מצב הנכס הנוכחי" />
+                      <Input 
+                        {...field} 
+                        className={`text-right ${form.formState.errors.soldProperty ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                        placeholder="פרט את מצב הנכס הנוכחי" 
+                      />
                     </FormControl>
                     <FormMessage className="text-right" />
                   </FormItem>
@@ -167,6 +189,7 @@ export const ContactForm = () => {
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className={form.formState.errors.bankApproval ? 'border-red-500' : ''}
                       />
                     </FormControl>
                   </FormItem>
@@ -180,7 +203,11 @@ export const ContactForm = () => {
                   <FormItem>
                     <FormLabel>באיזה נכס אתם מתעניינים?</FormLabel>
                     <FormControl>
-                      <Textarea {...field} className="text-right min-h-[100px]" placeholder="תאר את הנכס המבוקש" />
+                      <Textarea 
+                        {...field} 
+                        className={`text-right min-h-[100px] ${form.formState.errors.propertyInterest ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                        placeholder="תאר את הנכס המבוקש" 
+                      />
                     </FormControl>
                     <FormMessage className="text-right" />
                   </FormItem>
