@@ -5,18 +5,20 @@ const Tree3D = () => {
   return (
     <StyledWrapper>
       <div className="container">
-        <div className="tree" style={{ visibility: 'visible', opacity: 1 }}>
+        <div className="tree" style={{ visibility: 'visible', opacity: 1, zIndex: 1 }}>
           {[0, 1, 2, 3].map(x => (
             <div key={x} className="branch" style={{
               "--x": x,
               visibility: 'visible',
-              opacity: 1
+              opacity: 1,
+              zIndex: 2
             } as any}>
               {[0, 1, 2, 3].map(i => (
                 <span key={i} style={{
                   "--i": i,
                   visibility: 'visible',
-                  opacity: 1
+                  opacity: 1,
+                  zIndex: 3
                 } as any} />
               ))}
             </div>
@@ -26,7 +28,8 @@ const Tree3D = () => {
               <span key={i} style={{
                 "--i": i,
                 visibility: 'visible',
-                opacity: 1
+                opacity: 1,
+                zIndex: 2
               } as any} />
             ))}
           </div>
@@ -45,6 +48,8 @@ const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     transform: translateY(8px);
+    position: relative;
+    z-index: 10;
   }
 
   .tree {
@@ -55,6 +60,9 @@ const StyledWrapper = styled.div`
     transform: rotateX(-20deg) rotateY(30deg) scale(0.7);
     animation: treeAnimate 5s linear infinite;
     transform-origin: center center;
+    z-index: 1;
+    backface-visibility: visible;
+    perspective: 1000px;
   }
 
   @keyframes treeAnimate {
@@ -74,6 +82,7 @@ const StyledWrapper = styled.div`
     height: 100%;
     transform-style: preserve-3d;
     transform: translateY(calc(10px * var(--x))) translateZ(0px);
+    backface-visibility: visible;
   }
 
   .tree div.branch span {
@@ -87,6 +96,7 @@ const StyledWrapper = styled.div`
     border-bottom: 2px solid #00000019;
     transform-origin: bottom;
     transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(12px);
+    backface-visibility: visible;
   }
 
   .tree div.stem span {
@@ -99,6 +109,7 @@ const StyledWrapper = styled.div`
     border-bottom: 2px solid #00000019;
     transform-origin: bottom;
     transform: rotateY(calc(90deg * var(--i))) translateZ(3px);
+    backface-visibility: visible;
   }
 
   .shadow {
