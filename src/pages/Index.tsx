@@ -86,6 +86,14 @@ const Index = () => {
     isSold: true,
     isExclusive: true
   }, {
+    image: "/lovable-uploads/96e330a2-c723-4412-885a-5e3197aae3fc.png",
+    title: "דירת גן 5 חדרים",
+    price: "₪4,800,000",
+    location: "שכונת הפרחים",
+    details: "5 חדרים | 150 מ״ר | גינה",
+    isSold: true,
+    isExclusive: true
+  }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דירת 3 חדרים",
     price: "₪3,900,000",
