@@ -70,6 +70,14 @@ const Index = () => {
     isSold: false,
     isExclusive: true
   }, {
+    image: "/lovable-uploads/045e09ed-69e0-4ea8-8a50-d493a011cb6b.png",
+    title: "דירת 6 חדרים",
+    price: "₪4,500,000",
+    location: "רחוב סביון, שכונת הפרחים",
+    details: "6 חדרים | 200 מ״ר",
+    isSold: true,
+    isExclusive: true
+  }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דירת 3 חדרים",
     price: "₪3,900,000",
