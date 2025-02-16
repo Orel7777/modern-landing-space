@@ -67,7 +67,7 @@ const StyledWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #69c069, #77dd77);
+    background: linear-gradient(90deg, #90EE90, #98FB98);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     border-bottom: 5px solid #00000019;
     transform-origin: bottom;

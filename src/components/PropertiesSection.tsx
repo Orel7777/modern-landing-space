@@ -123,7 +123,7 @@ export const PropertiesSection = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-center gap-4 mb-12">
           <Tree3D />
-          <h2 ref={propertiesTitleRef} className="text-3xl font-bold text-center">
+          <h2 ref={propertiesTitleRef} className="text-3xl font-bold text-center mx-4">
             נכסים נבחרים
           </h2>
           <Tree3D />
