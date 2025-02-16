@@ -37,35 +37,35 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 40px;
+    min-height: 30px;
   }
 
   .tree {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     transform-style: preserve-3d;
-    transform: rotateX(-20deg) rotateY(30deg);
+    transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
     animation: treeAnimate 5s linear infinite;
   }
 
   @keyframes treeAnimate {
     0% {
-      transform: rotateX(-20deg) rotateY(360deg);
+      transform: rotateX(-20deg) rotateY(360deg) scale(0.6);
     }
     100% {
-      transform: rotateX(-20deg) rotateY(0deg);
+      transform: rotateX(-20deg) rotateY(0deg) scale(0.6);
     }
   }
 
   .tree div {
     position: absolute;
-    top: -50px;
+    top: -25px;
     left: 0;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transform: translateY(calc(25px * var(--x))) translateZ(0px);
+    transform: translateY(calc(12.5px * var(--x))) translateZ(0px);
   }
 
   .tree div.branch span {
@@ -76,21 +76,21 @@ const StyledWrapper = styled.div`
     height: 100%;
     background: linear-gradient(90deg, #69c069, #77dd77);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    border-bottom: 5px solid #00000019;
+    border-bottom: 3px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(28.5px);
+    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(14.25px);
   }
 
   .tree div.stem span {
     position: absolute;
-    top: 110px;
-    left: calc(50% - 7.5px);
-    width: 15px;
+    top: 55px;
+    left: calc(50% - 4px);
+    width: 8px;
     height: 50%;
     background: linear-gradient(90deg, #bb4622, #df7214);
-    border-bottom: 5px solid #00000019;
+    border-bottom: 3px solid #00000019;
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(7.5px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(4px);
   }
 
   .shadow {
@@ -100,9 +100,9 @@ const StyledWrapper = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    filter: blur(20px);
+    filter: blur(10px);
     transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-65px);
+    transform: rotateX(90deg) translateZ(-32.5px);
   }
 `;
 
