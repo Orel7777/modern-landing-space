@@ -8,11 +8,22 @@ const Tree3D = () => {
         <div className="house">
           {/* גג */}
           <div className="roof">
-            {[0, 1, 2, 3].map(i => (
-              <span key={i} style={{
-                "--i": i
-              } as any} />
-            ))}
+            {/* חלק אחורי של הגג */}
+            <div className="roof-back">
+              {[0, 1].map(i => (
+                <span key={i} style={{
+                  "--i": i
+                } as any} />
+              ))}
+            </div>
+            {/* חלק קדמי של הגג */}
+            <div className="roof-front">
+              {[0, 1].map(i => (
+                <span key={i} style={{
+                  "--i": i
+                } as any} />
+              ))}
+            </div>
           </div>
           {/* קירות */}
           <div className="walls">
@@ -88,14 +99,38 @@ const StyledWrapper = styled.div`
     transform-style: preserve-3d;
   }
 
-  .roof span {
+  .roof-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .roof-back span {
     position: absolute;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, #8b7355, #a0522d);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
+    transform: rotateY(calc(180deg * var(--i))) translateZ(15px);
+  }
+
+  .roof-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .roof-front span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #8b7355, #a0522d);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transform-origin: bottom;
+    transform: rotateY(calc(180deg * var(--i))) translateZ(-15px);
   }
 
   .walls {
