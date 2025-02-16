@@ -44,7 +44,7 @@ export const PropertyCard = ({ image, title, price, location, details, isSold = 
       </div>
       <div className="p-4">
         <h3 className="text-lg font-medium mb-2">דו משפחתי 5 חדרים פלוס ממד</h3>
-        <p className="text-sm text-gray-600 mb-2">שכונת נופים</p>
+        <p className="text-sm text-gray-600 mb-2">שכונת בוכמן</p>
         <p className="text-sm text-gray-500">{details}</p>
       </div>
     </Card>
