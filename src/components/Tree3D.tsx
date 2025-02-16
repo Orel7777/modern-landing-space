@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 const Tree3D = () => {
   return <StyledWrapper>
-      <div className="container ">
+      <div className="container  ">
         <div className="tree">
           {[0, 1, 2, 3].map(x => <div key={x} className="branch" style={{
           "--x": x
