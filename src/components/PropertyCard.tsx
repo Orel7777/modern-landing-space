@@ -48,7 +48,7 @@ export const PropertyCard = ({
                 בלעדיות
               </Badge>
             </div>}
-          {(isSold || isRented) && <div className="absolute inset-0 flex items-center justify-center">
+          {(isSold || isRented) && <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="bg-[#ea384c]/60 text-white px-6 py-2 rounded-full text-xl font-bold transform -rotate-12">
                 {isRented ? 'הושכר' : 'נמכר'}
               </div>
