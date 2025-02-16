@@ -6,16 +6,18 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+
 const Index = () => {
   const heroRef = useRef(null);
   const propertiesTitleRef = useRef(null);
   const contactRef = useRef(null);
+
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -23,6 +25,7 @@ const Index = () => {
       duration: 1.2,
       ease: "power4.out"
     });
+
     gsap.from(propertiesTitleRef.current, {
       scrollTrigger: {
         trigger: propertiesTitleRef.current,
@@ -33,6 +36,7 @@ const Index = () => {
       duration: 0.8,
       ease: "back.out(1.7)"
     });
+
     gsap.from(contactRef.current, {
       scrollTrigger: {
         trigger: contactRef.current,
@@ -44,7 +48,9 @@ const Index = () => {
       ease: "power2.out"
     });
   }, []);
+
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
+
   const allProperties = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
     title: "דירה במגדל הלבנון",
@@ -136,53 +142,15 @@ const Index = () => {
     details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר",
     isExclusive: true
   }];
+
   const filteredProperties = allProperties.filter(property => {
     if (filter === 'sold') return property.isSold;
     if (filter === 'available') return !property.isSold && !property.isRented;
     return true;
   });
-  const testimonials = [{
-    quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליהי המדהימה. אני ממש רוצה להמליץ על מתווכת שנותנת את כל כולה דאגה לבדוק כל דבר שביקשנו, היתה זמינה לכל שאלה ושיחה, נעימה, עומדת בזמנים. בקיצור מי שמחפש מתווכת All-In שבאמת עושה את העבודה מכל הלב תדברו עם ליהי ביטון 0505150002",
-    name: "טלי קופמן",
-    title: "קנתה דירת 4 חדרים"
-  }, {
-    quote: "מציאת הבית החדש שלנו הייתה חוויה נהדרת. קיבלנו שירות מקצועי ואישי לאורך כל הדרך.",
-    name: "משפחת כהן",
-    title: "רכשו דירת 5 חדרים"
-  }, {
-    quote: "הצלחנו למכור את הדירה במחיר מצוין ובזמן קצר. המקצועיות והניסיון ניכרו לאורך כל התהליך.",
-    name: "דן ורונית לוי",
-    title: "מכרו דירת 4 חדרים"
-  }, {
-    quote: "ליווי מקצועי ואכפתי שעזר לנו למצוא את הבית המושלם. ממליצים בחום!",
-    name: "משפחת אברהם",
-    title: "רכשו דירת גן"
-  }, {
-    quote: "שירות אישי, זמינות מלאה ומקצועיות ללא פשרות. חוויה נהדרת מההתחלה ועד הסוף.",
-    name: "יעל ואלון שמיר",
-    title: "רכשו פנטהאוז"
-  }, {
-    quote: "תודה על הליווי המסור והמקצועי. עזרתם לנו להגשים חלום!",
-    name: "משפחת ישראלי",
-    title: "רכשו וילה"
-  }, {
-    quote: "שירות יוצא מן הכלל! ליהי הייתה קשובה לכל הצרכים שלנו ומצאה בדיוק את מה שחיפשנו.",
-    name: "רועי ומיכל גולן",
-    title: "רכשו דירת 3 חדרים"
-  }, {
-    quote: "המקצועיות והידע העמוק בשוק הנדל״ן ניכרים בכל שלב. תודה על העזרה במציאת הבית המושלם!",
-    name: "משפחת דוידוב",
-    title: "רכשו דירת 5 חדרים"
-  }, {
-    quote: "ליהי ליוותה אותנו בסבלנות אין קץ עד שמצאנו את הדירה המושלמת. היא פשוט מדהימה!",
-    name: "שירה ואייל כהן",
-    title: "רכשו דירת 4 חדרים"
-  }, {
-    quote: "הגישה האישית והמקצועית הובילה אותנו לעסקה מצוינת. ממליצים בחום!",
-    name: "משפחת לוי",
-    title: "מכרו בית פרטי"
-  }];
-  return <div className="font-heebo">
+
+  return (
+    <div className="font-heebo">
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
         <div className="absolute inset-0">
@@ -236,46 +204,52 @@ const Index = () => {
           
           {/* Filter Buttons */}
           <div className="flex justify-center gap-4 mb-8">
-            <Button variant={filter === 'all' ? 'default' : 'outline'} onClick={() => setFilter('all')} className="min-w-[120px] hover:scale-105 transition-transform">
+            <Button 
+              variant={filter === 'all' ? 'default' : 'outline'} 
+              onClick={() => setFilter('all')} 
+              className="min-w-[120px] hover:scale-105 transition-transform"
+            >
               הכל
             </Button>
-            <Button variant={filter === 'available' ? 'default' : 'outline'} onClick={() => setFilter('available')} className="min-w-[120px] hover:scale-105 transition-transform">
+            <Button 
+              variant={filter === 'available' ? 'default' : 'outline'} 
+              onClick={() => setFilter('available')} 
+              className="min-w-[120px] hover:scale-105 transition-transform"
+            >
               למכירה
             </Button>
-            <Button variant={filter === 'sold' ? 'default' : 'outline'} onClick={() => setFilter('sold')} className="min-w-[120px] hover:scale-105 transition-transform">
+            <Button 
+              variant={filter === 'sold' ? 'default' : 'outline'} 
+              onClick={() => setFilter('sold')} 
+              className="min-w-[120px] hover:scale-105 transition-transform"
+            >
               נמכר
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProperties.map((property, index) => <div key={index} className="opacity-0" ref={el => {
-            if (el) {
-              gsap.to(el, {
-                scrollTrigger: {
-                  trigger: el,
-                  start: "top 85%"
-                },
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                delay: index * 0.2
-              });
-            }
-          }}>
+            {filteredProperties.map((property, index) => (
+              <div 
+                key={index} 
+                className="opacity-0" 
+                ref={el => {
+                  if (el) {
+                    gsap.to(el, {
+                      scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%"
+                      },
+                      opacity: 1,
+                      y: 0,
+                      duration: 0.6,
+                      delay: index * 0.2
+                    });
+                  }
+                }}
+              >
                 <PropertyCard {...property} />
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-12 bg-gray-200 hover:bg-gray-100">
-        <div className="container mx-auto bg-gray-300 hover:bg-gray-200">
-          <h2 className="text-4xl font-bold text-center mb-2 font-serif">
-            לקוחות ממליצים
-          </h2>
-          <div className="h-[200px] flex flex-col items-center justify-center relative overflow-hidden">
-            <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -309,14 +283,42 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-start space-x-6 space-x-reverse pt-4">
-                  <a href="https://facebook.com/your-page" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors" aria-label="Facebook">
+                  <a 
+                    href="https://facebook.com/your-page" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-primary transition-colors"
+                    aria-label="Facebook"
+                  >
                     <Facebook className="w-6 h-6" />
                   </a>
-                  <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors" aria-label="Instagram">
+                  <a 
+                    href="https://instagram.com/your-profile" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-primary transition-colors"
+                    aria-label="Instagram"
+                  >
                     <Instagram className="w-6 h-6" />
                   </a>
-                  <a href="https://wa.me/972501234567" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary transition-colors" aria-label="WhatsApp">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <a 
+                    href="https://wa.me/972501234567" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-primary transition-colors"
+                    aria-label="WhatsApp"
+                  >
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      width="24" 
+                      height="24" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      fill="none" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      className="w-6 h-6"
+                    >
                       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                     </svg>
                   </a>
@@ -327,6 +329,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
