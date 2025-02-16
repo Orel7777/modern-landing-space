@@ -32,10 +32,11 @@ const Index = () => {
     <div className="font-heebo">
       <HeroSection heroRef={heroRef} scrollToContact={scrollToContact} />
       <PropertiesSection />
-      <TestimonialsSection />
       <ContactSection contactRef={contactRef} />
+      <TestimonialsSection />
     </div>
   );
 };
 
 export default Index;
+
