@@ -37,11 +37,11 @@
 }
 
 @keyframes scroll {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(calc(-50% - 0.5rem));
+  100% {
+    transform: translateX(calc(-50%));
   }
 }
 
