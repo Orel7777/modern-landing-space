@@ -30,7 +30,7 @@ export const PropertyCard = ({
           <img 
             src={image} 
             alt={title} 
-            className={`object-contain w-full h-full transition-transform duration-300 group-hover:scale-105 ${isSold || isRented ? 'opacity-70' : ''}`} 
+            className={`object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 ${isSold || isRented ? 'opacity-70' : ''}`} 
           />
         </AspectRatio>
         <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
