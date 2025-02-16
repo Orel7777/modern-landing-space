@@ -124,8 +124,15 @@ const Index = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             מציאת הבית המושלם עבורך היא המשימה שלנו
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <ul className="flex justify-center gap-4 order-2 md:order-1">
+          <div className="flex flex-col items-center gap-4">
+            <Button 
+              size="lg" 
+              className="text-lg hover:scale-105 transition-transform"
+              onClick={scrollToContact}
+            >
+              צור קשר עכשיו
+            </Button>
+            <ul className="flex justify-center gap-4">
               <li className="group relative">
                 <a 
                   href="https://wa.me/972500000000" 
@@ -169,13 +176,6 @@ const Index = () => {
                 </a>
               </li>
             </ul>
-            <Button 
-              size="lg" 
-              className="text-lg hover:scale-105 transition-transform order-1 md:order-2"
-              onClick={scrollToContact}
-            >
-              צור קשר עכשיו
-            </Button>
           </div>
         </div>
       </section>
