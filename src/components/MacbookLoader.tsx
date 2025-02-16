@@ -20,8 +20,8 @@ const MacbookLoader = () => {
 const StyledWrapper = styled.div`
   .cube-loader {
     position: relative;
-    width: 75px;
-    height: 75px;
+    width: 45px;
+    height: 45px;
     transform-style: preserve-3d;
     transform: rotateX(-30deg);
     animation: animate 4s linear infinite;
@@ -47,7 +47,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(22.5px);
     background: linear-gradient(
       to bottom,
       hsl(330, 3.13%, 25.1%) 0%,
@@ -71,18 +71,18 @@ const StyledWrapper = styled.div`
 
   .cube-top {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 45px;
+    height: 45px;
     background: hsl(330, 3.13%, 25.1%) 0%;
-    transform: rotateX(90deg) translateZ(37.5px);
+    transform: rotateX(90deg) translateZ(22.5px);
     transform-style: preserve-3d;
   }
 
   .cube-top::before {
     content: '';
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 45px;
+    height: 45px;
     background: hsl(176.61, 42.28%, 40.7%) 19.6%;
     transform: translateZ(-90px);
     filter: blur(10px);
