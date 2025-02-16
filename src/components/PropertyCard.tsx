@@ -30,9 +30,9 @@ export const PropertyCard = ({
 
   return (
     <>
-      <div className="group/card w-full h-full perspective-1000">
-        <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg animate-fade-up relative transform-style-3d hover:rotate-y-5 hover:rotate-x-5">
-          <div className="relative transform-style-3d">
+      <div className="group/card w-full h-full [perspective:1000px]">
+        <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg animate-fade-up relative [transform-style:preserve-3d] hover:[transform:rotateY(5deg)_rotateX(5deg)]">
+          <div className="relative [transform-style:preserve-3d]">
             <AspectRatio ratio={16 / 9}>
               <img 
                 src={image} 
@@ -41,21 +41,21 @@ export const PropertyCard = ({
                 onClick={() => setIsImageOpen(true)}
               />
             </AspectRatio>
-            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full transform-z-20">
+            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full [transform:translateZ(20px)]">
               <span className="text-primary font-medium">{price}</span>
             </div>
-            {isExclusive && <div className="absolute top-3 right-3 transform-z-20">
+            {isExclusive && <div className="absolute top-3 right-3 [transform:translateZ(20px)]">
               <Badge variant="secondary" className="bg-primary/90 text-white hover:bg-primary">
                 בלעדיות
               </Badge>
             </div>}
-            {(isSold || isRented) && <div className="absolute inset-0 flex items-center justify-center pointer-events-none transform-z-20">
+            {(isSold || isRented) && <div className="absolute inset-0 flex items-center justify-center pointer-events-none [transform:translateZ(20px)]">
               <div className="bg-[#ea384c]/60 text-white px-6 py-2 rounded-full text-xl font-bold transform -rotate-12">
                 {isRented ? 'הושכר' : 'נמכר'}
               </div>
             </div>}
           </div>
-          <div className="p-4 bg-white transform-z-10">
+          <div className="p-4 bg-white [transform:translateZ(10px)]">
             <h3 className="text-lg font-medium mb-2">{title}</h3>
             <p className="text-sm text-gray-600 mb-2">{location}</p>
             <p className="text-sm text-gray-500">{details}</p>
@@ -72,27 +72,6 @@ export const PropertyCard = ({
           />
         </DialogContent>
       </Dialog>
-
-      <style jsx global>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .transform-style-3d {
-          transform-style: preserve-3d;
-        }
-        .transform-z-10 {
-          transform: translateZ(10px);
-        }
-        .transform-z-20 {
-          transform: translateZ(20px);
-        }
-        .rotate-y-5 {
-          transform: rotateY(5deg);
-        }
-        .rotate-x-5 {
-          transform: rotateX(5deg);
-        }
-      `}</style>
     </>
   );
 };
