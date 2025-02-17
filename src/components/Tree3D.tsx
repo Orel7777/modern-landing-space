@@ -1,4 +1,3 @@
-
 import { styled } from "styled-components";
 
 const Tree3D = () => {
@@ -6,7 +5,7 @@ const Tree3D = () => {
     <StyledWrapper>
       <div className="container_SevMini">
         <div className="SevMini">
-          <svg width={37} height={45} viewBox="0 0 74 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width={30} height={36} viewBox="0 0 74 90" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M40 76.5L72 57V69.8615C72 70.5673 71.628 71.2209 71.0211 71.5812L40 90V76.5Z" fill="#396CAA" />
             <path d="M34 75.7077L2 57V69.8615C2 70.5673 2.37203 71.2209 2.97892 71.5812L34 90V75.7077Z" fill="#396DAC" />
             <path d="M34 76.5H40V90H34V76.5Z" fill="#396CAA" />
@@ -40,7 +39,7 @@ const Tree3D = () => {
           </svg>
         </div>
         <div className="Ghost">
-          <svg width={30} height={18} viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width={24} height={14} viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.96545 19.4296C0.643777 18.6484 0.658726 16.7309 1.99242 15.9705L28.0186 1.12982C29.2467 0.429534 30.7533 0.429533 31.9814 1.12982L58.0076 15.9704C59.3413 16.7309 59.3562 18.6484 58.0346 19.4296L32.5442 34.4962C30.9749 35.4238 29.0251 35.4238 27.4558 34.4962L1.96545 19.4296Z" fill="#3C4F6D" />
           </svg>
         </div>
