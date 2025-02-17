@@ -4,48 +4,26 @@ import { styled } from "styled-components";
 const Tree3D = () => {
   return (
     <StyledWrapper>
-      <div className="container">
-        <div className="house">
-          {/* גג */}
-          <div className="roof">
-            {[0, 1].map(i => (
-              <span key={i} style={{
-                "--i": i
-              } as any} />
-            ))}
-          </div>
-          {/* קירות */}
-          <div className="walls">
-            {[0, 1, 2, 3].map(i => (
-              <div key={i} className="wall" style={{
-                "--i": i
-              } as any}>
-                {/* חלון */}
-                <div className="window">
-                  <span className="frame" />
-                  <span className="shutter left" />
-                  <span className="shutter right" />
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* מרפסת */}
-          <div className="porch">
-            {[0, 1, 2, 3].map(i => (
-              <span key={i} style={{
-                "--i": i
-              } as any} />
-            ))}
-            {/* עמודים */}
-            <div className="pillars">
-              {[0, 1].map(i => (
-                <span key={i} className="pillar" style={{
-                  "--i": i
-                } as any} />
-              ))}
-            </div>
-          </div>
-          <span className="shadow" />
+      <div className="loader">
+        <div className="box box-1">
+          <div className="side-left" />
+          <div className="side-right" />
+          <div className="side-top" />
+        </div>
+        <div className="box box-2">
+          <div className="side-left" />
+          <div className="side-right" />
+          <div className="side-top" />
+        </div>
+        <div className="box box-3">
+          <div className="side-left" />
+          <div className="side-right" />
+          <div className="side-top" />
+        </div>
+        <div className="box box-4">
+          <div className="side-left" />
+          <div className="side-right" />
+          <div className="side-top" />
         </div>
       </div>
     </StyledWrapper>
@@ -53,146 +31,142 @@ const Tree3D = () => {
 };
 
 const StyledWrapper = styled.div`
-  .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 30px;
+  /* 3D tower loader made by: csozi | Website: www.csozi.hu*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30px;
+
+  .loader {
+    scale: 3;
+    height: 50px;
+    width: 40px;
   }
 
-  .house {
+  .box {
     position: relative;
-    width: 30px;
-    height: 25px;
-    transform-style: preserve-3d;
-    transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
-    animation: houseAnimate 5s linear infinite;
+    opacity: 0;
+    left: 10px;
   }
 
-  @keyframes houseAnimate {
-    0% {
-      transform: rotateX(-20deg) rotateY(360deg) scale(0.6);
-    }
-    100% {
-      transform: rotateX(-20deg) rotateY(0deg) scale(0.6);
-    }
-  }
-
-  .roof {
+  .side-left {
     position: absolute;
-    top: -15px;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    transform-style: preserve-3d;
-  }
-
-  .roof span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #8b7355, #a0522d);
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    transform-origin: bottom;
-    transform: rotateY(calc(180deg * var(--i))) translateZ(15px);
-  }
-
-  .walls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  }
-
-  .wall {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #deb887, #d2b48c);
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
-  }
-
-  .window {
-    position: absolute;
-    width: 40%;
-    height: 40%;
-    top: 20%;
-    left: 30%;
-    transform-style: preserve-3d;
-  }
-
-  .frame {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border: 1px solid #333;
-  }
-
-  .shutter {
-    position: absolute;
-    width: 30%;
-    height: 100%;
-    background: #333;
-  }
-
-  .shutter.left {
-    left: -35%;
-  }
-
-  .shutter.right {
-    right: -35%;
-  }
-
-  .porch {
-    position: absolute;
-    width: 60%;
-    height: 30%;
-    bottom: -5px;
-    left: 20%;
-    transform-style: preserve-3d;
-  }
-
-  .porch span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(9px);
-  }
-
-  .pillars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  }
-
-  .pillar {
-    position: absolute;
-    width: 10%;
-    height: 100%;
-    background: white;
-    left: calc(30% + (40% * var(--i)));
-    transform-origin: bottom;
-    transform: translateZ(9px);
-  }
-
-  .shadow {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
+    background-color: #286cb5;
+    width: 19px;
     height: 5px;
-    background: rgba(0, 0, 0, 0.2);
-    filter: blur(2px);
-    transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-2px);
+    transform: skew(0deg, -25deg);
+    top: 14px;
+    left: 10px;
+  }
+
+  .side-right {
+    position: absolute;
+    background-color: #2f85e0;
+    width: 19px;
+    height: 5px;
+    transform: skew(0deg, 25deg);
+    top: 14px;
+    left: -9px;
+  }
+
+  .side-top {
+    position: absolute;
+    background-color: #5fa8f5;
+    width: 20px;
+    height: 20px;
+    rotate: 45deg;
+    transform: skew(-20deg, -20deg);
+  }
+
+  .box-1 {
+    animation: from-left 4s infinite;
+  }
+
+  .box-2 {
+    animation: from-right 4s infinite;
+    animation-delay: 1s;
+  }
+
+  .box-3 {
+    animation: from-left 4s infinite;
+    animation-delay: 2s;
+  }
+
+  .box-4 {
+    animation: from-right 4s infinite;
+    animation-delay: 3s;
+  }
+
+  @keyframes from-left {
+    0% {
+      z-index: 20;
+      opacity: 0;
+      translate: -20px -6px;
+    }
+
+    20% {
+      z-index: 10;
+      opacity: 1;
+      translate: 0px 0px;
+    }
+
+    40% {
+      z-index: 9;
+      translate: 0px 4px;
+    }
+
+    60% {
+      z-index: 8;
+      translate: 0px 8px;
+    }
+
+    80% {
+      z-index: 7;
+      opacity: 1;
+      translate: 0px 12px;
+    }
+
+    100% {
+      z-index: 5;
+      translate: 0px 30px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes from-right {
+    0% {
+      z-index: 20;
+      opacity: 0;
+      translate: 20px -6px;
+    }
+
+    20% {
+      z-index: 10;
+      opacity: 1;
+      translate: 0px 0px;
+    }
+
+    40% {
+      z-index: 9;
+      translate: 0px 4px;
+    }
+
+    60% {
+      z-index: 8;
+      translate: 0px 8px;
+    }
+
+    80% {
+      z-index: 7;
+      opacity: 1;
+      translate: 0px 12px;
+    }
+
+    100% {
+      z-index: 5;
+      translate: 0px 30px;
+      opacity: 0;
+    }
   }
 `;
 
