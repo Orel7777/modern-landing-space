@@ -35,14 +35,14 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100px;
-  padding: 20px;
+  min-height: 40px;
+  padding: 5px;
 
   .loader {
-    scale: 5;
+    scale: 2;
     height: 50px;
     width: 40px;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .box {
