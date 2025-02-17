@@ -35,12 +35,14 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 30px;
+  min-height: 100px;
+  padding: 20px;
 
   .loader {
-    scale: 3;
+    scale: 5;
     height: 50px;
     width: 40px;
+    margin-top: 50px;
   }
 
   .box {
@@ -51,7 +53,7 @@ const StyledWrapper = styled.div`
 
   .side-left {
     position: absolute;
-    background-color: #286cb5;
+    background-color: #F97316;
     width: 19px;
     height: 5px;
     transform: skew(0deg, -25deg);
@@ -61,7 +63,7 @@ const StyledWrapper = styled.div`
 
   .side-right {
     position: absolute;
-    background-color: #2f85e0;
+    background-color: #FB923C;
     width: 19px;
     height: 5px;
     transform: skew(0deg, 25deg);
@@ -71,7 +73,7 @@ const StyledWrapper = styled.div`
 
   .side-top {
     position: absolute;
-    background-color: #5fa8f5;
+    background-color: #FDBA74;
     width: 20px;
     height: 20px;
     rotate: 45deg;
