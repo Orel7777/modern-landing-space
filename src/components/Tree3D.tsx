@@ -5,24 +5,45 @@ const Tree3D = () => {
   return (
     <StyledWrapper>
       <div className="container">
-        <div className="tree">
-          {[0, 1, 2, 3].map(x => (
-            <div key={x} className="branch" style={{
-              "--x": x
-            } as any}>
-              {[0, 1, 2, 3].map(i => (
-                <span key={i} style={{
-                  "--i": i
-                } as any} />
-              ))}
-            </div>
-          ))}
-          <div className="stem">
+        <div className="house">
+          {/* גג */}
+          <div className="roof">
+            {[0, 1].map(i => (
+              <span key={i} style={{
+                "--i": i
+              } as any} />
+            ))}
+          </div>
+          {/* קירות */}
+          <div className="walls">
+            {[0, 1, 2, 3].map(i => (
+              <div key={i} className="wall" style={{
+                "--i": i
+              } as any}>
+                {/* חלון */}
+                <div className="window">
+                  <span className="frame" />
+                  <span className="shutter left" />
+                  <span className="shutter right" />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* מרפסת */}
+          <div className="porch">
             {[0, 1, 2, 3].map(i => (
               <span key={i} style={{
                 "--i": i
               } as any} />
             ))}
+            {/* עמודים */}
+            <div className="pillars">
+              {[0, 1].map(i => (
+                <span key={i} className="pillar" style={{
+                  "--i": i
+                } as any} />
+              ))}
+            </div>
           </div>
           <span className="shadow" />
         </div>
@@ -40,16 +61,16 @@ const StyledWrapper = styled.div`
     min-height: 30px;
   }
 
-  .tree {
+  .house {
     position: relative;
-    width: 25px;
+    width: 30px;
     height: 25px;
     transform-style: preserve-3d;
     transform: rotateX(-20deg) rotateY(30deg) scale(0.6);
-    animation: treeAnimate 5s linear infinite;
+    animation: houseAnimate 5s linear infinite;
   }
 
-  @keyframes treeAnimate {
+  @keyframes houseAnimate {
     0% {
       transform: rotateX(-20deg) rotateY(360deg) scale(0.6);
     }
@@ -58,51 +79,120 @@ const StyledWrapper = styled.div`
     }
   }
 
-  .tree div {
+  .roof {
     position: absolute;
-    top: -25px;
+    top: -15px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 15px;
     transform-style: preserve-3d;
-    transform: translateY(calc(12.5px * var(--x))) translateZ(0px);
   }
 
-  .tree div.branch span {
+  .roof span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #8b7355, #a0522d);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transform-origin: bottom;
+    transform: rotateY(calc(180deg * var(--i))) translateZ(15px);
+  }
+
+  .walls {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #69c069, #77dd77);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    border-bottom: 3px solid #00000019;
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(14.25px);
+    transform-style: preserve-3d;
   }
 
-  .tree div.stem span {
+  .wall {
     position: absolute;
-    top: 55px;
-    left: calc(50% - 4px);
-    width: 8px;
-    height: 50%;
-    background: linear-gradient(90deg, #bb4622, #df7214);
-    border-bottom: 3px solid #00000019;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #deb887, #d2b48c);
     transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(4px);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
+  }
+
+  .window {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    top: 20%;
+    left: 30%;
+    transform-style: preserve-3d;
+  }
+
+  .frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 1px solid #333;
+  }
+
+  .shutter {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: #333;
+  }
+
+  .shutter.left {
+    left: -35%;
+  }
+
+  .shutter.right {
+    right: -35%;
+  }
+
+  .porch {
+    position: absolute;
+    width: 60%;
+    height: 30%;
+    bottom: -5px;
+    left: 20%;
+    transform-style: preserve-3d;
+  }
+
+  .porch span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(9px);
+  }
+
+  .pillars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .pillar {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background: white;
+    left: calc(30% + (40% * var(--i)));
+    transform-origin: bottom;
+    transform: translateZ(9px);
   }
 
   .shadow {
     position: absolute;
-    top: 0;
+    bottom: -5px;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    filter: blur(10px);
+    height: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    filter: blur(2px);
     transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-32.5px);
+    transform: rotateX(90deg) translateZ(-2px);
   }
 `;
 
