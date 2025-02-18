@@ -30,7 +30,7 @@ export const ContactSection = ({
                 <MapPin className="w-6 h-6" />
                 <div>
                   <h3 className="font-medium mb-1">כתובת</h3>
-                  <p className="text-gray-600">???</p>
+                  <p className="text-gray-600">תל אביב</p>
                 </div>
               </div>
               <div className="flex items-center justify-start space-x-6 space-x-reverse pt-4">
