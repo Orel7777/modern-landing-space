@@ -1,5 +1,6 @@
 
 import MacbookLoader from "./MacbookLoader";
+import PlanetLoader from "./PlanetLoader";
 
 export const Footer = () => {
   return (
@@ -15,7 +16,7 @@ export const Footer = () => {
                 alt="Orel Bukris Logo"
                 className="w-12 h-12 object-contain"
               />
-              <MacbookLoader />
+              <PlanetLoader />
             </div>
             <div className="flex-1 flex justify-end" />
           </div>
