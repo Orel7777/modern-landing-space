@@ -15,6 +15,7 @@ export const Footer = () => {
                 alt="Orel Bukris Logo"
                 className="w-12 h-12 object-contain"
               />
+              <MacbookLoader />
             </div>
             <div className="flex-1 flex justify-end" />
           </div>
