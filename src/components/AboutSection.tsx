@@ -55,7 +55,7 @@ export const AboutSection = () => {
               transition={{ duration: 0.5 }}
               className="text-3xl font-bold mb-4"
             >
-              אודות ליחן ביטון
+              ליחן ביטון: נדל"ן עם תוצאות
             </motion.h2>
             <div className="flex justify-center space-x-2 mb-6">
               {[...Array(5)].map((_, i) => (
