@@ -23,7 +23,7 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
           נדל״ן ברמה אחרת
         </h1>
         <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-         ברמה מטופרת מציאת הבית המושלם עבורך היא המשימה שלנו
+          מציאת הבית המושלם עבורך היא המשימה שלנו
         </p>
         <div className="flex flex-col items-center gap-4">
           <Button size="lg" className="text-lg hover:scale-105 transition-transform" onClick={scrollToContact}>
