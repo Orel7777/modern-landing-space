@@ -13,7 +13,7 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
       <div className="absolute inset-0">
         <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover">
           <source src="/public/lovable-uploads/video.mp4" type="video/mp4" />
-          הדפדפן שלך לא תומך בהצגת וידאו.
+          The dream home
         </video>
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
       </div>
