@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface Testimonial {
   image: string;
@@ -12,6 +13,7 @@ interface Testimonial {
 
 export const AboutSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
   const testimonials: Testimonial[] = [
     {
@@ -45,100 +47,115 @@ export const AboutSection = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl font-bold mb-4"
-            >
-              ליחן ביטון: נדל"ן עם תוצאות
-            </motion.h2>
-            <div className="flex justify-center space-x-2 mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              ))}
+    <>
+      <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-3xl font-bold mb-4"
+              >
+                ליחן ביטון: נדל"ן עם תוצאות
+              </motion.h2>
+              <div className="flex justify-center space-x-2 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Testimonials Grid - Right Side */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative order-2 md:order-1"
+              >
+                <motion.div 
+                  className="grid grid-cols-3 gap-4 h-[240px]"
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <motion.div
+                      key={index}
+                      className="relative rounded-xl overflow-hidden h-[240px] cursor-pointer"
+                      animate={{
+                        y: [0, -5, 0],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.5
+                      }}
+                      onClick={() => setSelectedImage(testimonial.image)}
+                    >
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover rounded-xl"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-xl" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-right">
+                        <div className="flex justify-end mb-1">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400 ml-0.5" />
+                          ))}
+                        </div>
+                        <h3 className="text-sm font-bold mb-1 text-white">{testimonial.name}</h3>
+                        <p className="text-xs text-gray-200">{testimonial.content}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+
+              {/* About Text - Left Side */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-6 text-right order-1 md:order-2"
+              >
+                <p className="leading-relaxed">
+                  ליחן ביטון היא נדלניסטית מנוסה ומקצועית עם רקורד עשיר בתחום הנדל"ן, המתמחה במכירות, קניות והשכרות נכסים. הנדל"ן הוא לא רק העבודה שלה – זה העולם שלה. היא חיה את השטח, מכירה לעומק את השוק ויודעת לתת את המענה המקצועי ביותר לכל לקוח.
+                </p>
+                
+                <p className="leading-relaxed">
+                  עם רשת רחבה של אנשי מקצוע, כולל יועצי משכנתאות, יועצי מס, עורכי דין, שמאים ואדריכלים, לכן מלווה את לקוחותיה לכל אורך הדרך ומספקת פתרונות מותאמים אישית לכל צורך. היא מאמינה בשירות אישי, מקצועיות בלתי מתפשרת וליווי צמוד לכל עסקה – עד לפרטים הקטנים ביותר.
+                </p>
+                
+                <p className="font-medium text-lg">
+                  כאשר אתם מחפשים ליווי אמין בעולם הנדל"ן – ליחן ביטון היא הכתובת שלכם.
+                </p>
+              </motion.div>
             </div>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Testimonials Grid - Right Side */}
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="relative order-2 md:order-1"
-            >
-              <motion.div 
-                className="grid grid-cols-3 gap-4 h-[240px]"
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <motion.div
-                    key={index}
-                    className="relative rounded-xl overflow-hidden h-[240px]"
-                    animate={{
-                      y: [0, -5, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.5
-                    }}
-                  >
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-xl" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-right">
-                      <div className="flex justify-end mb-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400 ml-0.5" />
-                        ))}
-                      </div>
-                      <h3 className="text-sm font-bold mb-1 text-white">{testimonial.name}</h3>
-                      <p className="text-xs text-gray-200">{testimonial.content}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* About Text - Left Side */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-6 text-right order-1 md:order-2"
-            >
-              <p className="leading-relaxed">
-                ליחן ביטון היא נדלניסטית מנוסה ומקצועית עם רקורד עשיר בתחום הנדל"ן, המתמחה במכירות, קניות והשכרות נכסים. הנדל"ן הוא לא רק העבודה שלה – זה העולם שלה. היא חיה את השטח, מכירה לעומק את השוק ויודעת לתת את המענה המקצועי ביותר לכל לקוח.
-              </p>
-              
-              <p className="leading-relaxed">
-                עם רשת רחבה של אנשי מקצוע, כולל יועצי משכנתאות, יועצי מס, עורכי דין, שמאים ואדריכלים, לכן מלווה את לקוחותיה לכל אורך הדרך ומספקת פתרונות מותאמים אישית לכל צורך. היא מאמינה בשירות אישי, מקצועיות בלתי מתפשרת וליווי צמוד לכל עסקה – עד לפרטים הקטנים ביותר.
-              </p>
-              
-              <p className="font-medium text-lg">
-                כאשר אתם מחפשים ליווי אמין בעולם הנדל"ן – ליחן ביטון היא הכתובת שלכם.
-              </p>
-            </motion.div>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0">
+          {selectedImage && (
+            <img 
+              src={selectedImage} 
+              alt="תמונה מורחבת" 
+              className="w-full h-auto max-h-[90vh] object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
