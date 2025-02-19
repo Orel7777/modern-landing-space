@@ -72,13 +72,30 @@ export const AboutSection = () => {
               transition={{ duration: 0.5 }}
               className="relative order-2 md:order-1"
             >
-              <div className="grid grid-cols-2 gap-4 h-[500px]">
+              <motion.div 
+                className="grid grid-cols-3 gap-4 h-[240px]"
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
                 {testimonials.map((testimonial, index) => (
                   <motion.div
                     key={index}
                     className="relative rounded-xl overflow-hidden h-[240px]"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
+                    animate={{
+                      y: [0, -5, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.5
+                    }}
                   >
                     <img
                       src={testimonial.image}
@@ -97,7 +114,7 @@ export const AboutSection = () => {
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* About Text - Left Side */}
