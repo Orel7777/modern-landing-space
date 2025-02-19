@@ -65,55 +65,37 @@ export const AboutSection = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Testimonials Slider - Right Side */}
+            {/* Testimonials Grid - Right Side */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="relative order-2 md:order-1"
             >
-              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-2 gap-4 h-[500px]">
                 {testimonials.map((testimonial, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{
-                      opacity: currentTestimonial === index ? 1 : 0,
-                      scale: currentTestimonial === index ? 1 : 0.8,
-                      zIndex: currentTestimonial === index ? 1 : 0
-                    }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+                    className="relative rounded-xl overflow-hidden h-[240px]"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <div className="relative h-full">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover rounded-2xl"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-2xl" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-right">
-                        <div className="flex justify-end mb-2">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400 ml-1" />
-                          ))}
-                        </div>
-                        <h3 className="text-xl font-bold mb-2 text-white">{testimonial.name}</h3>
-                        <p className="text-gray-200">{testimonial.content}</p>
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-xl" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-right">
+                      <div className="flex justify-end mb-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400 ml-0.5" />
+                        ))}
                       </div>
+                      <h3 className="text-sm font-bold mb-1 text-white">{testimonial.name}</h3>
+                      <p className="text-xs text-gray-200">{testimonial.content}</p>
                     </div>
                   </motion.div>
-                ))}
-              </div>
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      currentTestimonial === index ? "bg-white w-4" : "bg-white/50"
-                    }`}
-                  />
                 ))}
               </div>
             </motion.div>
