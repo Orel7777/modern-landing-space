@@ -45,7 +45,7 @@ export const AboutSection = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-20 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
+    <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -98,7 +98,7 @@ export const AboutSection = () => {
                             <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400 ml-1" />
                           ))}
                         </div>
-                        <h3 className="text-xl font-bold mb-2">{testimonial.name}</h3>
+                        <h3 className="text-xl font-bold mb-2 text-white">{testimonial.name}</h3>
                         <p className="text-gray-200">{testimonial.content}</p>
                       </div>
                     </div>
