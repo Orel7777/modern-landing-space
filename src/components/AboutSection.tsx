@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -33,6 +32,24 @@ export const AboutSection = () => {
       name: "מירב לוי",
       content: "ליחן היא המתווכת הכי טובה שיצא לי לעבוד איתה. תודה רבה!",
       rating: 5
+    },
+    {
+      image: "/lovable-uploads/214d8cad-0799-43e3-8d05-b68bae52e025.png",
+      name: "רועי ישראלי",
+      content: "ליחן מקצועית ואמינה, עזרה לנו למצוא דירה מדהימה במחיר מצוין!",
+      rating: 5
+    },
+    {
+      image: "/lovable-uploads/32ad495c-4ef3-4e48-8628-a36e1d0063c5.png",
+      name: "שירה אברהם",
+      content: "תודה רבה על השירות המקצועי והאישי. מומלצת בחום!",
+      rating: 5
+    },
+    {
+      image: "/lovable-uploads/81cbd7d8-7523-423c-9b7e-263ccce666af.png",
+      name: "יוסי מזרחי",
+      content: "ליחן עזרה לנו להגשים חלום ולמצוא את הבית המושלם. תודה!",
+      rating: 5
     }
   ];
 
@@ -45,6 +62,13 @@ export const AboutSection = () => {
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
+
+  // Calculate which testimonials to show based on currentTestimonial
+  const visibleTestimonials = [
+    testimonials[currentTestimonial],
+    testimonials[(currentTestimonial + 1) % testimonials.length],
+    testimonials[(currentTestimonial + 2) % testimonials.length]
+  ];
 
   return (
     <>
@@ -86,11 +110,14 @@ export const AboutSection = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  {testimonials.map((testimonial, index) => (
+                  {visibleTestimonials.map((testimonial, index) => (
                     <motion.div
                       key={index}
                       className="relative rounded-xl overflow-hidden h-[240px] cursor-pointer"
-                      animate={{
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ 
+                        opacity: 1, 
+                        x: 0,
                         y: [0, -5, 0],
                       }}
                       transition={{
