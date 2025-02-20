@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -58,7 +59,7 @@ export const AboutSection = () => {
       setCurrentTestimonial((prev) => 
         prev === testimonials.length - 1 ? 0 : prev + 1
       );
-    }, 5000);
+    }, 8000); // הגדלתי את זמן ההמתנה בין החלפת הביקורות
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -79,7 +80,7 @@ export const AboutSection = () => {
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.8 }} // הגדלתי את משך האנימציה
                 className="text-3xl font-bold mb-4"
               >
                 ליחן ביטון: נדל"ן עם תוצאות
@@ -96,7 +97,7 @@ export const AboutSection = () => {
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.8 }} // הגדלתי את משך האנימציה
                 className="relative order-2 md:order-1"
               >
                 <motion.div 
@@ -105,7 +106,7 @@ export const AboutSection = () => {
                     y: [0, -10, 0],
                   }}
                   transition={{
-                    duration: 4,
+                    duration: 8, // הגדלתי את משך האנימציה
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
@@ -121,10 +122,10 @@ export const AboutSection = () => {
                         y: [0, -5, 0],
                       }}
                       transition={{
-                        duration: 3,
+                        duration: 6, // הגדלתי את משך האנימציה
                         repeat: Infinity,
                         ease: "easeInOut",
-                        delay: index * 0.5
+                        delay: index * 1 // הגדלתי את זמן העיכוב בין הביקורות
                       }}
                       onClick={() => setSelectedImage(testimonial.image)}
                     >
