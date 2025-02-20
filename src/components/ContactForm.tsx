@@ -27,6 +27,7 @@ type FormData = z.infer<typeof formSchema>;
 
 export const ContactForm = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -42,12 +43,43 @@ export const ContactForm = () => {
     }
   });
 
-  const onSubmit = (data: FormData) => {
-    toast({
-      title: "הודעה נשלחה בהצלחה",
-      description: "נחזור אליך בהקדם האפשרי"
-    });
-    form.reset();
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    try {
+      // שליחת הנתונים ל-Google Apps Script
+      const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          timestamp: new Date().toISOString(),
+          ...data,
+          bankApproval: data.bankApproval ? "כן" : "לא",
+          interestType: data.interestType === "sale" ? "מכירה" : 
+                       data.interestType === "buy" ? "קנייה" : "שכירות"
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('שגיאה בשליחת הטופס');
+      }
+
+      toast({
+        title: "הודעה נשלחה בהצלחה",
+        description: "נחזור אליך בהקדם האפשרי"
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        variant: "destructive",
+        title: "שגיאה בשליחת הטופס",
+        description: "אנא נסו שוב מאוחר יותר"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -217,8 +249,8 @@ export const ContactForm = () => {
           )}
         </div>
 
-        <Button type="submit" className="w-full">
-          שליחה
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
+          {isSubmitting ? "שולח..." : "שליחה"}
         </Button>
       </form>
     </Form>
