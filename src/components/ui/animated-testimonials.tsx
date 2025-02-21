@@ -46,7 +46,7 @@ export const AnimatedTestimonials = ({
   return (
     <div className={cn("max-w-7xl mx-auto", className)}>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <div className="relative aspect-[4/3] w-full">
+        <div className="relative aspect-[4/3] w-[80%] mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={testimonials[active].src}
