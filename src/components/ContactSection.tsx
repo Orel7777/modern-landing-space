@@ -1,3 +1,4 @@
+
 import { ContactForm } from "@/components/ContactForm";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import BoxLoader from "@/components/BoxLoader";
@@ -6,7 +7,7 @@ export const ContactSection = ({
 }: {
   contactRef: React.RefObject<HTMLElement>;
 }) => {
-  return <section ref={contactRef} className="py-20 bg-secondary/20">
+  return <section ref={contactRef} className="py-20 bg-[#F1F0FB]">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">צור קשר</h2>
