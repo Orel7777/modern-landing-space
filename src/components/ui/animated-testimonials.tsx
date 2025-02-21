@@ -83,18 +83,18 @@ export const AnimatedTestimonials = ({
 
           <div className="flex gap-4 justify-end">
             <button
-              onClick={handlePrev}
-              className="p-2 rounded-full hover:bg-secondary/80 transition-colors"
-              aria-label="המלצה קודמת"
-            >
-              <IconArrowLeft className="h-6 w-6" />
-            </button>
-            <button
               onClick={handleNext}
               className="p-2 rounded-full hover:bg-secondary/80 transition-colors"
               aria-label="המלצה הבאה"
             >
               <IconArrowRight className="h-6 w-6" />
+            </button>
+            <button
+              onClick={handlePrev}
+              className="p-2 rounded-full hover:bg-secondary/80 transition-colors"
+              aria-label="המלצה קודמת"
+            >
+              <IconArrowLeft className="h-6 w-6" />
             </button>
           </div>
         </div>
