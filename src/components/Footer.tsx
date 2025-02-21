@@ -4,24 +4,28 @@ import PlanetLoader from "./PlanetLoader";
 
 export const Footer = () => {
   return (
-    <footer className="py-4 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center gap-4">
+    <footer className="py-2 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
+      <div className="container mx-auto px-2">
+        <div className="flex flex-col items-center justify-center gap-2">
           <div className="flex items-center justify-between w-full">
             <div className="flex-1 flex justify-start" /> {/* Spacer */}
-            <div className="text-center flex-1 flex items-center justify-center gap-2">
-              <MacbookLoader />
+            <div className="text-center flex-1 flex items-center justify-center gap-1">
+              <div className="scale-75">
+                <MacbookLoader />
+              </div>
               <img
                 src="/lovable-uploads/214d8cad-0799-43e3-8d05-b68bae52e025.png"
                 alt="Orel Bukris Logo"
-                className="w-12 h-12 object-contain"
+                className="w-8 h-8 object-contain"
               />
-              <PlanetLoader />
+              <div className="scale-75">
+                <PlanetLoader />
+              </div>
             </div>
             <div className="flex-1 flex justify-end" />
           </div>
           <div className="text-center">
-            <p className="text-xs text-gray-400">
+            <p className="text-[10px] text-gray-400">
               © {new Date().getFullYear()} כל הזכויות שמורות ל
               <a
                 href="https://orel-bukris-portfolio.vercel.app/"
@@ -30,7 +34,7 @@ export const Footer = () => {
                 className="text-white hover:text-purple-400 transition-colors mx-1">
                 אוראל בוקריס
               </a>
-              <span className="block text-[10px] mt-0.5">
+              <span className="block text-[8px] mt-0.5">
                 מפתח אתרים בתלת מימד
               </span>
             </p>
