@@ -1,4 +1,3 @@
-
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
@@ -6,34 +5,24 @@ import { motion } from "framer-motion";
 export const AboutSection = () => {
   const testimonials = [
     {
-      src: "/lovable-uploads/f21393f4-30f4-425c-8c8a-837c4ef9166d.png",
+      src: "/lovable-uploads/e69edb93-f9e6-4355-bcff-ca1ed1a9ba1d.png",
       name: "נטלי קופמן",
-      quote: "מקצועית, אמינה ומסורה. ליחן עזרה לנו למצוא את הבית המושלם!"
+      quote: "יש מישהו שמעוניין לקחת שיש מטבח?"
     },
     {
-      src: "/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png",
-      name: "דני כהן",
-      quote: "שירות מעולה ומקצועי. ממליץ בחום!"
+      src: "/lovable-uploads/6f17495b-46b8-4452-b23a-598c49f41c6d.png",
+      name: "חן נזריאן אמיר",
+      quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליחן המדהימה."
     },
     {
-      src: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
-      name: "מירב לוי",
-      quote: "ליחן היא המתווכת הכי טובה שיצא לי לעבוד איתה. תודה רבה!"
+      src: "/lovable-uploads/c265b691-63ad-46a9-be19-5c495a45bd58.png",
+      name: "אלי",
+      quote: "שבת שלום, אכלנו הערב ארוחה חלבית ופתחנו את הגבינות שהיו ממש טעימות."
     },
     {
-      src: "/lovable-uploads/214d8cad-0799-43e3-8d05-b68bae52e025.png",
-      name: "רועי ישראלי",
-      quote: "ליחן מקצועית ואמינה, עזרה לנו למצוא דירה מדהימה במחיר מצוין!"
-    },
-    {
-      src: "/lovable-uploads/32ad495c-4ef3-4e48-8628-a36e1d0063c5.png",
-      name: "שירה אברהם",
-      quote: "תודה רבה על השירות המקצועי והאישי. מומלצת בחום!"
-    },
-    {
-      src: "/lovable-uploads/81cbd7d8-7523-423c-9b7e-263ccce666af.png",
-      name: "יוסי מזרחי",
-      quote: "ליחן עזרה לנו להגשים חלום ולמצוא את הבית המושלם. תודה!"
+      src: "/lovable-uploads/b6f8d4fa-3785-4f87-8a9c-b838bc4cb4d5.png",
+      name: "נטלי קופמן",
+      quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים."
     }
   ];
 
