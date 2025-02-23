@@ -32,11 +32,11 @@ export const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full shadow-xl">
+            <div className="w-64 h-80 mx-auto mb-6 overflow-hidden rounded-2xl shadow-xl">
               <motion.img 
                 src="/lovable-uploads/d9bceca3-1fb8-49d2-be2a-b95dd5f5bcb5.png"
                 alt="ליחן ביטון"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5 }}
