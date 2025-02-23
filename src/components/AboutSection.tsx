@@ -1,3 +1,4 @@
+
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
@@ -31,6 +32,16 @@ export const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
+            <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full shadow-xl">
+              <motion.img 
+                src="/lovable-uploads/58ec3ff6-ac03-46ab-9f3a-790067948d58.png"
+                alt="ליחן ביטון"
+                className="w-full h-full object-cover"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
