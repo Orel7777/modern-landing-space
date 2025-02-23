@@ -34,9 +34,9 @@ export const AboutSection = () => {
           <div className="text-center mb-12">
             <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full shadow-xl">
               <motion.img 
-                src="/lovable-uploads/58ec3ff6-ac03-46ab-9f3a-790067948d58.png"
+                src="/lovable-uploads/d9bceca3-1fb8-49d2-be2a-b95dd5f5bcb5.png"
                 alt="ליחן ביטון"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5 }}
