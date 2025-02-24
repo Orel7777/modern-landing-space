@@ -17,9 +17,11 @@ const formSchema = z.object({
   phone: z.string().regex(/^05\d{8}$/, "מספר טלפון לא תקין - חייב להתחיל ב-05 ולהכיל 10 ספרות"),
   email: z.string().email("כתובת אימייל לא תקינה"),
   currentLocation: z.string().min(2, "יש להזין מיקום תקין"),
-  interestType: z.enum(["sale", "buy", "rent"], { required_error: "יש לבחור סוג התעניינות" }),
+  interestType: z.enum(["sale", "buy", "landlord", "tenant"], { required_error: "יש לבחור סוג התעניינות" }),
+  beforeSale: z.string().optional(),
   soldProperty: z.string().optional(),
   bankApproval: z.boolean().optional(),
+  seenProperties: z.string().optional(),
   propertyInterest: z.string().optional()
 });
 
@@ -37,8 +39,10 @@ export const ContactForm = () => {
       email: "",
       currentLocation: "",
       interestType: undefined,
+      beforeSale: "",
       soldProperty: "",
       bankApproval: false,
+      seenProperties: "",
       propertyInterest: ""
     }
   });
@@ -57,7 +61,8 @@ export const ContactForm = () => {
           ...data,
           bankApproval: data.bankApproval ? "כן" : "לא",
           interestType: data.interestType === "sale" ? "מכירה" : 
-                       data.interestType === "buy" ? "קנייה" : "שכירות"
+                       data.interestType === "buy" ? "קנייה" :
+                       data.interestType === "landlord" ? "משכיר" : "שוכר"
         }),
       });
 
@@ -181,8 +186,12 @@ export const ContactForm = () => {
                       <RadioGroupItem value="buy" id="buy" />
                     </div>
                     <div className="flex items-center gap-1">
-                      <Label htmlFor="rent">שכירות</Label>
-                      <RadioGroupItem value="rent" id="rent" />
+                      <Label htmlFor="landlord">משכיר</Label>
+                      <RadioGroupItem value="landlord" id="landlord" />
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Label htmlFor="tenant">שוכר</Label>
+                      <RadioGroupItem value="tenant" id="tenant" />
                     </div>
                   </RadioGroup>
                 </FormControl>
@@ -195,15 +204,33 @@ export const ContactForm = () => {
             <div className="space-y-4 border-t pt-4">
               <FormField
                 control={form.control}
+                name="beforeSale"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>האם אתם לפני מכירה?</FormLabel>
+                    <FormControl>
+                      <Input 
+                        {...field} 
+                        className={`text-right ${form.formState.errors.beforeSale ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                        placeholder="ספר לנו על המצב הנוכחי" 
+                      />
+                    </FormControl>
+                    <FormMessage className="text-right" />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
                 name="soldProperty"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>האם כבר מכרתם נכס או לפני מכירה?</FormLabel>
+                    <FormLabel>האם כבר מכרתם נכס?</FormLabel>
                     <FormControl>
                       <Input 
                         {...field} 
                         className={`text-right ${form.formState.errors.soldProperty ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
-                        placeholder="פרט את מצב הנכס הנוכחי" 
+                        placeholder="ספר לנו על המכירה" 
                       />
                     </FormControl>
                     <FormMessage className="text-right" />
@@ -230,10 +257,28 @@ export const ContactForm = () => {
 
               <FormField
                 control={form.control}
+                name="seenProperties"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>האם ראיתם כבר נכסים?</FormLabel>
+                    <FormControl>
+                      <Input 
+                        {...field} 
+                        className={`text-right ${form.formState.errors.seenProperties ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                        placeholder="ספר לנו על הנכסים שראיתם" 
+                      />
+                    </FormControl>
+                    <FormMessage className="text-right" />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
                 name="propertyInterest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>באיזה נכס אתם מתעניינים?</FormLabel>
+                    <FormLabel>תאר את הנכס שאתה מחפש</FormLabel>
                     <FormControl>
                       <Textarea 
                         {...field} 
