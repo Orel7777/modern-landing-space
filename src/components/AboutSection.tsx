@@ -1,5 +1,6 @@
+
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { Star } from "lucide-react";
+import StarLoader from "./StarLoader";
 import { motion } from "framer-motion";
 
 export const AboutSection = () => {
@@ -31,6 +32,20 @@ export const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-6 mb-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-32 h-32 overflow-hidden rounded-full border-4 border-white shadow-lg"
+              >
+                <img
+                  src="/lovable-uploads/c1371c5d-d125-410f-b018-d7de5a565eb6.png"
+                  alt="ליחן ביטון"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +56,9 @@ export const AboutSection = () => {
             </motion.h2>
             <div className="flex justify-center space-x-2 mb-6">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <div key={i} className="scale-75">
+                  <StarLoader />
+                </div>
               ))}
             </div>
           </div>
