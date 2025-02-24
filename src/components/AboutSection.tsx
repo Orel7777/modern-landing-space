@@ -37,10 +37,10 @@ export const AboutSection = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="w-32 h-32 overflow-hidden rounded-full border-4 border-white shadow-lg"
+                className="w-48 h-48 overflow-hidden rounded-full border-4 border-[#e0b0ff] shadow-[0_0_20px_rgba(224,176,255,0.3)]"
               >
                 <img
-                  src="/lovable-uploads/c1371c5d-d125-410f-b018-d7de5a565eb6.png"
+                  src="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png"
                   alt="ליחן ביטון"
                   className="w-full h-full object-cover"
                 />
