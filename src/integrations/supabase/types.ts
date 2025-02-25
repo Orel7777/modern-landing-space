@@ -9,7 +9,75 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          bank_approval: boolean | null
+          before_sale: string | null
+          created_at: string | null
+          current_location: string
+          email: string
+          id: string
+          interest_type: string
+          name: string
+          notes: string | null
+          phone: string
+          property_interest: string | null
+          seen_properties: string | null
+          sold_property: string | null
+          status: string | null
+        }
+        Insert: {
+          bank_approval?: boolean | null
+          before_sale?: string | null
+          created_at?: string | null
+          current_location: string
+          email: string
+          id?: string
+          interest_type: string
+          name: string
+          notes?: string | null
+          phone: string
+          property_interest?: string | null
+          seen_properties?: string | null
+          sold_property?: string | null
+          status?: string | null
+        }
+        Update: {
+          bank_approval?: boolean | null
+          before_sale?: string | null
+          created_at?: string | null
+          current_location?: string
+          email?: string
+          id?: string
+          interest_type?: string
+          name?: string
+          notes?: string | null
+          phone?: string
+          property_interest?: string | null
+          seen_properties?: string | null
+          sold_property?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
+      user_profiles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["user_role"] | null
+        }
+        Insert: {
+          created_at?: string | null
+          id: string
+          role?: Database["public"]["Enums"]["user_role"] | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"] | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -18,7 +86,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      user_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never

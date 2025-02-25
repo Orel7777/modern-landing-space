@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().min(2, "שם חייב להכיל לפחות 2 תווים"),
@@ -50,25 +50,23 @@ export const ContactForm = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // שליחת הנתונים ל-Google Apps Script
-      const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          ...data,
-          bankApproval: data.bankApproval ? "כן" : "לא",
-          interestType: data.interestType === "sale" ? "מכירה" : 
-                       data.interestType === "buy" ? "קנייה" :
-                       data.interestType === "landlord" ? "משכיר" : "שוכר"
-        }),
-      });
+      // שמירת הנתונים בסופאבייס
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          current_location: data.currentLocation,
+          interest_type: data.interestType,
+          before_sale: data.beforeSale,
+          sold_property: data.soldProperty,
+          bank_approval: data.bankApproval,
+          seen_properties: data.seenProperties,
+          property_interest: data.propertyInterest
+        }]);
 
-      if (!response.ok) {
-        throw new Error('שגיאה בשליחת הטופס');
-      }
+      if (error) throw error;
 
       toast({
         title: "הודעה נשלחה בהצלחה",
