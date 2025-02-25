@@ -5,7 +5,7 @@ const StyledWrapper = styled.div`
   .container {
     position: relative;
     width: 256px;
-    height: 300px;
+    height: 256px;
     transition: 200ms;
   }
 
