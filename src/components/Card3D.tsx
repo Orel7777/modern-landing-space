@@ -5,7 +5,7 @@ const StyledWrapper = styled.div`
   .container {
     position: relative;
     width: 256px;
-    height: 256px;
+    height: 350px; // הגדלתי את הגובה מ-256px ל-350px
     transition: 200ms;
   }
 
