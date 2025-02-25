@@ -33,7 +33,7 @@ export const AboutSection = () => {
             }} transition={{
               duration: 0.5
             }} className="w-64 h-64 overflow-hidden rounded-lg border-4 border-[#e0b0ff] shadow-[0_0_20px_rgba(224,176,255,0.3)] object-fill">
-                <img src="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png" alt="ליחן ביטון" className="w-full h-full object-cover" />
+                <img src="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png" alt="ליחן ביטון" className="w-full h-full object-fill" />
               </motion.div>
             </div>
             <motion.h2 initial={{
