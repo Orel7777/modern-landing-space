@@ -37,7 +37,7 @@ export const AboutSection = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="w-72 h-72 md:w-96 md:h-96 overflow-hidden rounded-full border-4 border-[#e0b0ff] shadow-[0_0_20px_rgba(224,176,255,0.3)]"
+                className="w-64 h-64 overflow-hidden rounded-lg border-4 border-[#e0b0ff] shadow-[0_0_20px_rgba(224,176,255,0.3)]"
               >
                 <img
                   src="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png"
