@@ -21,6 +21,8 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 
+type SubmissionStatus = 'new' | 'in_progress' | 'completed' | 'cancelled';
+
 type Submission = {
   id: string;
   created_at: string;
@@ -29,7 +31,7 @@ type Submission = {
   email: string;
   current_location: string;
   interest_type: string;
-  status: 'new' | 'in_progress' | 'completed' | 'cancelled';
+  status: SubmissionStatus;
   notes?: string;
 };
 
@@ -70,7 +72,13 @@ export default function Admin() {
       return;
     }
 
-    setSubmissions(data || []);
+    // וידוא שהסטטוס תקין לפני השמת הנתונים
+    const validSubmissions = (data || []).map(submission => ({
+      ...submission,
+      status: (submission.status || 'new') as SubmissionStatus
+    }));
+
+    setSubmissions(validSubmissions);
     setLoading(false);
   };
 
@@ -78,7 +86,7 @@ export default function Admin() {
     fetchSubmissions();
   }, []);
 
-  const updateSubmissionStatus = async (id: string, status: string) => {
+  const updateSubmissionStatus = async (id: string, status: SubmissionStatus) => {
     const { error } = await supabase
       .from('contact_submissions')
       .update({ status })
@@ -94,7 +102,7 @@ export default function Admin() {
     }
 
     setSubmissions(submissions.map(sub =>
-      sub.id === id ? { ...sub, status: status as Submission['status'] } : sub
+      sub.id === id ? { ...sub, status } : sub
     ));
 
     toast({
@@ -167,7 +175,7 @@ export default function Admin() {
                 <TableCell>
                   <Select
                     value={submission.status}
-                    onValueChange={(value) => updateSubmissionStatus(submission.id, value)}
+                    onValueChange={(value: SubmissionStatus) => updateSubmissionStatus(submission.id, value)}
                   >
                     <SelectTrigger className="w-32">
                       <SelectValue />
