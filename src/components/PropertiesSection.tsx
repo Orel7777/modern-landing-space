@@ -89,7 +89,7 @@ export const PropertiesSection = () => {
     image: "/lovable-uploads/99dfa716-d88a-49a6-b415-37665ea93f58.png",
     title: "דירות גן בפרויקט חדש",
     price: "₪2,900,000",
-    location: "רמת גן",
+    location: "מודעין מכבי",
     details: "4 חדרים | 120 מ״ר | גינה 80 מ״ר",
     isExclusive: true
   }, {
