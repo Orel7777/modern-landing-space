@@ -1,6 +1,10 @@
 
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, LogIn } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useEffect, useState } from "react";
 
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
@@ -8,6 +12,19 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange((event, session) => {
+      setIsLoggedIn(!!session);
+    });
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+  };
+
   return (
     <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
       <div className="absolute inset-0">
@@ -26,9 +43,27 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
           מציאת הבית המושלם עבורך היא המשימה שלנו
         </p>
         <div className="flex flex-col items-center gap-4">
-          <Button size="lg" className="text-lg hover:scale-105 transition-transform" onClick={scrollToContact}>
-            צור קשר עכשיו
-          </Button>
+          <div className="flex gap-4">
+            <Button size="lg" className="text-lg hover:scale-105 transition-transform" onClick={scrollToContact}>
+              צור קשר עכשיו
+            </Button>
+            {isLoggedIn ? (
+              <>
+                <Button onClick={() => navigate("/admin")} variant="outline" size="lg" className="text-lg hover:scale-105 transition-transform">
+                  <LogIn className="ml-2 h-5 w-5" />
+                  ניהול
+                </Button>
+                <Button onClick={handleLogout} variant="outline" size="lg" className="text-lg hover:scale-105 transition-transform">
+                  התנתק
+                </Button>
+              </>
+            ) : (
+              <Button onClick={() => navigate("/auth")} variant="outline" size="lg" className="text-lg hover:scale-105 transition-transform">
+                <LogIn className="ml-2 h-5 w-5" />
+                התחבר
+              </Button>
+            )}
+          </div>
           <ul className="flex justify-center gap-4">
             <li className="group relative">
               <a href="https://wa.me/972500000000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">

@@ -18,9 +18,9 @@ export const PropertiesSection = () => {
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
   const allProperties: Property[] = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
-    title: "דירה במגדל הלבנון",
+    title: "שכונת המושאה דירת 4 חדרים",
     price: "₪4,200,000",
-    location: "מגדל הלבנון",
+    location: "מודיעין",
     details: "4 חדרים | מרפסת עם נוף | קומה גבוהה",
     isSold: true,
     isExclusive: true
