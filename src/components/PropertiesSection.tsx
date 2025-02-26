@@ -73,7 +73,7 @@ export const PropertiesSection = () => {
   }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דירת 3 חדרים",
-    price: "₪2,420,000",
+    price: "₪3,900,000",
     location: "שכונת הכרמים",
     details: "3 חדרים | 140 מ״ר | גינה 100 מ״ר",
     isExclusive: true
