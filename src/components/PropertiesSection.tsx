@@ -1,4 +1,3 @@
-
 import { PropertyCard } from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import Tree3D from "@/components/Tree3D";
@@ -21,7 +20,7 @@ export const PropertiesSection = () => {
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
 
   const allProperties: Property[] = [{
-    image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
+    image: "/lovable-uploads/6018b005-2b09-48dc-9e85-2218e12c4246.png",
     title: "✨ דירת 5 חדרים בשכונת הנביאים ✨",
     price: "₪3,590,000",
     location: "רחוב אלישע הנביא, מודיעין",
