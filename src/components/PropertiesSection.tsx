@@ -96,7 +96,7 @@ export const PropertiesSection = () => {
     image: "/lovable-uploads/214411a2-0541-4ba4-b053-d59b0fde3761.png",
     title: "בניין בוטיק יוקרתי",
     price: "₪4,100,000",
-    location: "תל אביב",
+    location: "מודיעין",
     details: "3 חדרים | 95 מ״ר | קומה 3",
     isExclusive: true
   }, {
