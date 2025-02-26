@@ -1,9 +1,6 @@
-
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import StarLoader from "./StarLoader";
 import { motion } from "framer-motion";
-import { Card3D } from "./Card3D";
-
 export const AboutSection = () => {
   const testimonials = [{
     src: "/lovable-uploads/e69edb93-f9e6-4355-bcff-ca1ed1a9ba1d.png",
@@ -22,38 +19,38 @@ export const AboutSection = () => {
     name: "נטלי קופמן",
     quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים."
   }];
-
-  return (
-    <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
+  return <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-6 mb-6">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Card3D 
-                  imageSrc="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png"
-                  alt="ליחן ביטון"
-                />
+              <motion.div initial={{
+              opacity: 0,
+              scale: 0.5
+            }} animate={{
+              opacity: 1,
+              scale: 1
+            }} transition={{
+              duration: 0.5
+            }} className="w-64 h-64 overflow-hidden rounded-lg border-4 border-[#e0b0ff] shadow-[0_0_20px_rgba(224,176,255,0.3)] object-fill">
+                <img src="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png" alt="ליחן ביטון" className="w-full h-full object-cover" />
               </motion.div>
             </div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-3xl font-bold mb-4"
-            >
+            <motion.h2 initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8
+          }} className="text-3xl font-bold mb-4">
               ליחן ביטון: נדל"ן עם תוצאות
             </motion.h2>
             <div className="flex justify-center space-x-2 mb-6">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="scale-75">
+              {[...Array(5)].map((_, i) => <div key={i} className="scale-75">
                   <StarLoader />
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
           
@@ -84,6 +81,5 @@ export const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
