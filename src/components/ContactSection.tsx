@@ -1,3 +1,4 @@
+
 import { ContactForm } from "@/components/ContactForm";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import BoxLoader from "@/components/BoxLoader";
@@ -6,7 +7,7 @@ export const ContactSection = ({
 }: {
   contactRef: React.RefObject<HTMLElement>;
 }) => {
-  return <section ref={contactRef} className="py-20 bg-secondary/20">
+  return <section ref={contactRef} className="py-20 bg-[#F1F0FB]">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">צור קשר</h2>
@@ -30,7 +31,7 @@ export const ContactSection = ({
                 <MapPin className="w-6 h-6" />
                 <div>
                   <h3 className="font-medium mb-1">כתובת</h3>
-                  <p className="text-gray-600">???</p>
+                  <p className="text-gray-600">תל אביב</p>
                 </div>
               </div>
               <div className="flex items-center justify-start space-x-6 space-x-reverse pt-4">
