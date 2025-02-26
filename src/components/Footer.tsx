@@ -4,7 +4,7 @@ import PlanetLoader from "./PlanetLoader";
 
 export const Footer = () => {
   return (
-    <footer className="py-4 bg-[#F1F0FB] text-[#403E43]">
+    <footer className="py-4 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="flex items-center justify-between w-full">
@@ -21,13 +21,13 @@ export const Footer = () => {
             <div className="flex-1 flex justify-end" />
           </div>
           <div className="text-center">
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-400">
               © {new Date().getFullYear()} כל הזכויות שמורות ל
               <a
                 href="https://orel-bukris-portfolio.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#403E43] hover:text-purple-400 transition-colors mx-1">
+                className="text-white hover:text-purple-400 transition-colors mx-1">
                 אוראל בוקריס
               </a>
               <span className="block text-[10px] mt-0.5">
