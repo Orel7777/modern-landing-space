@@ -33,12 +33,14 @@ export const PropertyCard = ({
       <div className="group/card w-full h-full [perspective:1000px]">
         <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg animate-fade-up relative [transform-style:preserve-3d] hover:[transform:rotateY(5deg)_rotateX(5deg)]">
           <div className="relative [transform-style:preserve-3d]">
-            <AspectRatio ratio={16 / 9}>
+            <AspectRatio ratio={4 / 3}>
               <img 
                 src={image} 
                 alt={title} 
                 className={`object-cover w-full h-full transition-transform duration-300 group-hover/card:scale-105 ${isSold || isRented ? 'opacity-70' : ''} cursor-pointer`}
                 onClick={() => setIsImageOpen(true)}
+                style={{ objectPosition: 'center center' }}
+                loading="lazy"
               />
             </AspectRatio>
             <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full [transform:translateZ(20px)]">
