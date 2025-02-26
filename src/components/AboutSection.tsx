@@ -2,26 +2,30 @@
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import StarLoader from "./StarLoader";
 import { motion } from "framer-motion";
-import { Card3D } from "./Card3D";
 
 export const AboutSection = () => {
-  const testimonials = [{
-    src: "/lovable-uploads/e69edb93-f9e6-4355-bcff-ca1ed1a9ba1d.png",
-    name: "נטלי קופמן",
-    quote: "יש מישהו שמעוניין לקחת שיש מטבח?"
-  }, {
-    src: "/lovable-uploads/6f17495b-46b8-4452-b23a-598c49f41c6d.png",
-    name: "חן נזריאן אמיר",
-    quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליחן המדהימה."
-  }, {
-    src: "/lovable-uploads/c265b691-63ad-46a9-be19-5c495a45bd58.png",
-    name: "אלי",
-    quote: "שבת שלום, אכלנו הערב ארוחה חלבית ופתחנו את הגבינות שהיו ממש טעימות."
-  }, {
-    src: "/lovable-uploads/b6f8d4fa-3785-4f87-8a9c-b838bc4cb4d5.png",
-    name: "נטלי קופמן",
-    quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים."
-  }];
+  const testimonials = [
+    {
+      src: "/lovable-uploads/e69edb93-f9e6-4355-bcff-ca1ed1a9ba1d.png",
+      name: "נטלי קופמן",
+      quote: "יש מישהו שמעוניין לקחת שיש מטבח?"
+    },
+    {
+      src: "/lovable-uploads/6f17495b-46b8-4452-b23a-598c49f41c6d.png",
+      name: "חן נזריאן אמיר",
+      quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליחן המדהימה."
+    },
+    {
+      src: "/lovable-uploads/c265b691-63ad-46a9-be19-5c495a45bd58.png",
+      name: "אלי",
+      quote: "שבת שלום, אכלנו הערב ארוחה חלבית ופתחנו את הגבינות שהיו ממש טעימות."
+    },
+    {
+      src: "/lovable-uploads/b6f8d4fa-3785-4f87-8a9c-b838bc4cb4d5.png",
+      name: "נטלי קופמן",
+      quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים."
+    }
+  ];
 
   return (
     <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
@@ -33,10 +37,12 @@ export const AboutSection = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
+                className="w-64 h-64 overflow-hidden rounded-lg border-4 border-[#e0b0ff] shadow-[0_0_20px_rgba(224,176,255,0.3)]"
               >
-                <Card3D 
-                  imageSrc="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png"
+                <img
+                  src="/lovable-uploads/84ff8dc7-a771-4eb4-839d-413a35904399.png"
                   alt="ליחן ביטון"
+                  className="w-full h-full object-cover"
                 />
               </motion.div>
             </div>
@@ -57,15 +63,12 @@ export const AboutSection = () => {
             </div>
           </div>
           
-          <motion.div initial={{
-          opacity: 0,
-          x: -50
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.8
-        }} className="space-y-6 text-right mb-20">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6 text-right mb-20"
+          >
             <p className="leading-relaxed">
               ליחן ביטון היא נדלניסטית מנוסה ומקצועית עם רקורד עשיר בתחום הנדל"ן, המתמחה במכירות, קניות והשכרות נכסים. הנדל"ן הוא לא רק העבודה שלה – זה העולם שלה. היא חיה את השטח, מכירה לעומק את השוק ויודעת לתת את המענה המקצועי ביותר לכל לקוח.
             </p>
