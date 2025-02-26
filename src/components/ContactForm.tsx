@@ -17,11 +17,9 @@ const formSchema = z.object({
   phone: z.string().regex(/^05\d{8}$/, "מספר טלפון לא תקין - חייב להתחיל ב-05 ולהכיל 10 ספרות"),
   email: z.string().email("כתובת אימייל לא תקינה"),
   currentLocation: z.string().min(2, "יש להזין מיקום תקין"),
-  interestType: z.enum(["sale", "buy", "landlord", "tenant"], { required_error: "יש לבחור סוג התעניינות" }),
-  beforeSale: z.string().optional(),
+  interestType: z.enum(["sale", "buy", "rent"], { required_error: "יש לבחור סוג התעניינות" }),
   soldProperty: z.string().optional(),
   bankApproval: z.boolean().optional(),
-  seenProperties: z.string().optional(),
   propertyInterest: z.string().optional()
 });
 
@@ -29,7 +27,6 @@ type FormData = z.infer<typeof formSchema>;
 
 export const ContactForm = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -39,52 +36,18 @@ export const ContactForm = () => {
       email: "",
       currentLocation: "",
       interestType: undefined,
-      beforeSale: "",
       soldProperty: "",
       bankApproval: false,
-      seenProperties: "",
       propertyInterest: ""
     }
   });
 
-  const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true);
-    try {
-      // שליחת הנתונים ל-Google Apps Script
-      const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          ...data,
-          bankApproval: data.bankApproval ? "כן" : "לא",
-          interestType: data.interestType === "sale" ? "מכירה" : 
-                       data.interestType === "buy" ? "קנייה" :
-                       data.interestType === "landlord" ? "משכיר" : "שוכר"
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('שגיאה בשליחת הטופס');
-      }
-
-      toast({
-        title: "הודעה נשלחה בהצלחה",
-        description: "נחזור אליך בהקדם האפשרי"
-      });
-      form.reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast({
-        variant: "destructive",
-        title: "שגיאה בשליחת הטופס",
-        description: "אנא נסו שוב מאוחר יותר"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const onSubmit = (data: FormData) => {
+    toast({
+      title: "הודעה נשלחה בהצלחה",
+      description: "נחזור אליך בהקדם האפשרי"
+    });
+    form.reset();
   };
 
   return (
@@ -186,12 +149,8 @@ export const ContactForm = () => {
                       <RadioGroupItem value="buy" id="buy" />
                     </div>
                     <div className="flex items-center gap-1">
-                      <Label htmlFor="landlord">משכיר</Label>
-                      <RadioGroupItem value="landlord" id="landlord" />
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Label htmlFor="tenant">שוכר</Label>
-                      <RadioGroupItem value="tenant" id="tenant" />
+                      <Label htmlFor="rent">שכירות</Label>
+                      <RadioGroupItem value="rent" id="rent" />
                     </div>
                   </RadioGroup>
                 </FormControl>
@@ -204,33 +163,15 @@ export const ContactForm = () => {
             <div className="space-y-4 border-t pt-4">
               <FormField
                 control={form.control}
-                name="beforeSale"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>האם אתם לפני מכירה?</FormLabel>
-                    <FormControl>
-                      <Input 
-                        {...field} 
-                        className={`text-right ${form.formState.errors.beforeSale ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
-                        placeholder="ספר לנו על המצב הנוכחי" 
-                      />
-                    </FormControl>
-                    <FormMessage className="text-right" />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
                 name="soldProperty"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>האם כבר מכרתם נכס?</FormLabel>
+                    <FormLabel>האם כבר מכרתם נכס או לפני מכירה?</FormLabel>
                     <FormControl>
                       <Input 
                         {...field} 
                         className={`text-right ${form.formState.errors.soldProperty ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
-                        placeholder="ספר לנו על המכירה" 
+                        placeholder="פרט את מצב הנכס הנוכחי" 
                       />
                     </FormControl>
                     <FormMessage className="text-right" />
@@ -257,28 +198,10 @@ export const ContactForm = () => {
 
               <FormField
                 control={form.control}
-                name="seenProperties"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>האם ראיתם כבר נכסים?</FormLabel>
-                    <FormControl>
-                      <Input 
-                        {...field} 
-                        className={`text-right ${form.formState.errors.seenProperties ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
-                        placeholder="ספר לנו על הנכסים שראיתם" 
-                      />
-                    </FormControl>
-                    <FormMessage className="text-right" />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
                 name="propertyInterest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>תאר את הנכס שאתה מחפש</FormLabel>
+                    <FormLabel>באיזה נכס אתם מתעניינים?</FormLabel>
                     <FormControl>
                       <Textarea 
                         {...field} 
@@ -294,8 +217,8 @@ export const ContactForm = () => {
           )}
         </div>
 
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? "שולח..." : "שליחה"}
+        <Button type="submit" className="w-full">
+          שליחה
         </Button>
       </form>
     </Form>

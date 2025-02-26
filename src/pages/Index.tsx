@@ -4,8 +4,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HeroSection } from "@/components/HeroSection";
 import { PropertiesSection } from "@/components/PropertiesSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
-import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,8 +33,8 @@ const Index = () => {
     <div className="font-heebo">
       <HeroSection heroRef={heroRef} scrollToContact={scrollToContact} />
       <PropertiesSection />
-      <AboutSection />
       <ContactSection contactRef={contactRef} />
+      <TestimonialsSection />
       <Footer />
     </div>
   );
