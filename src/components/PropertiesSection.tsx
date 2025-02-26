@@ -72,10 +72,10 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
-    title: "+ממד דירת 5 חדרים",
-    price: "₪6,500,000",
-    location: "שכונת בוכמן היוקרתית רחוב בנימין המבוקש,דו-משפחתי",
-    details: "5 חדרים | מרפסת סוכה בכניסה לבית  | 2 חניות גראז סגורות  מ״ר",
+    title: "דירת 3 חדרים",
+    price: "₪3,900,000",
+    location: "שכונת הכרמים",
+    details: "3 חדרים | 140 מ״ר | גינה 100 מ״ר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
