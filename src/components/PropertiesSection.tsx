@@ -78,16 +78,15 @@ export const PropertiesSection = () => {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
     title: "דו משפחתי 5 חדרים + ממד ומרפסת סוכה",
     price: "₪6,500,000",
-    location: "שכונת הכרמים",
+    location: "שכונת בוכמן היוקרתית רחוב בנימין המבוקש",
     details: "5 חדרים | 2 חניות גארז סגורות | חדר ילדים עם מרפסת 12 מ״ר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
-    title: "דירת 3 חדרים",
-    price: "₪8,500,000",
-    location: "שכונת הכרמים",
-    details: "6 חדרים | 350 מ״ר | מגרש 500 מ״ר",
-    isSold: true,
+    title: "דירת 3 חדרים עם מחסן ענק",
+    price: "₪2,420,000",
+    location: "מודיעין שכונת הכרמים",
+    details: "3 חדרים | 87 מ״ר |  מרפסת 12 מ״ר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/99dfa716-d88a-49a6-b415-37665ea93f58.png",
