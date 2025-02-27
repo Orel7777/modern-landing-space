@@ -59,10 +59,10 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/8eaad152-952f-4d2c-aac2-4b5a46173496.png",
-    title: "דירת 4 חדרים",
+    title: "דירת 4 חדרים דם המכבים",
     price: "₪3,500,000",
-    location: "מער",
-    details: "4 חדרים | 120 מ״ר",
+    location: "מודיעין מכבי",
+    details: "4 חדרים | נמכר",
     isSold: true,
     isExclusive: true
   }, {
@@ -78,7 +78,7 @@ export const PropertiesSection = () => {
     title: "דו משפחתי 5 חדרים + ממד ומרפסת סוכה",
     price: "₪6,500,000",
     location: "שכונת הכרמים",
-    details: "5 חדרים | 2 חניות גארז סגורות | חדר ילדים עם מרפסת 12 מטר",
+    details: "5 חדרים | 2 חניות גארז סגורות | חדר ילדים עם מרפסת 12 מ״ר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
