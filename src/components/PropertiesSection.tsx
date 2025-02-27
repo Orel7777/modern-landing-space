@@ -178,6 +178,21 @@ export const PropertiesSection = () => {
             </div>
           ))}
         </div>
+
+        {/* More Properties Link */}
+        <div className="flex justify-center mt-12">
+          <a
+            href="https://www.remax-israel.com/he-il/%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99%D7%9D/%D7%9E%D7%A8%D7%9B%D7%96/%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F/%D7%9C%D7%99%D7%97%D7%9F-%D7%91%D7%99%D7%98%D7%95%D7%9F-lihen-biton/51001102"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative"
+          >
+            <div className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl rounded-xl bg-gradient-to-r from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3]">
+              <span className="relative z-10 text-primary">נכסים נוספים</span>
+              <div className="absolute inset-0 rounded-xl bg-white/20 backdrop-blur-sm group-hover:bg-white/30 transition-all duration-300" />
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   );
