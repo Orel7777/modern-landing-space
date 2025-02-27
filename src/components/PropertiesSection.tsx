@@ -36,17 +36,17 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/0afc380f-fe8f-46da-b85d-b329fdfa372a.png",
-    title: "דירת 3 חדרים ומחסן ענק בשכונת הכרמים",
+    title: "דירת 3 חדרים ומחסן ענק",
     price: "₪2,420,000",
-    location: "מודיעין",
+    location: "מודעין שכונת הכרמים",
     details: "3 חדרים | 68 מ״ר | מרפסת 12 מ״ר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
-    title: "דו משפחתי 5 חדרים פלוס ממ״ד",
-    price: "₪5,200,000",
-    location: "שכונת בוכמן",
-    details: "5 חדרים | 180 מ״ר | דו משפחתי",
+    title: "דופלקס 5 חדרים מעוצבת ומרשימה עם מרחב פרטי ונוף פתוח",
+    price: "₪4,390,000",
+    location: "מודיעין שכונת נופים",
+    details: "5 חדרים | 140 מ״ר | דו משפחתי",
     isSold: false,
     isExclusive: true
   }, {
