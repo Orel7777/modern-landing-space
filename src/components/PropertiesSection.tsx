@@ -67,9 +67,9 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/96e330a2-c723-4412-885a-5e3197aae3fc.png",
-    title: "דירת גן 5 חדרים",
-    price: "₪4,800,000",
-    location: "שכונת הפרחים",
+    title: "דופלקס דו משפחתי 5 חדרים",
+    price: "הושכר",
+    location: "נץ החלב שכונת הפרחים",
     details: "5 חדרים | 150 מ״ר | גינה",
     isRented: true,
     isExclusive: true
