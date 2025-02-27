@@ -75,10 +75,10 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/1778ea6e-3bcb-453d-9c31-79a06a1229d4.png",
-    title: "דירת 3 חדרים",
-    price: "₪3,900,000",
+    title: "דו משפחתי 5 חדרים + ממד ומרפסת סוכה",
+    price: "₪6,500,000",
     location: "שכונת הכרמים",
-    details: "3 חדרים | 140 מ״ר | גינה 100 מ״ר",
+    details: "5 חדרים | 2 חניות גארז סגורות | חדר ילדים עם מרפסת 12 מטר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/1f8d5bb3-5609-49b7-97c4-d76420b597d2.png",
