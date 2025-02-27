@@ -112,8 +112,18 @@ export const PropertiesSection = () => {
     if (filter === 'available') return !property.isSold && !property.isRented;
     return true;
   });
-  return <section className="py-20 bg-muted">
-      <div className="container mx-auto">
+  return (
+    <section className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
+      
+      {/* Transparent Real Estate Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 left-10 w-32 h-32 border-4 border-primary rounded-lg transform rotate-12" />
+        <div className="absolute top-40 right-20 w-40 h-40 border-4 border-primary rounded-lg transform -rotate-6" />
+        <div className="absolute bottom-20 left-1/4 w-36 h-36 border-4 border-primary rounded-lg transform rotate-45" />
+      </div>
+
+      <div className="relative container mx-auto">
         <div className="flex items-center justify-center mb-12">
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
             <Tree3D />
@@ -125,35 +135,50 @@ export const PropertiesSection = () => {
         </div>
         
         <div className="flex justify-center gap-4 mb-8">
-          <Button variant={filter === 'all' ? 'default' : 'outline'} onClick={() => setFilter('all')} className="min-w-[120px] hover:scale-105 transition-transform">
+          <Button 
+            variant={filter === 'all' ? 'default' : 'outline'} 
+            onClick={() => setFilter('all')} 
+            className="min-w-[120px] hover:scale-105 transition-transform backdrop-blur-sm"
+          >
             הכל
           </Button>
-          <Button variant={filter === 'available' ? 'default' : 'outline'} onClick={() => setFilter('available')} className="min-w-[120px] hover:scale-105 transition-transform">
+          <Button 
+            variant={filter === 'available' ? 'default' : 'outline'} 
+            onClick={() => setFilter('available')} 
+            className="min-w-[120px] hover:scale-105 transition-transform backdrop-blur-sm"
+          >
             למכירה
           </Button>
-          <Button variant={filter === 'sold' ? 'default' : 'outline'} onClick={() => setFilter('sold')} className="min-w-[120px] hover:scale-105 transition-transform">
+          <Button 
+            variant={filter === 'sold' ? 'default' : 'outline'} 
+            onClick={() => setFilter('sold')} 
+            className="min-w-[120px] hover:scale-105 transition-transform backdrop-blur-sm"
+          >
             נמכר
           </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProperties.map((property, index) => <div key={index} className="opacity-0" ref={el => {
-          if (el) {
-            gsap.to(el, {
-              scrollTrigger: {
-                trigger: el,
-                start: "top 85%"
-              },
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              delay: index * 0.2
-            });
-          }
-        }}>
+          {filteredProperties.map((property, index) => (
+            <div key={index} className="opacity-0" ref={el => {
+              if (el) {
+                gsap.to(el, {
+                  scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%"
+                  },
+                  opacity: 1,
+                  y: 0,
+                  duration: 0.6,
+                  delay: index * 0.2
+                });
+              }
+            }}>
               <PropertyCard {...property} />
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
