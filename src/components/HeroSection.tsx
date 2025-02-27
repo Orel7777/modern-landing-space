@@ -1,5 +1,5 @@
 
-import { Button } from "@/components/ui/button";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
 
 interface HeroSectionProps {
@@ -26,9 +26,9 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
           מציאת הבית המושלם עבורך היא המשימה שלנו
         </p>
         <div className="flex flex-col items-center gap-4">
-          <Button size="lg" className="text-lg hover:scale-105 transition-transform" onClick={scrollToContact}>
+          <RainbowButton onClick={scrollToContact} className="text-lg">
             צור קשר עכשיו
-          </Button>
+          </RainbowButton>
           <ul className="flex justify-center gap-4">
             <li className="group relative">
               <a href="https://wa.me/972500000000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">
