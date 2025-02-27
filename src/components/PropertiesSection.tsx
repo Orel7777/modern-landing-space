@@ -1,3 +1,4 @@
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { Button } from "@/components/ui/button";
 import Tree3D from "@/components/Tree3D";
@@ -35,11 +36,11 @@ export const PropertiesSection = () => {
     details: "4 חדרים | 104 מ״ר | גינה",
     isExclusive: true
   }, {
-    image: "/lovable-uploads/0afc380f-fe8f-46da-b85d-b329fdfa372a.png",
-    title: "דירת 3 חדרים ומחסן ענק",
-    price: "₪2,420,000",
-    location: "מודעין שכונת הכרמים",
-    details: "3 חדרים | 68 מ״ר | מרפסת 12 מ״ר",
+    image: "/lovable-uploads/e7f70dcb-3404-4920-8d76-aea4a6a13469.png",
+    title: "דירת 5 חדרים ענקית ומוארת",
+    price: "₪3,590,000",
+    location: "שכונת הנביאים מודיעין",
+    details: "5 חדרים | 137 מ״ר | מרפסת שמש | שתי חניות",
     isExclusive: true
   }, {
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
