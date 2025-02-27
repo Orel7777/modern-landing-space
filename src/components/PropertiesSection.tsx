@@ -29,10 +29,10 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/81cbd7d8-7523-423c-9b7e-263ccce666af.png",
-    title: "דירת גן 4 חדרים",
-    price: "₪4,200,000",
-    location: "שכונת מורשת",
-    details: "4 חדרים | 250 מ״ר | גינה",
+    title: "דירת גן 4 חדרים עם גינה ענקית ושתי חניות",
+    price: "₪4,350,000",
+    location: "מודעין",
+    details: "4 חדרים | 104 מ״ר | גינה",
     isExclusive: true
   }, {
     image: "/lovable-uploads/0afc380f-fe8f-46da-b85d-b329fdfa372a.png",
