@@ -52,7 +52,7 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/045e09ed-69e0-4ea8-8a50-d493a011cb6b.png",
-    title: "דירת 6 חדרים",
+    title: "דופלקס דירת 6 חדרים",
     price: "₪4,500,000",
     location: "רחוב סביון, שכונת הפרחים",
     details: "6 חדרים | 200 מ״ר",
