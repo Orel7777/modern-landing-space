@@ -44,7 +44,7 @@ export const PropertiesSection = () => {
     isExclusive: true
   }, {
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
-    title: "דופלקס 5 חדרים מעוצבת ומרשימה עם מרחב פרטי ונוף פתוח",
+    title: "דופלקס 5 חדרים מעוצבת ומרשימה עם נוף פתוח",
     price: "₪4,390,000",
     location: "מודיעין שכונת נופים",
     details: "5 חדרים | 140 מ״ר | דו משפחתי",
