@@ -22,7 +22,7 @@ export const PropertiesSection = () => {
   const allProperties: Property[] = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
     title: "שכונת המושאה דירת 4 חדרים",
-    price: "₪4,200,000",
+    price: "₪4,000,000",
     location: "מודיעין",
     details: "4 חדרים | מרפסת עם נוף | קומה גבוהה",
     isSold: true,
