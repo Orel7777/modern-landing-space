@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Tree3D from "@/components/Tree3D";
 import { useRef, useState } from "react";
 import gsap from "gsap";
+
 interface Property {
   image: string;
   title: string;
@@ -13,9 +14,11 @@ interface Property {
   isRented?: boolean;
   isExclusive?: boolean;
 }
+
 export const PropertiesSection = () => {
   const propertiesTitleRef = useRef(null);
   const [filter, setFilter] = useState<'all' | 'sold' | 'available'>('all');
+
   const allProperties: Property[] = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
     title: "שכונת המושאה דירת 4 חדרים",
@@ -34,9 +37,9 @@ export const PropertiesSection = () => {
   }, {
     image: "/lovable-uploads/0afc380f-fe8f-46da-b85d-b329fdfa372a.png",
     title: "דירת 3 חדרים",
-    price: "₪3,900,000",
+    price: "₪2,420,000",
     location: "שכונת הכרמים",
-    details: "3 חדרים | 140 מ״ר | גינה 100 מ״ר",
+    details: "3 חדרים | 87 מ״ר | מרפסת 12 מ״ר",
     isExclusive: true
   }, {
     image: "/lovable-uploads/03c93028-25f9-4a1f-a9b3-9e3eea1b4ac1.png",
@@ -107,11 +110,13 @@ export const PropertiesSection = () => {
     details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר",
     isExclusive: true
   }];
+
   const filteredProperties = allProperties.filter(property => {
     if (filter === 'sold') return property.isSold;
     if (filter === 'available') return !property.isSold && !property.isRented;
     return true;
   });
+
   return (
     <section className="relative py-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
