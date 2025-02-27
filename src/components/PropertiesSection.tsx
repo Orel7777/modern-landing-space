@@ -88,27 +88,7 @@ export const PropertiesSection = () => {
     location: "מודיעין שכונת הכרמים",
     details: "3 חדרים | 87 מ״ר |  מרפסת 12 מ״ר",
     isExclusive: true
-  }, {
-    image: "/lovable-uploads/99dfa716-d88a-49a6-b415-37665ea93f58.png",
-    title: "דירות גן בפרויקט חדש",
-    price: "₪2,900,000",
-    location: "מודעין מכבי",
-    details: "4 חדרים | 120 מ״ר | גינה 80 מ״ר",
-    isExclusive: true
-  }, {
-    image: "/lovable-uploads/214411a2-0541-4ba4-b053-d59b0fde3761.png",
-    title: "בניין בוטיק יוקרתי",
-    price: "₪4,100,000",
-    location: "מודיעין",
-    details: "3 חדרים | 95 מ״ר | קומה 3",
-    isExclusive: true
-  }, {
-    image: "/lovable-uploads/0166f288-f38c-49a5-949c-1e7b3307fbca.png",
-    title: "דירת גג מפוארת",
-    price: "₪3,800,000",
-    location: "גבעתיים",
-    details: "4 חדרים | 130 מ״ר | מרפסת 30 מ״ר",
-    isExclusive: true
+  }
   }];
 
   const filteredProperties = allProperties.filter(property => {
