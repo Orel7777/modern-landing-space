@@ -67,11 +67,11 @@ export const ContactSection = ({
                     damping: 4.1,
                     mass: 0.2,
                   }}
-                  className="group relative rounded-lg max-w-[240px]"
+                  className="group relative rounded-lg max-w-[320px]"
                 >
                   <Spotlight
                     className="z-10 from-white/50 via-white/20 to-white/10 blur-2xl"
-                    size={248}
+                    size={320}
                     springOptions={{
                       stiffness: 26.7,
                       damping: 4.1,
@@ -81,7 +81,7 @@ export const ContactSection = ({
                   <img
                     src="/lovable-uploads/7ca65098-19e0-4a43-8b0c-4e57a31e21b4.png"
                     alt="Business Card"
-                    className="w-full rounded-lg object-cover shadow-lg duration-700 group-hover:shadow-xl"
+                    className="w-full h-[180px] rounded-lg object-cover shadow-lg duration-700 group-hover:shadow-xl"
                   />
                 </Tilt>
               </div>
