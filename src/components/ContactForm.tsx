@@ -11,6 +11,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { CircleCheck } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "שם חייב להכיל לפחות 2 תווים"),
@@ -30,6 +32,7 @@ type FormData = z.infer<typeof formSchema>;
 export const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -70,11 +73,21 @@ export const ContactForm = () => {
         throw new Error('שגיאה בשליחת הטופס');
       }
 
+      // הצגת הודעת הצלחה
+      setShowSuccessAlert(true);
+      
       toast({
         title: "הודעה נשלחה בהצלחה",
         description: "נחזור אליך בהקדם האפשרי"
       });
+      
       form.reset();
+      
+      // הסתרת ההודעה לאחר 5 שניות
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+      }, 5000);
+      
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -90,6 +103,16 @@ export const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 animate-fade-up">
+        {showSuccessAlert && (
+          <Alert 
+            variant="success" 
+            className="mb-4 text-emerald-600 border-emerald-500/50"
+            icon={<CircleCheck className="text-emerald-500" size={16} strokeWidth={2} />}
+          >
+            <p className="text-sm">הטופס נשלח בהצלחה ניצור איתך קשר בהקדם</p>
+          </Alert>
+        )}
+        
         <div className="space-y-4">
           <FormField
             control={form.control}
