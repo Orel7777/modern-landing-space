@@ -2,6 +2,9 @@
 import { ContactForm } from "@/components/ContactForm";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import BoxLoader from "@/components/BoxLoader";
+import { Tilt } from "@/components/ui/tilt";
+import { Spotlight } from "@/components/ui/spotlight";
+
 export const ContactSection = ({
   contactRef
 }: {
@@ -49,6 +52,38 @@ export const ContactSection = ({
               </div>
               <div className="flex justify-start">
                 <BoxLoader />
+              </div>
+              
+              {/* תמונה עם אפקט Tilt מתחת לריבוע הכתום */}
+              <div className="mt-8">
+                <Tilt
+                  rotationFactor={6}
+                  isRevese
+                  style={{
+                    transformOrigin: 'center center',
+                  }}
+                  springOptions={{
+                    stiffness: 26.7,
+                    damping: 4.1,
+                    mass: 0.2,
+                  }}
+                  className="group relative rounded-lg max-w-[240px]"
+                >
+                  <Spotlight
+                    className="z-10 from-white/50 via-white/20 to-white/10 blur-2xl"
+                    size={248}
+                    springOptions={{
+                      stiffness: 26.7,
+                      damping: 4.1,
+                      mass: 0.2,
+                    }}
+                  />
+                  <img
+                    src="/lovable-uploads/7ca65098-19e0-4a43-8b0c-4e57a31e21b4.png"
+                    alt="Business Card"
+                    className="w-full rounded-lg object-cover shadow-lg duration-700 group-hover:shadow-xl"
+                  />
+                </Tilt>
               </div>
             </div>
             <ContactForm />
