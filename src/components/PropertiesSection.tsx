@@ -88,7 +88,6 @@ export const PropertiesSection = () => {
     location: "מודיעין שכונת הכרמים",
     details: "3 חדרים | 87 מ״ר |  מרפסת 12 מ״ר",
     isExclusive: true
-  }
   }];
 
   const filteredProperties = allProperties.filter(property => {
