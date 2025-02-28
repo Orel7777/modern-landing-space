@@ -2,17 +2,43 @@
 import { ContactForm } from "@/components/ContactForm";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import BoxLoader from "@/components/BoxLoader";
+import { SparklesCore } from "@/components/ui/sparkles";
+
 export const ContactSection = ({
   contactRef
 }: {
   contactRef: React.RefObject<HTMLElement>;
 }) => {
-  return <section ref={contactRef} className="py-20 bg-[#F1F0FB]">
-      <div className="container mx-auto">
+  return (
+    <section ref={contactRef} className="py-20 bg-[#F1F0FB] relative overflow-hidden">
+      {/* תמונת הרקע עם אפקט הספרקלס */}
+      <div className="absolute bottom-0 right-0 w-full md:w-1/2 h-full md:h-full overflow-hidden opacity-10">
+        <div className="relative w-full h-full">
+          <img 
+            src="/lovable-uploads/2660220d-87d0-4e32-a81f-1948b7cdcb52.png" 
+            alt="Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0">
+            <SparklesCore
+              id="sparkles-effect"
+              background="transparent"
+              minSize={0.6}
+              maxSize={1.4}
+              particleDensity={70}
+              className="w-full h-full"
+              particleColor="#403E43"
+              speed={0.5}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">צור קשר</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-8">
+            <div className="space-y-8 bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md">
               <div className="flex items-center space-x-4 space-x-reverse">
                 <Phone className="w-6 h-6" />
                 <div>
@@ -55,5 +81,6 @@ export const ContactSection = ({
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
