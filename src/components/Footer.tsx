@@ -4,8 +4,24 @@ import PlanetLoader from "./PlanetLoader";
 
 export const Footer = () => {
   return (
-    <footer className="py-4 bg-[#F1F0FB] text-[#403E43]">
-      <div className="container mx-auto px-4">
+    <footer className="py-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
+      
+      {/* Real Estate Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-2 left-10 w-16 h-16 border-4 border-primary rounded-lg transform rotate-12" />
+        <div className="absolute bottom-4 right-20 w-20 h-20 border-4 border-primary rounded-lg transform -rotate-6" />
+        
+        {/* House Silhouettes */}
+        <svg className="absolute top-1 right-10 w-12 h-12 text-primary opacity-10" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+        </svg>
+        <svg className="absolute bottom-1 left-14 w-16 h-16 text-primary opacity-10" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75Z" />
+        </svg>
+      </div>
+      
+      <div className="relative container mx-auto px-4">
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="flex items-center justify-between w-full">
             <div className="flex-1 flex justify-start" /> {/* Spacer */}

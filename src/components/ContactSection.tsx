@@ -82,6 +82,26 @@ export const ContactSection = ({
   return <section ref={contactRef} className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
       
+      {/* Real Estate Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-10 w-28 h-28 border-4 border-primary rounded-lg transform rotate-6" />
+        <div className="absolute top-40 left-20 w-36 h-36 border-4 border-primary rounded-lg transform -rotate-12" />
+        <div className="absolute bottom-60 right-1/4 w-32 h-32 border-4 border-primary rounded-lg transform rotate-15" />
+        <div className="absolute top-1/3 left-1/3 w-20 h-20 border-t-8 border-l-8 border-primary transform rotate-12" />
+        <div className="absolute bottom-1/4 left-1/4 w-24 h-24 border-b-8 border-r-8 border-primary transform -rotate-6" />
+        
+        {/* House Silhouettes */}
+        <svg className="absolute top-16 left-16 w-28 h-28 text-primary opacity-10" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+        </svg>
+        <svg className="absolute bottom-16 right-16 w-32 h-32 text-primary opacity-10" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75Z" />
+        </svg>
+        <svg className="absolute top-2/3 right-1/3 w-24 h-24 text-primary opacity-10" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M5,10V20H19V10H5M6.5,12H10.5V15.5H6.5V12M17.5,17.5H13V14H17.5V17.5M13,12V13.5H17.5V12H13M3,4H21V8H19V10H21V12H11V8H9V10H3V4M7,6V7H5V6H7M5,8H7V9H5V8Z" />
+        </svg>
+      </div>
+      
       <div className="relative container mx-auto">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">צור קשר</h2>
