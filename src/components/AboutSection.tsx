@@ -1,4 +1,3 @@
-
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import StarLoader from "./StarLoader";
 import { motion } from "framer-motion";

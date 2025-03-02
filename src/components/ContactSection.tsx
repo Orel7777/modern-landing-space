@@ -79,8 +79,10 @@ export const ContactSection = ({
 }: {
   contactRef: React.RefObject<HTMLElement>;
 }) => {
-  return <section ref={contactRef} className="py-20 bg-[#F1F0FB]">
-      <div className="container mx-auto">
+  return <section ref={contactRef} className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
+      
+      <div className="relative container mx-auto">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">צור קשר</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
