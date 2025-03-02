@@ -24,8 +24,10 @@ export const AboutSection = () => {
   }];
 
   return (
-    <section className="py-20 bg-[#F1F0FB] text-[#403E43]">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
+      
+      <div className="relative container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-6 mb-6">
