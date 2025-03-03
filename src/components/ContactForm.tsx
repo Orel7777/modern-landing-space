@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { CircleCheck } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import emailjs from 'emailjs-com';
 
 const formSchema = z.object({
   name: z.string().min(2, "שם חייב להכיל לפחות 2 תווים"),
@@ -65,6 +65,12 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
+// Initialize EmailJS (you need to create an account and get these IDs)
+// For real implementation, replace these with your actual IDs from EmailJS dashboard
+const EMAILJS_SERVICE_ID = "your_service_id"; // Replace with your Service ID
+const EMAILJS_TEMPLATE_ID = "your_template_id"; // Replace with your Template ID
+const EMAILJS_USER_ID = "your_user_id"; // Replace with your User ID
+
 export const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,25 +97,31 @@ export const ContactForm = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // שליחת הנתונים ל-Google Apps Script
-      const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          ...data,
-          bankApproval: data.bankApproval ? "כן" : "לא",
-          interestType: data.interestType === "sale" ? "מכירה" : 
+      // Prepare data for email
+      const formattedData = {
+        to_email: "orelbukris77777@gmail.com",
+        from_name: data.name,
+        from_email: data.email,
+        from_phone: data.phone,
+        current_location: data.currentLocation,
+        interest_type: data.interestType === "sale" ? "מכירה" : 
                        data.interestType === "buy" ? "קנייה" :
-                       data.interestType === "landlord" ? "משכיר" : "שוכר"
-        }),
-      });
+                       data.interestType === "landlord" ? "משכיר" : "שוכר",
+        before_sale: data.beforeSale || "לא רלוונטי",
+        sold_property: data.soldProperty || "לא רלוונטי", 
+        bank_approval: data.bankApproval ? "כן" : "לא",
+        seen_properties: data.seenProperties || "לא רלוונטי",
+        property_interest: data.propertyInterest || "לא רלוונטי",
+        timestamp: new Date().toLocaleString('he-IL')
+      };
 
-      if (!response.ok) {
-        throw new Error('שגיאה בשליחת הטופס');
-      }
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formattedData,
+        EMAILJS_USER_ID
+      );
 
       // שמירת הנתונים שנשלחו
       setSubmittedData(data);
@@ -380,6 +392,7 @@ export const ContactForm = () => {
           
           <div className="space-y-4 py-4">
             <p className="text-sm text-gray-700">תודה שפנית אלינו, נחזור אליך בהקדם האפשרי!</p>
+            <p className="text-sm text-gray-700">הודעה נשלחה למייל: orelbukris77777@gmail.com</p>
             
             {submittedData && (
               <div className="bg-gray-50 p-4 rounded-md border border-gray-100 space-y-2">
