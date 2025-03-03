@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,8 +64,8 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-// FormSubmit endpoint - send emails to orelbussinessmarket@gmail.com
-const FORM_ENDPOINT = "https://formsubmit.co/orelbussinessmarket@gmail.com";
+// FormSubmit endpoint - send emails to lihenb84@gmail.com
+const FORM_ENDPOINT = "https://formsubmit.co/lihenb84@gmail.com";
 
 export const ContactForm = () => {
   const { toast } = useToast();
@@ -400,7 +399,7 @@ export const ContactForm = () => {
           
           <div className="space-y-4 py-4">
             <p className="text-sm text-gray-700">תודה שפנית אלינו, נחזור אליך בהקדם האפשרי!</p>
-            <p className="text-sm text-gray-700">הודעה נשלחה למייל: orelbussinessmarket@gmail.com</p>
+            <p className="text-sm text-gray-700">הודעה נשלחה למייל: lihenb84@gmail.com</p>
             
             {submittedData && (
               <div className="bg-gray-50 p-4 rounded-md border border-gray-100 space-y-2">
