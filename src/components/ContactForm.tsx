@@ -14,7 +14,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { CircleCheck } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import emailjs from 'emailjs-com';
 
 const formSchema = z.object({
   name: z.string().min(2, "שם חייב להכיל לפחות 2 תווים"),
@@ -66,14 +65,8 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-// EmailJS configuration - Updated with the service ID from the provided screenshot
-// Real-world implementation requires creating an account at emailjs.com
-const EMAILJS_SERVICE_ID = "service_gthw6lf"; // Updated Service ID from screenshot
-const EMAILJS_TEMPLATE_ID = "template_example"; // Replace with your Template ID
-const EMAILJS_USER_ID = "YOUR_PUBLIC_KEY"; // Replace with your Public Key
-
-// Initialize EmailJS
-emailjs.init(EMAILJS_USER_ID);
+// FormSubmit endpoint - send emails to orelbussinessmarket@gmail.com
+const FORM_ENDPOINT = "https://formsubmit.co/orelbussinessmarket@gmail.com";
 
 export const ContactForm = () => {
   const { toast } = useToast();
@@ -101,39 +94,42 @@ export const ContactForm = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // Prepare data for email
-      const formattedData = {
-        to_email: "orelbussinessmarket@gmail.com", // Updated email address
-        from_name: data.name,
-        from_email: data.email,
-        from_phone: data.phone,
-        current_location: data.currentLocation,
-        interest_type: data.interestType === "sale" ? "מכירה" : 
-                       data.interestType === "buy" ? "קנייה" :
-                       data.interestType === "landlord" ? "משכיר" : "שוכר",
-        before_sale: data.beforeSale || "לא רלוונטי",
-        sold_property: data.soldProperty || "לא רלוונטי", 
-        bank_approval: data.bankApproval ? "כן" : "לא",
-        seen_properties: data.seenProperties || "לא רלוונטי",
-        property_interest: data.propertyInterest || "לא רלוונטי",
-        timestamp: new Date().toLocaleString('he-IL')
-      };
+      // Prepare data for FormSubmit
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('phone', data.phone);
+      formData.append('email', data.email);
+      formData.append('currentLocation', data.currentLocation);
+      formData.append('interestType', data.interestType === "sale" ? "מכירה" : 
+                     data.interestType === "buy" ? "קנייה" :
+                     data.interestType === "landlord" ? "משכיר" : "שוכר");
+      
+      if (data.interestType === "buy") {
+        formData.append('beforeSale', data.beforeSale || "");
+        formData.append('soldProperty', data.soldProperty || "");
+        formData.append('bankApproval', data.bankApproval ? "כן" : "לא");
+        formData.append('seenProperties', data.seenProperties || "");
+        formData.append('propertyInterest', data.propertyInterest || "");
+      }
+      
+      // Add hidden fields for FormSubmit configuration
+      formData.append('_subject', `פנייה חדשה מ-${data.name}`);
+      formData.append('_template', 'table');  // Use table template for organized data
+      formData.append('_captcha', 'false');   // Disable captcha
+      formData.append('_next', window.location.href); // Return to same page after submission
+      
+      console.log("Sending form data to FormSubmit:", Object.fromEntries(formData));
 
-      console.log("Attempting to send email with EmailJS", {
-        serviceId: EMAILJS_SERVICE_ID,
-        templateId: EMAILJS_TEMPLATE_ID,
-        userId: EMAILJS_USER_ID,
-        formData: formattedData
+      // Send form using FormSubmit service
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      // Send email using EmailJS - modified to use emailjs.send properly
-      const response = await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formattedData
-      );
-
-      console.log("EmailJS Response:", response);
+      console.log("FormSubmit Response:", response);
 
       // שמירת הנתונים שנשלחו
       setSubmittedData(data);
@@ -404,7 +400,7 @@ export const ContactForm = () => {
           
           <div className="space-y-4 py-4">
             <p className="text-sm text-gray-700">תודה שפנית אלינו, נחזור אליך בהקדם האפשרי!</p>
-            <p className="text-sm text-gray-700">הודעה נשלחה למייל: orelbukris77777@gmail.com</p>
+            <p className="text-sm text-gray-700">הודעה נשלחה למייל: orelbussinessmarket@gmail.com</p>
             
             {submittedData && (
               <div className="bg-gray-50 p-4 rounded-md border border-gray-100 space-y-2">
