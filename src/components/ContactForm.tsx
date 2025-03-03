@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,10 +66,9 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-// EmailJS configuration - The issue was that we need to initialize EmailJS
-// EmailJS requires initialization with the User ID (Public Key)
+// EmailJS configuration - Updated with the service ID from the provided screenshot
 // Real-world implementation requires creating an account at emailjs.com
-const EMAILJS_SERVICE_ID = "service_example"; // Replace with your Service ID
+const EMAILJS_SERVICE_ID = "service_gthw6lf"; // Updated Service ID from screenshot
 const EMAILJS_TEMPLATE_ID = "template_example"; // Replace with your Template ID
 const EMAILJS_USER_ID = "YOUR_PUBLIC_KEY"; // Replace with your Public Key
 
@@ -103,7 +103,7 @@ export const ContactForm = () => {
     try {
       // Prepare data for email
       const formattedData = {
-        to_email: "orelbukris77777@gmail.com",
+        to_email: "orelbussinessmarket@gmail.com", // Updated email address
         from_name: data.name,
         from_email: data.email,
         from_phone: data.phone,
