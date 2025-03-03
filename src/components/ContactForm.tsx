@@ -65,11 +65,15 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-// Initialize EmailJS (you need to create an account and get these IDs)
-// For real implementation, replace these with your actual IDs from EmailJS dashboard
-const EMAILJS_SERVICE_ID = "your_service_id"; // Replace with your Service ID
-const EMAILJS_TEMPLATE_ID = "your_template_id"; // Replace with your Template ID
-const EMAILJS_USER_ID = "your_user_id"; // Replace with your User ID
+// EmailJS configuration - The issue was that we need to initialize EmailJS
+// EmailJS requires initialization with the User ID (Public Key)
+// Real-world implementation requires creating an account at emailjs.com
+const EMAILJS_SERVICE_ID = "service_example"; // Replace with your Service ID
+const EMAILJS_TEMPLATE_ID = "template_example"; // Replace with your Template ID
+const EMAILJS_USER_ID = "YOUR_PUBLIC_KEY"; // Replace with your Public Key
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_USER_ID);
 
 export const ContactForm = () => {
   const { toast } = useToast();
@@ -115,13 +119,21 @@ export const ContactForm = () => {
         timestamp: new Date().toLocaleString('he-IL')
       };
 
-      // Send email using EmailJS
-      await emailjs.send(
+      console.log("Attempting to send email with EmailJS", {
+        serviceId: EMAILJS_SERVICE_ID,
+        templateId: EMAILJS_TEMPLATE_ID,
+        userId: EMAILJS_USER_ID,
+        formData: formattedData
+      });
+
+      // Send email using EmailJS - modified to use emailjs.send properly
+      const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formattedData,
-        EMAILJS_USER_ID
+        formattedData
       );
+
+      console.log("EmailJS Response:", response);
 
       // שמירת הנתונים שנשלחו
       setSubmittedData(data);
@@ -149,7 +161,7 @@ export const ContactForm = () => {
       toast({
         variant: "destructive",
         title: "שגיאה בשליחת הטופס",
-        description: "אנא נסו שוב מאוחר יותר"
+        description: "אנא נסו שוב מאוחר יותר או צרו קשר ישירות בטלפון"
       });
     } finally {
       setIsSubmitting(false);
