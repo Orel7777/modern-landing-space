@@ -29,6 +29,12 @@ export const submitForm = async (data: ContactFormData): Promise<Response> => {
     formData.append('estimatedBudget', data.estimatedBudget || "");
   }
   
+  if (data.interestType === "landlord") {
+    formData.append('propertyDetails', data.propertyDetails || "");
+    formData.append('propertyType', data.propertyType || "");
+    formData.append('availableDate', data.availableDate || "");
+  }
+  
   // Add hidden fields for FormSubmit configuration
   formData.append('_subject', `פנייה חדשה מ-${data.name}`);
   formData.append('_template', 'table');  // Use table template for organized data

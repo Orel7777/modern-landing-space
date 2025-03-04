@@ -7,6 +7,7 @@ export const contactFormSchema = z.object({
   email: z.string().email("כתובת אימייל לא תקינה"),
   currentLocation: z.string().min(2, "יש להזין מיקום תקין"),
   interestType: z.enum(["sale", "buy", "landlord", "tenant"], { required_error: "יש לבחור סוג התעניינות" }),
+  // Buy fields
   beforeSale: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
   soldProperty: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
   bankApproval: z.boolean().optional(),
@@ -15,7 +16,11 @@ export const contactFormSchema = z.object({
   // Tenant specific fields
   propertySpecs: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
   moveInDate: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
-  estimatedBudget: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal(''))
+  estimatedBudget: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  // Landlord specific fields
+  propertyDetails: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  propertyType: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  availableDate: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal(''))
 }).superRefine((data, ctx) => {
   // Make all buyer-specific fields required if interestType is "buy"
   if (data.interestType === "buy") {
@@ -75,6 +80,33 @@ export const contactFormSchema = z.object({
         code: z.ZodIssueCode.custom,
         message: "יש למלא שדה זה",
         path: ["estimatedBudget"]
+      });
+    }
+  }
+  
+  // Make all landlord-specific fields required if interestType is "landlord"
+  if (data.interestType === "landlord") {
+    if (!data.propertyDetails || data.propertyDetails.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["propertyDetails"]
+      });
+    }
+    
+    if (!data.propertyType || data.propertyType.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["propertyType"]
+      });
+    }
+    
+    if (!data.availableDate || data.availableDate.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["availableDate"]
       });
     }
   }
