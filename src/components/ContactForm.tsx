@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,7 +25,11 @@ const formSchema = z.object({
   soldProperty: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
   bankApproval: z.boolean().optional(),
   seenProperties: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
-  propertyInterest: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal(''))
+  propertyInterest: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  // Tenant specific fields
+  propertySpecs: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  moveInDate: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  estimatedBudget: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal(''))
 }).superRefine((data, ctx) => {
   // Make all buyer-specific fields required if interestType is "buy"
   if (data.interestType === "buy") {
@@ -60,6 +65,33 @@ const formSchema = z.object({
       });
     }
   }
+  
+  // Make all tenant-specific fields required if interestType is "tenant"
+  if (data.interestType === "tenant") {
+    if (!data.propertySpecs || data.propertySpecs.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["propertySpecs"]
+      });
+    }
+    
+    if (!data.moveInDate || data.moveInDate.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["moveInDate"]
+      });
+    }
+    
+    if (!data.estimatedBudget || data.estimatedBudget.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["estimatedBudget"]
+      });
+    }
+  }
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -86,7 +118,10 @@ export const ContactForm = () => {
       soldProperty: "",
       bankApproval: false,
       seenProperties: "",
-      propertyInterest: ""
+      propertyInterest: "",
+      propertySpecs: "",
+      moveInDate: "",
+      estimatedBudget: ""
     }
   });
 
@@ -109,6 +144,12 @@ export const ContactForm = () => {
         formData.append('bankApproval', data.bankApproval ? "כן" : "לא");
         formData.append('seenProperties', data.seenProperties || "");
         formData.append('propertyInterest', data.propertyInterest || "");
+      }
+      
+      if (data.interestType === "tenant") {
+        formData.append('propertySpecs', data.propertySpecs || "");
+        formData.append('moveInDate', data.moveInDate || "");
+        formData.append('estimatedBudget', data.estimatedBudget || "");
       }
       
       // Add hidden fields for FormSubmit configuration
@@ -379,6 +420,65 @@ export const ContactForm = () => {
                 />
               </div>
             )}
+
+            {/* Fields for tenant */}
+            {form.watch("interestType") === "tenant" && (
+              <div className="space-y-4 border-t pt-4">
+                <FormField
+                  control={form.control}
+                  name="propertySpecs"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>מפרט הנכס המבוקש</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          {...field} 
+                          className={`text-right min-h-[100px] ${form.formState.errors.propertySpecs ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                          placeholder="פרט את דרישותיך - מספר חדרים, מיקום מועדף, קומה, מעלית וכו׳" 
+                        />
+                      </FormControl>
+                      <FormMessage className="text-right" />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="moveInDate"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>תאריך כניסה מבוקש</FormLabel>
+                      <FormControl>
+                        <Input 
+                          {...field} 
+                          className={`text-right ${form.formState.errors.moveInDate ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                          placeholder="לדוגמא: 1/12/2023, חודש הבא, גמיש" 
+                        />
+                      </FormControl>
+                      <FormMessage className="text-right" />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="estimatedBudget"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>תקציב משוער</FormLabel>
+                      <FormControl>
+                        <Input 
+                          {...field} 
+                          className={`text-right ${form.formState.errors.estimatedBudget ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                          placeholder="טווח תקציב משוער בש״ח" 
+                        />
+                      </FormControl>
+                      <FormMessage className="text-right" />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
           </div>
 
           <Button type="submit" className="w-full" disabled={isSubmitting}>
@@ -423,6 +523,14 @@ export const ContactForm = () => {
                       <p><span className="font-medium">אישור עקרוני מהבנק:</span> {submittedData.bankApproval ? "כן" : "לא"}</p>
                       <p><span className="font-medium">ראיתם נכסים:</span> {submittedData.seenProperties}</p>
                       <p><span className="font-medium">תיאור הנכס המבוקש:</span> {submittedData.propertyInterest}</p>
+                    </>
+                  )}
+                  
+                  {submittedData.interestType === "tenant" && (
+                    <>
+                      <p><span className="font-medium">מפרט הנכס המבוקש:</span> {submittedData.propertySpecs}</p>
+                      <p><span className="font-medium">תאריך כניסה מבוקש:</span> {submittedData.moveInDate}</p>
+                      <p><span className="font-medium">תקציב משוער:</span> {submittedData.estimatedBudget}</p>
                     </>
                   )}
                 </div>
