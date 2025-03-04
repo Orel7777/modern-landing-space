@@ -20,7 +20,11 @@ export const contactFormSchema = z.object({
   // Landlord specific fields
   propertyDetails: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
   propertyType: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
-  availableDate: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal(''))
+  availableDate: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  // Sale specific fields
+  propertyDescription: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  askingPrice: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal('')),
+  propertyAddress: z.string().min(1, "יש למלא שדה זה").optional().or(z.literal(''))
 }).superRefine((data, ctx) => {
   // Make all buyer-specific fields required if interestType is "buy"
   if (data.interestType === "buy") {
@@ -107,6 +111,33 @@ export const contactFormSchema = z.object({
         code: z.ZodIssueCode.custom,
         message: "יש למלא שדה זה",
         path: ["availableDate"]
+      });
+    }
+  }
+
+  // Make all sale-specific fields required if interestType is "sale"
+  if (data.interestType === "sale") {
+    if (!data.propertyDescription || data.propertyDescription.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["propertyDescription"]
+      });
+    }
+    
+    if (!data.askingPrice || data.askingPrice.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["askingPrice"]
+      });
+    }
+    
+    if (!data.propertyAddress || data.propertyAddress.trim() === '') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "יש למלא שדה זה",
+        path: ["propertyAddress"]
       });
     }
   }

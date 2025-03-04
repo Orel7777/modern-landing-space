@@ -12,6 +12,7 @@ import { BasicContactFields } from "@/components/contact/BasicContactFields";
 import { BuyerFields } from "@/components/contact/BuyerFields";
 import { TenantFields } from "@/components/contact/TenantFields";
 import { LandlordFields } from "@/components/contact/LandlordFields";
+import { SaleFields } from "@/components/contact/SaleFields";
 import { SuccessDialog } from "@/components/contact/SuccessDialog";
 import { submitForm } from "@/components/contact/formSubmit";
 
@@ -40,7 +41,10 @@ export const ContactForm = () => {
       estimatedBudget: "",
       propertyDetails: "",
       propertyType: "",
-      availableDate: ""
+      availableDate: "",
+      propertyDescription: "",
+      askingPrice: "",
+      propertyAddress: ""
     }
   });
 
@@ -104,6 +108,8 @@ export const ContactForm = () => {
           {form.watch("interestType") === "tenant" && <TenantFields form={form} />}
           
           {form.watch("interestType") === "landlord" && <LandlordFields form={form} />}
+
+          {form.watch("interestType") === "sale" && <SaleFields form={form} />}
 
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? "שולח..." : "שליחה"}

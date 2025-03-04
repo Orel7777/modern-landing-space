@@ -71,6 +71,14 @@ export const SuccessDialog: React.FC<SuccessDialogProps> = ({
                   <p><span className="font-medium">מועד כניסה אפשרי:</span> {submittedData.availableDate}</p>
                 </>
               )}
+
+              {submittedData.interestType === "sale" && (
+                <>
+                  <p><span className="font-medium">מפרט הנכס למכירה:</span> {submittedData.propertyDescription}</p>
+                  <p><span className="font-medium">מחיר מבוקש:</span> {submittedData.askingPrice}</p>
+                  <p><span className="font-medium">כתובת הנכס:</span> {submittedData.propertyAddress}</p>
+                </>
+              )}
             </div>
           </div>
         </div>
