@@ -1,15 +1,14 @@
-
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
-
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
   scrollToContact: () => void;
 }
-
-export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
-  return (
-    <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
+export const HeroSection = ({
+  heroRef,
+  scrollToContact
+}: HeroSectionProps) => {
+  return <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
       <div className="absolute inset-0">
         <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover">
           <source src="/lovable-uploads/video.mp4" type="video/mp4" />
@@ -28,9 +27,7 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
           </p>
           <div className="w-40 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mx-auto mt-3 rounded-full opacity-80"></div>
         </div>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-          מציאת הבית המושלם עבורך היא המשימה שלנו
-        </p>
+        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">מציאת הבית המושלם עבורך היא המשימה שלי</p>
         <div className="flex flex-col items-center gap-4">
           <RainbowButton onClick={scrollToContact} className="text-lg">
             צור קשר עכשיו
@@ -56,6 +53,5 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
           </ul>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
