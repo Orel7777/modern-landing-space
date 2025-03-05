@@ -1,7 +1,6 @@
 
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
-import { Card3D } from "@/components/Card3D";
 
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
@@ -44,21 +43,14 @@ export const HeroSection = ({ heroRef, scrollToContact }: HeroSectionProps) => {
               </a>
             </li>
             <li className="group relative">
-              <a href="https://www.facebook.com/profile.php?id=61557727572149&locale=he_IL" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#1877f2]">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#1877f2]">
                 <Facebook className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors" />
               </a>
             </li>
           </ul>
         </div>
       </div>
-      
-      {/* 3D Card with Remax Image */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10 scale-75 sm:scale-100 hover:scale-[1.05] sm:hover:scale-[1.1] transition-transform duration-300">
-        <Card3D 
-          imageSrc="/lovable-uploads/0d37e47e-dc63-4456-b983-39b0bb4ceace.png" 
-          alt="Lihen Biton RE/MAX" 
-        />
-      </div>
     </section>
   );
 };
+
