@@ -21,12 +21,31 @@ const Index = () => {
   };
 
   useEffect(() => {
+    // Hero section animation
     gsap.from(heroRef.current, {
       opacity: 0,
       y: 100,
       duration: 1.2,
       ease: "power4.out"
     });
+
+    // Animate card on scroll
+    const card3D = document.querySelector('.container.noselect');
+    if (card3D) {
+      gsap.from(card3D, {
+        scrollTrigger: {
+          trigger: card3D,
+          start: "top bottom",
+          end: "bottom center",
+          scrub: 1
+        },
+        y: 100,
+        opacity: 0,
+        scale: 0.8,
+        duration: 1.5,
+        ease: "power2.out"
+      });
+    }
   }, []);
 
   return (

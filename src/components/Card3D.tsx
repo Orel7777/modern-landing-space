@@ -1,11 +1,12 @@
 
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const StyledWrapper = styled.div`
   .container {
     position: relative;
     width: 256px;
-    height: 350px; // הגדלתי את הגובה מ-256px ל-350px
+    height: 380px;
     transition: 200ms;
   }
 
@@ -19,8 +20,10 @@ const StyledWrapper = styled.div`
     border-radius: 12px;
     transition: 700ms;
     overflow: hidden;
-    border: 4px solid #e0b0ff;
-    box-shadow: 0 0 20px rgba(224,176,255,0.3);
+    border: 4px solid rgba(224,176,255,0.3);
+    box-shadow: 
+      0 5px 20px rgba(0,0,0,0.4),
+      0 0 30px rgba(224,176,255,0.3);
   }
 
   .tracker {
@@ -40,7 +43,7 @@ const StyledWrapper = styled.div`
   }
 
   .canvas {
-    perspective: 800px;
+    perspective: 1000px;
     inset: 0;
     z-index: 200;
     position: absolute;
@@ -78,7 +81,17 @@ interface Card3DProps {
 export const Card3D: React.FC<Card3DProps> = ({ imageSrc, alt }) => {
   return (
     <StyledWrapper>
-      <div className="container noselect">
+      <motion.div 
+        className="container noselect"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 100, 
+          damping: 15,
+          delay: 0.5
+        }}
+      >
         <div className="canvas">
           {[...Array(25)].map((_, i) => (
             <div key={i} className={`tracker tr-${i + 1}`} />
@@ -87,7 +100,7 @@ export const Card3D: React.FC<Card3DProps> = ({ imageSrc, alt }) => {
             <img src={imageSrc} alt={alt} className="w-full h-full object-cover" />
           </div>
         </div>
-      </div>
+      </motion.div>
     </StyledWrapper>
   );
 };
