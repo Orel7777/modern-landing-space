@@ -132,7 +132,7 @@ export const ContactSection = ({
               {/* רשתות חברתיות עם עיצוב חדש */}
               <SocialIconsWrapper>
                 <div className="social-icons pt-4">
-                  <a className="socialContainer containerTwo" href="https://facebook.com/lihen.biton" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <a className="socialContainer containerTwo" href="https://www.facebook.com/profile.php?id=61557727572149&locale=he_IL" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <svg viewBox="0 0 320 512" className="socialSvg">
                       <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
                     </svg>
