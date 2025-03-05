@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const StyledWrapper = styled.div`
   .container {
     position: relative;
-    width: 256px;
-    height: 350px; // הגדלתי את הגובה מ-256px ל-350px
+    width: 280px;
+    height: 400px; // Increased height to fit the new image
     transition: 200ms;
   }
 
@@ -19,8 +19,8 @@ const StyledWrapper = styled.div`
     border-radius: 12px;
     transition: 700ms;
     overflow: hidden;
-    border: 4px solid #e0b0ff;
-    box-shadow: 0 0 20px rgba(224,176,255,0.3);
+    border: 4px solid #1a56a7; // Changed to RE/MAX blue
+    box-shadow: 0 0 20px rgba(26, 86, 167, 0.4); // Changed to match RE/MAX color scheme
   }
 
   .tracker {
@@ -84,7 +84,7 @@ export const Card3D: React.FC<Card3DProps> = ({ imageSrc, alt }) => {
             <div key={i} className={`tracker tr-${i + 1}`} />
           ))}
           <div id="card">
-            <img src={imageSrc} alt={alt} className="w-full h-full object-cover" />
+            <img src={imageSrc} alt={alt} className="w-full h-full object-contain" />
           </div>
         </div>
       </div>
