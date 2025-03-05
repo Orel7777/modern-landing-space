@@ -1,11 +1,9 @@
-
 import { ContactForm } from "@/components/ContactForm";
 import { MapPin, Phone, Mail } from "lucide-react";
 import BoxLoader from "@/components/BoxLoader";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
 import styled from "styled-components";
-
 const SocialIconsWrapper = styled.div`
   .social-icons {
     width: fit-content;
@@ -73,7 +71,6 @@ const SocialIconsWrapper = styled.div`
     }
   }
 `;
-
 export const ContactSection = ({
   contactRef
 }: {
@@ -125,7 +122,7 @@ export const ContactSection = ({
                 <MapPin className="w-6 h-6" />
                 <div>
                   <h3 className="font-medium mb-1">כתובת</h3>
-                  <p className="text-gray-600">תל אביב</p>
+                  <p className="text-gray-600">מודיעין</p>
                 </div>
               </div>
 
@@ -156,33 +153,19 @@ export const ContactSection = ({
               
               {/* תמונה עם אפקט Tilt מתחת לריבוע הכתום */}
               <div className="mt-8">
-                <Tilt
-                  rotationFactor={6}
-                  isRevese
-                  style={{
-                    transformOrigin: 'center center',
-                  }}
-                  springOptions={{
-                    stiffness: 26.7,
-                    damping: 4.1,
-                    mass: 0.2,
-                  }}
-                  className="group relative rounded-lg max-w-[320px]"
-                >
-                  <Spotlight
-                    className="z-10 from-white/50 via-white/20 to-white/10 blur-2xl"
-                    size={320}
-                    springOptions={{
-                      stiffness: 26.7,
-                      damping: 4.1,
-                      mass: 0.2,
-                    }}
-                  />
-                  <img
-                    src="/lovable-uploads/7ca65098-19e0-4a43-8b0c-4e57a31e21b4.png"
-                    alt="Business Card"
-                    className="w-full h-[180px] rounded-lg object-cover shadow-lg duration-700 group-hover:shadow-xl"
-                  />
+                <Tilt rotationFactor={6} isRevese style={{
+                transformOrigin: 'center center'
+              }} springOptions={{
+                stiffness: 26.7,
+                damping: 4.1,
+                mass: 0.2
+              }} className="group relative rounded-lg max-w-[320px]">
+                  <Spotlight className="z-10 from-white/50 via-white/20 to-white/10 blur-2xl" size={320} springOptions={{
+                  stiffness: 26.7,
+                  damping: 4.1,
+                  mass: 0.2
+                }} />
+                  <img src="/lovable-uploads/7ca65098-19e0-4a43-8b0c-4e57a31e21b4.png" alt="Business Card" className="w-full h-[180px] rounded-lg object-cover shadow-lg duration-700 group-hover:shadow-xl" />
                 </Tilt>
               </div>
             </div>
