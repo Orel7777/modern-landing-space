@@ -50,9 +50,26 @@ const Index = () => {
       {/* RE/MAX Image Section */}
       <section 
         ref={remaxImageRef}
-        className="py-12 flex justify-center items-center bg-gradient-to-b from-slate-900 to-[#D3E4FD]"
+        className="py-12 relative overflow-hidden"
       >
-        <div className="container mx-auto flex justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
+        
+        {/* Real Estate Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 border-4 border-primary rounded-lg transform rotate-12" />
+          <div className="absolute top-40 right-20 w-40 h-40 border-4 border-primary rounded-lg transform -rotate-6" />
+          <div className="absolute bottom-20 left-1/4 w-36 h-36 border-4 border-primary rounded-lg transform rotate-45" />
+          
+          {/* House Silhouettes */}
+          <svg className="absolute top-10 right-10 w-24 h-24 text-primary opacity-10" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+          </svg>
+          <svg className="absolute bottom-20 left-20 w-32 h-32 text-primary opacity-10" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75Z" />
+          </svg>
+        </div>
+        
+        <div className="relative container mx-auto flex justify-center">
           <Card3D 
             imageSrc="/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png" 
             alt="RE/MAX Unique - Lihen Biton" 

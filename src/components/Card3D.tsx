@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 const StyledWrapper = styled.div`
   .container {
@@ -78,7 +79,7 @@ export const Card3D: React.FC<Card3DProps> = ({
   return <StyledWrapper>
       <div className="container noselect">
         <div className="canvas">
-          {[...Array(25)].map((_, i) => <div key={i} className="bg-gray-300" />)}
+          {[...Array(25)].map((_, i) => <div key={i} className={`tracker tr-${i + 1}`} />)}
           <div id="card">
             <img src={imageSrc} alt={alt} className="w-full h-full object-contain" />
           </div>
