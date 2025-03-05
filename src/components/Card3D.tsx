@@ -1,6 +1,4 @@
-
 import styled from 'styled-components';
-
 const StyledWrapper = styled.div`
   .container {
     position: relative;
@@ -57,7 +55,7 @@ const StyledWrapper = styled.div`
 
     .tr-${i + 1}:hover ~ #card {
       transition: 125ms ease-in-out;
-      transform: rotateX(${Math.floor(i / 5) * 10 - 20}deg) rotateY(${(i % 5) * 5 - 10}deg) rotateZ(0deg);
+      transform: rotateX(${Math.floor(i / 5) * 10 - 20}deg) rotateY(${i % 5 * 5 - 10}deg) rotateZ(0deg);
     }
   `).join('\n')}
 
@@ -69,25 +67,22 @@ const StyledWrapper = styled.div`
     user-select: none;
   }
 `;
-
 interface Card3DProps {
   imageSrc: string;
   alt: string;
 }
-
-export const Card3D: React.FC<Card3DProps> = ({ imageSrc, alt }) => {
-  return (
-    <StyledWrapper>
+export const Card3D: React.FC<Card3DProps> = ({
+  imageSrc,
+  alt
+}) => {
+  return <StyledWrapper>
       <div className="container noselect">
         <div className="canvas">
-          {[...Array(25)].map((_, i) => (
-            <div key={i} className={`tracker tr-${i + 1}`} />
-          ))}
+          {[...Array(25)].map((_, i) => <div key={i} className="bg-gray-300" />)}
           <div id="card">
             <img src={imageSrc} alt={alt} className="w-full h-full object-contain" />
           </div>
         </div>
       </div>
-    </StyledWrapper>
-  );
+    </StyledWrapper>;
 };
