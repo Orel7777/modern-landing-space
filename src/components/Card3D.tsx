@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 interface Card3DProps {
@@ -9,7 +10,7 @@ export const Card3D: React.FC<Card3DProps> = ({
   alt
 }) => {
   return <CardContainer className="w-full max-w-md mx-auto">
-      <CardBody className="bg-white dark:from-gray-900 dark:to-black relative group/card border-2 border-[#1a56a7]/80 dark:border-white/[0.2] w-[360px] h-[480px] rounded-xl p-6 shadow-xl">
+      <CardBody className="bg-white dark:from-gray-900 dark:to-black relative group/card border-2 border-[#1a56a7]/80 dark:border-white/[0.2] w-[360px] h-[520px] rounded-xl p-6 shadow-xl">
         <CardItem translateZ="50" className="text-2xl font-bold text-[#1a56a7] dark:text-white text-center mb-2">
           RE/MAX Unique
         </CardItem>

@@ -50,7 +50,7 @@ const Index = () => {
       {/* RE/MAX Image Section */}
       <section 
         ref={remaxImageRef}
-        className="py-20 relative overflow-hidden"
+        className="py-24 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-100" />
         
