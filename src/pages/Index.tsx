@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,20 +7,16 @@ import { ContactSection } from "@/components/ContactSection";
 import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
 import { Card3D } from "@/components/Card3D";
-
 gsap.registerPlugin(ScrollTrigger);
-
 const Index = () => {
   const heroRef = useRef(null);
   const contactRef = useRef(null);
   const remaxImageRef = useRef(null);
-
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -29,7 +24,6 @@ const Index = () => {
       duration: 1.2,
       ease: "power4.out"
     });
-
     gsap.from(remaxImageRef.current, {
       opacity: 0,
       y: 50,
@@ -42,16 +36,11 @@ const Index = () => {
       }
     });
   }, []);
-
-  return (
-    <div className="font-heebo">
+  return <div className="font-heebo">
       <HeroSection heroRef={heroRef} scrollToContact={scrollToContact} />
       
       {/* RE/MAX Image Section */}
-      <section 
-        ref={remaxImageRef}
-        className="py-24 relative overflow-hidden"
-      >
+      <section ref={remaxImageRef} className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-100" />
         
         {/* Real Estate Background Elements */}
@@ -92,7 +81,7 @@ const Index = () => {
                 </div>
                 
                 <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
-                  <p className="font-medium text-[#1a56a7]">נסיון רב שנים בשוק המודיעיני</p>
+                  <p className="font-medium text-[#1a56a7]">מובילה עסקאות נדל&quot;ן עם ניסיון מוכח בתחום</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
                       <path fill="currentColor" d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" />
@@ -112,10 +101,7 @@ const Index = () => {
             </div>
             
             <div className="flex justify-center relative z-10">
-              <Card3D 
-                imageSrc="/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png" 
-                alt="RE/MAX Unique - Lihen Biton" 
-              />
+              <Card3D imageSrc="/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png" alt="RE/MAX Unique - Lihen Biton" />
             </div>
           </div>
         </div>
@@ -125,8 +111,6 @@ const Index = () => {
       <AboutSection />
       <ContactSection contactRef={contactRef} />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
