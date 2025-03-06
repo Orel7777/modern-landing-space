@@ -52,10 +52,10 @@ const Index = () => {
         ref={remaxImageRef}
         className="py-20 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-100" />
         
         {/* Real Estate Background Elements */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 right-10 w-28 h-28 border-4 border-primary rounded-lg transform rotate-6" />
           <div className="absolute top-40 left-20 w-36 h-36 border-4 border-primary rounded-lg transform -rotate-12" />
           <div className="absolute bottom-60 right-1/4 w-32 h-32 border-4 border-primary rounded-lg transform rotate-15" />
@@ -63,26 +63,26 @@ const Index = () => {
           <div className="absolute bottom-1/4 left-1/4 w-24 h-24 border-b-8 border-r-8 border-primary transform -rotate-6" />
           
           {/* House Silhouettes */}
-          <svg className="absolute top-16 left-16 w-28 h-28 text-primary opacity-30" viewBox="0 0 24 24">
+          <svg className="absolute top-16 left-16 w-28 h-28 text-primary opacity-70" viewBox="0 0 24 24">
             <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
           </svg>
-          <svg className="absolute bottom-16 right-16 w-32 h-32 text-primary opacity-30" viewBox="0 0 24 24">
+          <svg className="absolute bottom-16 right-16 w-32 h-32 text-primary opacity-70" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75Z" />
           </svg>
-          <svg className="absolute top-2/3 right-1/3 w-24 h-24 text-primary opacity-30" viewBox="0 0 24 24">
+          <svg className="absolute top-2/3 right-1/3 w-24 h-24 text-primary opacity-70" viewBox="0 0 24 24">
             <path fill="currentColor" d="M5,10V20H19V10H5M6.5,12H10.5V15.5H6.5V12M17.5,17.5H13V14H17.5V17.5M13,12V13.5H17.5V12H13M3,4H21V8H19V10H21V12H11V8H9V10H3V4M7,6V7H5V6H7M5,8H7V9H5V8Z" />
           </svg>
         </div>
         
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="text-center md:text-right space-y-6 animate-fade-up">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1a56a7]">הנדל״ן שלך, החיים שלך</h2>
+            <div className="text-center md:text-right space-y-6 animate-fade-up relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4">הנדל״ן שלך, החיים שלך</h2>
               <div className="w-32 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mx-auto md:mr-0 md:ml-auto rounded-full"></div>
-              <p className="text-lg font-medium text-[#221F26]">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
+              <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
               
               <div className="space-y-4">
-                <div className="flex items-center justify-end gap-3 bg-white/80 p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
                   <p className="font-medium text-[#1a56a7]">מציאת הבית החלומי שלך</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -91,7 +91,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-end gap-3 bg-white/80 p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
                   <p className="font-medium text-[#1a56a7]">נסיון רב שנים בשוק המודיעיני</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -100,7 +100,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-end gap-3 bg-white/80 p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
                   <p className="font-medium text-[#1a56a7]">ליווי אישי לאורך כל התהליך</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -111,7 +111,7 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="flex justify-center relative">
+            <div className="flex justify-center relative z-10">
               <Card3D 
                 imageSrc="/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png" 
                 alt="RE/MAX Unique - Lihen Biton" 
