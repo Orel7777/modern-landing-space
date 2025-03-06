@@ -1,3 +1,4 @@
+
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,16 +8,20 @@ import { ContactSection } from "@/components/ContactSection";
 import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
 import { Card3D } from "@/components/Card3D";
+
 gsap.registerPlugin(ScrollTrigger);
+
 const Index = () => {
   const heroRef = useRef(null);
   const contactRef = useRef(null);
   const remaxImageRef = useRef(null);
+
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -24,6 +29,7 @@ const Index = () => {
       duration: 1.2,
       ease: "power4.out"
     });
+
     gsap.from(remaxImageRef.current, {
       opacity: 0,
       y: 50,
@@ -36,12 +42,17 @@ const Index = () => {
       }
     });
   }, []);
-  return <div className="font-heebo">
+
+  return (
+    <div className="font-heebo">
       <HeroSection heroRef={heroRef} scrollToContact={scrollToContact} />
       
       {/* RE/MAX Image Section */}
-      <section ref={remaxImageRef} className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] " />
+      <section 
+        ref={remaxImageRef}
+        className="py-20 relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3] opacity-90" />
         
         {/* Real Estate Background Elements */}
         <div className="absolute inset-0 opacity-5">
@@ -101,7 +112,10 @@ const Index = () => {
             </div>
             
             <div className="flex justify-center relative">
-              <Card3D imageSrc="/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png" alt="RE/MAX Unique - Lihen Biton" />
+              <Card3D 
+                imageSrc="/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png" 
+                alt="RE/MAX Unique - Lihen Biton" 
+              />
             </div>
           </div>
         </div>
@@ -111,6 +125,8 @@ const Index = () => {
       <AboutSection />
       <ContactSection contactRef={contactRef} />
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
