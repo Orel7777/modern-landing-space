@@ -1,88 +1,67 @@
-import styled from 'styled-components';
-const StyledWrapper = styled.div`
-  .container {
-    position: relative;
-    width: 280px;
-    height: 400px; // Increased height to fit the new image
-    transition: 200ms;
-  }
 
-  #card {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    transition: 700ms;
-    overflow: hidden;
-    border: 4px solid #1a56a7; // Changed to RE/MAX blue
-    box-shadow: 0 0 20px rgba(26, 86, 167, 0.4); // Changed to match RE/MAX color scheme
-  }
+import React from 'react';
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
-  .tracker {
-    position: absolute;
-    z-index: 200;
-    width: 100%;
-    height: 100%;
-  }
-
-  .tracker:hover {
-    cursor: pointer;
-  }
-
-  .tracker:hover ~ #card {
-    transition: 300ms;
-    filter: brightness(1.1);
-  }
-
-  .canvas {
-    perspective: 800px;
-    inset: 0;
-    z-index: 200;
-    position: absolute;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
-  }
-
-  ${[...Array(25)].map((_, i) => `
-    .tr-${i + 1} {
-      grid-area: tr-${i + 1};
-    }
-
-    .tr-${i + 1}:hover ~ #card {
-      transition: 125ms ease-in-out;
-      transform: rotateX(${Math.floor(i / 5) * 10 - 20}deg) rotateY(${i % 5 * 5 - 10}deg) rotateZ(0deg);
-    }
-  `).join('\n')}
-
-  .noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-`;
 interface Card3DProps {
   imageSrc: string;
   alt: string;
 }
+
 export const Card3D: React.FC<Card3DProps> = ({
   imageSrc,
   alt
 }) => {
-  return <StyledWrapper>
-      <div className="container noselect">
-        <div className="canvas">
-          {[...Array(25)].map((_, i) => <div key={i} className="" />)}
-          <div id="card">
-            <img src={imageSrc} alt={alt} className="w-full h-full object-fill" />
-          </div>
+  return (
+    <CardContainer className="w-full max-w-md mx-auto">
+      <CardBody className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black relative group/card border-2 border-[#1a56a7]/30 dark:border-white/[0.2] w-[300px] h-[420px] rounded-xl p-6 shadow-xl">
+        <CardItem
+          translateZ="50"
+          className="text-2xl font-bold text-[#1a56a7] dark:text-white text-center mb-2"
+        >
+          RE/MAX Unique
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="text-primary text-sm text-center mb-6"
+        >
+          ליחן ביטון - המומחית הנדל״ן שלך במודיעין
+        </CardItem>
+        <CardItem
+          translateZ="100"
+          rotateX={5}
+          rotateZ={-3}
+          className="w-full mt-2"
+        >
+          <img
+            src={imageSrc}
+            className="h-[240px] w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            alt={alt}
+          />
+        </CardItem>
+        <div className="flex justify-between items-center mt-8">
+          <CardItem
+            translateZ={20}
+            translateX={-20}
+            as="div"
+            className="px-4 py-2 rounded-xl text-xs font-normal text-primary"
+          >
+            <div className="flex flex-col items-center">
+              <span className="text-[#1a56a7] font-semibold">050-5150002</span>
+              <span className="text-xs mt-1">התקשרו עכשיו</span>
+            </div>
+          </CardItem>
+          <CardItem
+            translateZ={20}
+            translateX={20}
+            as="button"
+            className="px-4 py-2 rounded-xl bg-[#1a56a7] text-white text-xs font-bold hover:bg-[#15478c] transition-colors"
+            onClick={() => window.open("https://wa.me/972505150002", "_blank")}
+          >
+            WhatsApp →
+          </CardItem>
         </div>
-      </div>
-    </StyledWrapper>;
+      </CardBody>
+    </CardContainer>
+  );
 };
