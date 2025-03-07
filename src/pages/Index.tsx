@@ -80,7 +80,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-between  gap-3 bg-white p-3 rounded-lg shadow-sm">
                   <p className="font-medium text-[#1a56a7] text-right">ניסיון מוכח בתחום הנדל&quot;ן </p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -89,7 +89,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-between gap-3 bg-white p-3 rounded-lg shadow-sm">
                   <p className="font-medium text-[#1a56a7] text-right">ליווי אישי לאורך כל התהליך</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
