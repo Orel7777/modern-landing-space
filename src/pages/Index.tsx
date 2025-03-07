@@ -71,7 +71,7 @@ const Index = () => {
               <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
               
               <div className="space-y-4">
-                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-start gap-3 bg-white p-3 rounded-lg shadow-sm">
                   <p className="font-medium text-[#1a56a7] text-right">מציאת הבית החלומי שלך</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
