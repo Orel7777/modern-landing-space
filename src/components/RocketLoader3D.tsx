@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface RocketLoader3DProps {
   className?: string;
@@ -12,15 +12,36 @@ const RocketLoader3D: React.FC<RocketLoader3DProps> = ({
   width = "100px", 
   height = "100px" 
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Dynamically load the Spline viewer script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.9.74/build/spline-viewer.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Clean up script when component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className={`relative ${className}`} style={{ width, height }}>
-      <iframe 
-        src='https://my.spline.design/rocket-aed46de1424c318548d6d0fe21224612/' 
-        frameBorder='0' 
-        width='100%' 
-        height='100%'
-        title="3D Rocket"
-        style={{ pointerEvents: 'none' }}
+    <div 
+      ref={containerRef} 
+      className={`relative ${className}`} 
+      style={{ width, height }}
+    >
+      <spline-viewer 
+        url="https://prod.spline.design/dNkrcQSKbEyaiNHs/scene.splinecode"
+        style={{ 
+          width: '100%', 
+          height: '100%', 
+          display: 'block',
+          pointerEvents: 'none'
+        }} 
       />
     </div>
   );
