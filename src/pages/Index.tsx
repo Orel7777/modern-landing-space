@@ -71,7 +71,7 @@ const Index = () => {
               <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
               
               <div className="space-y-4">
-                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
+                <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm ">
                   <p className="font-medium text-[#1a56a7] text-right">מציאת הבית החלומי שלך</p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -81,7 +81,7 @@ const Index = () => {
                 </div>
                 
                 <div className="flex items-center justify-end gap-3 bg-white p-3 rounded-lg shadow-sm">
-                  <p className="font-medium text-[#1a56a7] text-right">מובילה עסקאות נדל&quot;ן עם ניסיון מוכח בתחום</p>
+                  <p className="font-medium text-[#1a56a7] text-right">ניסיון מוכח בתחום הנדל&quot;ן </p>
                   <div className="rounded-full bg-[#1a56a7] p-2 text-white">
                     <svg viewBox="0 0 24 24" className="w-5 h-5">
                       <path fill="currentColor" d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" />
