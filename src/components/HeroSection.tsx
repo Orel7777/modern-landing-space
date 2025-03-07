@@ -1,3 +1,4 @@
+
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
 interface HeroSectionProps {
@@ -39,7 +40,7 @@ export const HeroSection = ({
               </a>
             </li>
             <li className="group relative">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#e4405f]">
+              <a href="https://instagram.com/lihen_biton" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#e4405f]">
                 <Instagram className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors" />
               </a>
             </li>
