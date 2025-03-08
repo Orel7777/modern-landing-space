@@ -15,9 +15,19 @@ const SplineRocket: React.FC<SplineRocketProps> = ({ className = "", flipped = f
     script.async = true;
     document.body.appendChild(script);
     
+    // Add style to hide the Spline watermark
+    const style = document.createElement('style');
+    style.textContent = `
+      .spline-watermark {
+        display: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+    
     return () => {
       // Clean up
       document.body.removeChild(script);
+      document.head.removeChild(style);
     };
   }, []);
   
