@@ -15,11 +15,16 @@ const SplineRocket: React.FC<SplineRocketProps> = ({ className = "", flipped = f
     script.async = true;
     document.body.appendChild(script);
     
-    // Add style to hide the Spline watermark
+    // Add style to hide the Spline watermark - more aggressive approach
     const style = document.createElement('style');
     style.textContent = `
-      .spline-watermark {
+      .spline-watermark, 
+      [data-tippy-root],
+      .tippy-box {
         display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
       }
     `;
     document.head.appendChild(style);
@@ -34,7 +39,7 @@ const SplineRocket: React.FC<SplineRocketProps> = ({ className = "", flipped = f
   return (
     <div 
       className={`${className} overflow-hidden ${flipped ? 'scale-x-[-1]' : ''}`} 
-      style={{ height: '120px', width: '120px' }}
+      style={{ height: '180px', width: '180px' }}
     >
       {/* @ts-ignore - Custom element */}
       <spline-viewer 

@@ -164,8 +164,8 @@ export const PropertiesSection = () => {
         </div>
 
         {/* More Properties Link with Rockets */}
-        <div className="flex justify-center mt-12 items-center">
-          <div className="hidden md:block">
+        <div className="flex justify-center mt-16 items-center">
+          <div className="hidden md:block -mr-5">
             <SplineRocket flipped={true} />
           </div>
           
@@ -173,7 +173,7 @@ export const PropertiesSection = () => {
             href="https://www.remax-israel.com/he-il/%D7%9E%D7%AA%D7%95%D7%95%D7%9B%D7%99%D7%9D/%D7%9E%D7%A8%D7%9B%D7%96/%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F/%D7%9C%D7%99%D7%97%D7%9F-%D7%91%D7%99%D7%98%D7%95%D7%9F-lihen-biton/51001102"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative mx-4"
+            className="group relative mx-8"
           >
             <div className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl rounded-xl bg-gradient-to-r from-[#D3E4FD] via-[#E5DEFF] to-[#FDE1D3]">
               <span className="relative z-10 text-primary">נכסים נוספים</span>
@@ -181,7 +181,7 @@ export const PropertiesSection = () => {
             </div>
           </a>
           
-          <div className="hidden md:block">
+          <div className="hidden md:block -ml-5">
             <SplineRocket />
           </div>
         </div>
