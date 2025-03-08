@@ -30,6 +30,8 @@ const SplineRocket: React.FC<SplineRocketProps> = ({ className = "", flipped = f
       <spline-viewer 
         url="https://prod.spline.design/2Jcs2gZ4UmQH7bVZ/scene.splinecode" 
         loading-anim
+        background="transparent"
+        hide-ui="true"
       />
     </div>
   );
