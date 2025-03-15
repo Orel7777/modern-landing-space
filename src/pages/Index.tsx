@@ -1,3 +1,4 @@
+
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,16 +9,20 @@ import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
 import { Card3D } from "@/components/Card3D";
 import { SparklesText } from "@/components/ui/sparkles-text";
+
 gsap.registerPlugin(ScrollTrigger);
+
 const Index = () => {
   const heroRef = useRef(null);
   const contactRef = useRef(null);
   const remaxImageRef = useRef(null);
+
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   useEffect(() => {
     gsap.from(heroRef.current, {
       opacity: 0,
@@ -25,6 +30,7 @@ const Index = () => {
       duration: 1.2,
       ease: "power4.out"
     });
+
     gsap.from(remaxImageRef.current, {
       opacity: 0,
       y: 50,
@@ -37,6 +43,7 @@ const Index = () => {
       }
     });
   }, []);
+
   return <div className="font-heebo">
       <HeroSection heroRef={heroRef} scrollToContact={scrollToContact} />
       
@@ -67,11 +74,13 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="text-right space-y-6 animate-fade-up relative z-10">
-              <div className="flex justify-start">
-                <SparklesText text="הנדל״ן שלך, החיים שלך" className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4 text-right" colors={{
-                first: "#1a56a7",
-                second: "#FDE1D3"
-              }} sparklesCount={15} />
+              <div className="flex justify-end">
+                <SparklesText 
+                  text="הנדל״ן שלך, החיים שלך" 
+                  className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4 text-right"
+                  colors={{ first: "#1a56a7", second: "#FDE1D3" }}
+                  sparklesCount={15}
+                />
               </div>
               <div className="w-32 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mr-0 rounded-full"></div>
               <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
@@ -119,4 +128,5 @@ const Index = () => {
       <Footer />
     </div>;
 };
+
 export default Index;
