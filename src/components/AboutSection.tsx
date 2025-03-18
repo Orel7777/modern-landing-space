@@ -6,12 +6,8 @@ import { Card3D } from "./Card3D";
 
 export const AboutSection = () => {
   const testimonials = [{
-    src: "/lovable-uploads/e69edb93-f9e6-4355-bcff-ca1ed1a9ba1d.png",
-    name: "נטלי קופמן",
-    quote: "יש מישהו שמעוניין לקחת שיש מטבח?"
-  }, {
     src: "/lovable-uploads/6f17495b-46b8-4452-b23a-598c49f41c6d.png",
-    name: "חן נזריאן אמיר",
+    name: "נדב וקוסטה",
     quote: "טוב אז אחרי חיפושים של כמה חודשים טובים לדירה שכל כך רצינו, דיברנו ונפגשנו עם כמה מתווכים עד שהגענו לליחן המדהימה."
   }, {
     src: "/lovable-uploads/c265b691-63ad-46a9-be19-5c495a45bd58.png",
