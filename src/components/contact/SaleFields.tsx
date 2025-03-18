@@ -41,7 +41,7 @@ export const SaleFields: React.FC<SaleFieldsProps> = ({ form }) => {
               <Input 
                 {...field} 
                 className={`text-right ${form.formState.errors.askingPrice ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
-                placeholder="ציין את המחיר המבוקש" 
+                
               />
             </FormControl>
             <FormMessage className="text-right" />
