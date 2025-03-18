@@ -32,12 +32,12 @@ export const HeroSection = ({
             צור קשר עכשיו
           </RainbowButton>
           
-          {/* Added image below the Contact button */}
+          {/* New REMAX promotional image with enhanced styling */}
           <div className="mt-6 mb-8 animate-fade-in">
             <img 
-              src="/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png" 
-              alt="RE/MAX Logo" 
-              className="w-full max-w-[300px] mx-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
+              src="/lovable-uploads/534d352e-72f6-4f2a-b73c-5d88ee0db8b4.png" 
+              alt="ליחן ביטון - RE/MAX" 
+              className="w-full max-w-[380px] mx-auto rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 border-2 border-white/20"
             />
           </div>
           
