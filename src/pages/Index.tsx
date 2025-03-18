@@ -1,3 +1,4 @@
+
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -85,4 +86,28 @@ const Index = () => {
                   />
                 </div>
                 <div className="w-32 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mr-0 rounded-full"></div>
-                <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">ה
+                <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">
+                  הניסיון והמקצועיות שלנו לשירותך בכל צעד בדרך לעסקה מוצלחת
+                </p>
+              </div>
+              <div className="mt-6 md:mt-0">
+                <img 
+                  src="/lovable-uploads/e7f70dcb-3404-4920-8d76-aea4a6a13469.png" 
+                  alt="RE/MAX Logo" 
+                  className="w-full max-w-md mx-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <AboutSection />
+        <PropertiesSection />
+        <ContactSection ref={contactRef} />
+        <Footer />
+      </div>
+    </LazyMotion>
+  );
+};
+
+export default Index;
