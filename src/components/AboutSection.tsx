@@ -12,7 +12,7 @@ export const AboutSection = () => {
   }, {
     src: "/lovable-uploads/c265b691-63ad-46a9-be19-5c495a45bd58.png",
     name: "אלי",
-    quote: "שבת שלום, אכלנו הערב ארוחה חלבית ופתחנו את הגבינות שהיו ממש טעימות."
+    quote: "🥀שבת שלום,אכלנו היום ארוחה חלבית  ופתחנו את הגבינות שהיו ממש טעימות,ברכנו על היין,על הלחם ואף צירפתי ברכה נוספת...תודה אלי "
   }, {
     src: "/lovable-uploads/b6f8d4fa-3785-4f87-8a9c-b838bc4cb4d5.png",
     name: "נטלי קופמן",
