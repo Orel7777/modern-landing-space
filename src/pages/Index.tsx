@@ -7,6 +7,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
 import { Card3D } from "@/components/Card3D";
+import { SparklesText } from "@/components/ui/sparkles-text";
 gsap.registerPlugin(ScrollTrigger);
 const Index = () => {
   const heroRef = useRef(null);
@@ -66,7 +67,12 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="text-right space-y-6 animate-fade-up relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4 mr-0 md:mr-0">הנדל״ן שלך, החיים שלך</h2>
+              <div className="flex justify-start mx-0 px-0">
+                <SparklesText text="הנדל״ן שלך, החיים שלך" className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4 text-right" colors={{
+                first: "#1a56a7",
+                second: "#FDE1D3"
+              }} sparklesCount={15} />
+              </div>
               <div className="w-32 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mr-0 rounded-full"></div>
               <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
               
