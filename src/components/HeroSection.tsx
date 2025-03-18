@@ -9,7 +9,7 @@ export const HeroSection = ({
   heroRef,
   scrollToContact
 }: HeroSectionProps) => {
-  return <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
+  return <section ref={heroRef} className="relative min-h-[95vh] flex items-center justify-center text-white py-16">
       <div className="absolute inset-0">
         <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover">
           <source src="/lovable-uploads/video.mp4" type="video/mp4" />
@@ -18,7 +18,7 @@ export const HeroSection = ({
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
       </div>
       
-      <div className="relative container mx-auto text-center">
+      <div className="relative container mx-auto text-center pt-8">
         <h1 className="text-5xl md:text-6xl font-bold mb-2">
           ליחן ביטון אשת הנדל״ן שלך
         </h1>
