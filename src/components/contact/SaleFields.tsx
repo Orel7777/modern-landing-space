@@ -36,7 +36,7 @@ export const SaleFields: React.FC<SaleFieldsProps> = ({ form }) => {
         name="askingPrice"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>מחיר מבוקש</FormLabel>
+            <FormLabel>האם יש לך הערכת שווי הנכס? או שאתה לפני התהליך?</FormLabel>
             <FormControl>
               <Input 
                 {...field} 
