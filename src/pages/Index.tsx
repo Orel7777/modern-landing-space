@@ -103,7 +103,7 @@ const Index = () => {
         
         <AboutSection />
         <PropertiesSection />
-        <ContactSection ref={contactRef} />
+        <ContactSection contactRef={contactRef} />
         <Footer />
       </div>
     </LazyMotion>

@@ -31,6 +31,16 @@ export const HeroSection = ({
           <RainbowButton onClick={scrollToContact} className="text-lg">
             צור קשר עכשיו
           </RainbowButton>
+          
+          {/* Added image below the Contact button */}
+          <div className="mt-6 mb-8 animate-fade-in">
+            <img 
+              src="/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png" 
+              alt="RE/MAX Logo" 
+              className="w-full max-w-[300px] mx-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          
           <ul className="flex justify-center gap-4">
             <li className="group relative">
               <a href="https://wa.me/972500000000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">
