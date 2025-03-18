@@ -9,7 +9,7 @@ export const HeroSection = ({
   heroRef,
   scrollToContact
 }: HeroSectionProps) => {
-  return <section ref={heroRef} className="relative min-h-[95vh] flex items-center justify-center text-white py-16">
+  return <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
       <div className="absolute inset-0">
         <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover">
           <source src="/lovable-uploads/video.mp4" type="video/mp4" />
@@ -18,7 +18,7 @@ export const HeroSection = ({
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
       </div>
       
-      <div className="relative container mx-auto text-center pt-8">
+      <div className="relative container mx-auto text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-2">
           ליחן ביטון אשת הנדל״ן שלך
         </h1>
@@ -31,16 +31,6 @@ export const HeroSection = ({
           <RainbowButton onClick={scrollToContact} className="text-lg">
             צור קשר עכשיו
           </RainbowButton>
-          
-          {/* New REMAX promotional image with enhanced styling */}
-          <div className="mt-6 mb-8 animate-fade-in">
-            <img 
-              src="/lovable-uploads/534d352e-72f6-4f2a-b73c-5d88ee0db8b4.png" 
-              alt="ליחן ביטון - RE/MAX" 
-              className="w-full max-w-[380px] mx-auto rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 border-2 border-white/20"
-            />
-          </div>
-          
           <ul className="flex justify-center gap-4">
             <li className="group relative">
               <a href="https://wa.me/972500000000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">

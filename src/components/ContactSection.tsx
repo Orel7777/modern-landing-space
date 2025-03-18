@@ -1,12 +1,9 @@
-
 import { ContactForm } from "@/components/ContactForm";
 import { MapPin, Phone, Mail } from "lucide-react";
 import BoxLoader from "@/components/BoxLoader";
 import { Tilt } from "@/components/ui/tilt";
 import { Spotlight } from "@/components/ui/spotlight";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-
 const SocialIconsWrapper = styled.div`
   .social-icons {
     width: fit-content;
@@ -74,7 +71,6 @@ const SocialIconsWrapper = styled.div`
     }
   }
 `;
-
 export const ContactSection = ({
   contactRef
 }: {
@@ -174,82 +170,6 @@ export const ContactSection = ({
               </div>
             </div>
             <ContactForm />
-          </div>
-        </div>
-        
-        {/* REMAX Promotional Banner Section */}
-        <div className="mt-24 max-w-4xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="relative rounded-xl overflow-hidden shadow-2xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-600/10 to-red-500/10 mix-blend-overlay" />
-            
-            <div className="relative">
-              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-[#0047AB] to-[#005AC1] rounded-t-xl" />
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-r from-[#E60026] to-[#FF0000] opacity-80" />
-              
-              <img 
-                src="/lovable-uploads/98224603-01e5-45df-8d3c-f1725cfaffc2.png" 
-                alt="RE/MAX Unique - Lihen Biton" 
-                className="w-full object-cover z-10 relative"
-              />
-              
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="absolute top-4 right-8 flex items-center gap-3">
-                  <div className="bg-white p-2 rounded-full shadow-lg">
-                    <img 
-                      src="/lovable-uploads/e52c3d50-c670-428b-8432-18e25fb6b583.png" 
-                      alt="RE/MAX Balloon Logo" 
-                      className="w-10 h-10 object-contain" 
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="absolute bottom-6 right-6 text-right"
-            >
-              <span className="text-blue-700 font-bold text-xl shadow-sm bg-white/70 px-3 py-1 rounded-md inline-block">
-                מס׳ רישיון 31925118
-              </span>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="absolute bottom-6 left-6"
-            >
-              <a href="tel:0505150002" className="flex items-center gap-2 bg-blue-700 text-white px-4 py-2 rounded-lg font-bold text-xl shadow-lg hover:bg-blue-800 transition-colors">
-                <Phone className="w-5 h-5" />
-                050-5150002
-              </a>
-            </motion.div>
-          </motion.div>
-          
-          <div className="mt-8 flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg shadow-lg text-center max-w-lg"
-            >
-              <h3 className="text-xl font-bold mb-2 text-right">FOLLOW YOUR DREAMS</h3>
-              <p className="text-sm opacity-90 text-right">הגשימו את החלום לבית משלכם עם ליהן ביטון - סוכנת נדל״ן מקצועית שתלווה אתכם בדרך להצלחה</p>
-            </motion.div>
           </div>
         </div>
       </div>
