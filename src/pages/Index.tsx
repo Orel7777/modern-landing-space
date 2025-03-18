@@ -74,7 +74,7 @@ const Index = () => {
               }} sparklesCount={15} />
               </div>
               <div className="w-32 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mr-0 rounded-full"></div>
-              <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">המומחיות שלי היא למצוא עבורך את הנכס המושלם או למכור את הנכס שלך במחיר הטוב ביותר.</p>
+              <p className="text-lg font-medium text-[#221F26] bg-white/90 py-2 rounded-lg px-4 text-right">המקצועיות שלי היא למצוא עבורך את העסקה הכי אטרקטיבית</p>
               
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-3 bg-white p-3 rounded-lg shadow-sm ">
