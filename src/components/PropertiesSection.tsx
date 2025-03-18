@@ -23,7 +23,7 @@ export const PropertiesSection = () => {
   const allProperties: Property[] = [{
     image: "/lovable-uploads/f6295a4f-becb-44ea-9ce2-4abda0962b85.png",
     title: "שכונת המושאה דירת 4 חדרים",
-    price: "₪4,000,000",
+    price: "₪2,600,000",
     location: "מודיעין",
     details: "4 חדרים | מרפסת עם נוף | קומה גבוהה",
     isSold: true,
@@ -31,7 +31,7 @@ export const PropertiesSection = () => {
   }, {
     image: "/lovable-uploads/81cbd7d8-7523-423c-9b7e-263ccce666af.png",
     title: "דירת גן 4 חדרים עם גינה ענקית ו2 חניות",
-    price: "₪4,350,000",
+    price: "₪4,190,000",
     location: "מודיעין שכונת מורשת",
     details: "4 חדרים | 104 מ״ר | גינה",
     isExclusive: true
@@ -53,7 +53,7 @@ export const PropertiesSection = () => {
   }, {
     image: "/lovable-uploads/045e09ed-69e0-4ea8-8a50-d493a011cb6b.png",
     title: "דופלקס דירת 6 חדרים",
-    price: "₪4,500,000",
+    price: "₪4,100,000",
     location: "רחוב סביון, שכונת הפרחים",
     details: "6 חדרים | 200 מ״ר",
     isSold: true,
@@ -61,7 +61,7 @@ export const PropertiesSection = () => {
   }, {
     image: "/lovable-uploads/8eaad152-952f-4d2c-aac2-4b5a46173496.png",
     title: "דירת 4 חדרים דם המכבים",
-    price: "₪3,500,000",
+    price: "₪2,980,000",
     location: "מודיעין מכבי",
     details: "4 חדרים | נמכר",
     isSold: true,
