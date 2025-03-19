@@ -1,13 +1,10 @@
-
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
-
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
   scrollToContact: () => void;
 }
-
 export const HeroSection = ({
   heroRef,
   scrollToContact
@@ -26,18 +23,11 @@ export const HeroSection = ({
         <div className="mb-8">
           <CardContainer className="w-72 h-[300px]">
             <CardBody className="w-full h-full">
-              <CardItem
-                translateZ="100"
-                className="w-full h-full rounded-3xl overflow-hidden shadow-xl"
-              >
+              <CardItem translateZ="100" className="w-full h-full rounded-3xl overflow-hidden shadow-xl">
                 <div className="bg-white/90 rounded-3xl w-full h-full flex flex-col items-center justify-center p-6 relative">
                   {/* RE/MAX Balloon Logo */}
                   <div className="absolute top-4 left-4">
-                    <img 
-                      src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" 
-                      alt="RE/MAX Unique" 
-                      className="w-56 object-contain"
-                    />
+                    <img src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" alt="RE/MAX Unique" className="w-56 object-fill" />
                   </div>
                   
                   {/* FOLLOW YOUR DREAMS text */}
