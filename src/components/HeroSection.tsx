@@ -1,3 +1,4 @@
+
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
@@ -20,32 +21,32 @@ export const HeroSection = ({
       
       <div className="relative container mx-auto flex flex-col items-center justify-center h-full">
         {/* 3D Card Component in the middle of the video */}
-        <div className="mb-8">
+        <div className="mb-20">
           <CardContainer className="w-72 h-[300px]">
             <CardBody className="w-full h-full">
               <CardItem translateZ="100" className="w-full h-full rounded-3xl overflow-hidden shadow-xl">
                 <div className="bg-white/90 rounded-3xl w-full h-full flex flex-col items-center justify-center p-6 relative">
-                  {/* RE/MAX Balloon Logo */}
-                  <div className="absolute top-4 left-4">
-                    <img src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" alt="RE/MAX Unique" className="w-56 object-fill" />
+                  {/* RE/MAX Balloon Logo - Moved down and made larger */}
+                  <div className="absolute top-12 left-0 w-full flex justify-center">
+                    <img src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" alt="RE/MAX Unique" className="w-64 object-contain" />
                   </div>
                   
-                  {/* FOLLOW YOUR DREAMS text */}
-                  <div className="mt-16 text-center">
+                  {/* FOLLOW YOUR DREAMS text - Moved down */}
+                  <div className="mt-44 text-center">
                     <p className="text-3xl font-bold text-[#1a56a7]">FOLLOW</p>
                     <p className="text-3xl font-bold text-[#1a56a7]">YOUR</p>
                     <p className="text-4xl font-bold text-[#e41b13]">DREAMS</p>
                   </div>
                   
                   {/* Hebrew text */}
-                  <div className="mt-6 text-center">
+                  <div className="mt-4 text-center">
                     <p className="text-3xl font-bold text-[#1a56a7]">ליחן</p>
                     <p className="text-3xl font-bold text-[#1a56a7]">ביטון</p>
                     <p className="text-xl font-medium text-[#e41b13]">אשת הנדל״ן שלך</p>
                   </div>
                   
                   {/* Phone number */}
-                  <div className="mt-6 text-center">
+                  <div className="mt-4 text-center">
                     <p className="text-2xl font-bold text-[#1a56a7]">050-5150002</p>
                   </div>
                 </div>
