@@ -1,3 +1,4 @@
+
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -68,7 +69,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="text-right space-y-6 animate-fade-up relative z-10">
               <div className="flex justify-start mx-0 px-0">
-                <SparklesText text="הנדל״ן שלך, החיים שלך" className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4 text-right" colors={{
+                <SparklesText text="הבית שלך המומחיות שלי" className="text-3xl md:text-4xl font-bold text-[#1a56a7] bg-white/90 py-2 rounded-lg inline-block px-4 text-right" colors={{
                 first: "#1a56a7",
                 second: "#FDE1D3"
               }} sparklesCount={15} />
