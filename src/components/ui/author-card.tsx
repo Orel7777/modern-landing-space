@@ -27,27 +27,12 @@ export const AuthorCard = ({
     <div className="max-w-xs w-full group/card mx-auto">
       <div
         className={cn(
-          "cursor-pointer overflow-hidden relative card h-72 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover",
+          "cursor-pointer overflow-hidden relative card h-60 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover",
           className
         )}
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60" />
-        <div className="flex flex-row items-center space-x-4 z-10">
-          <img
-            alt={`${author.name}'s avatar`}
-            src={author.avatar}
-            className="h-10 w-10 rounded-full border-2 object-cover"
-          />
-          <div className="flex flex-col">
-            <p className="font-normal text-base text-gray-50 relative z-10">
-              {author.name}
-            </p>
-            {author.readTime && (
-              <p className="text-sm text-gray-400">{author.readTime}</p>
-            )}
-          </div>
-        </div>
       </div>
     </div>
   )
