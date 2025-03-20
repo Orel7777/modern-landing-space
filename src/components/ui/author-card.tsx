@@ -27,7 +27,7 @@ export const AuthorCard = ({
     <div className="max-w-xs w-full group/card mx-auto">
       <div
         className={cn(
-          "cursor-pointer overflow-hidden relative card h-60 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover",
+          "cursor-pointer overflow-hidden relative card rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover bg-center",
           className
         )}
         style={{ backgroundImage: `url(${backgroundImage})` }}
