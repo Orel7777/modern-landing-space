@@ -19,34 +19,34 @@ export const HeroSection = ({
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
       </div>
       
-      <div className="relative container mx-auto flex flex-col items-center justify-center h-full">
+      <div className="relative container mx-auto flex flex-col items-center justify-between h-full py-10">
         {/* 3D Card Component in the middle of the video */}
-        <div className="mb-20">
-          <CardContainer className="w-72 h-[300px]">
+        <div className="flex-grow flex items-center justify-center mb-10">
+          <CardContainer className="w-[350px] h-[400px]">
             <CardBody className="w-full h-full">
               <CardItem translateZ="100" className="w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                <div className="bg-white/90 rounded-3xl w-full h-full flex flex-col items-center justify-center p-6 relative">
-                  {/* RE/MAX Balloon Logo - Moved down and made larger */}
-                  <div className="absolute top-12 left-0 w-full flex justify-center">
-                    <img src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" alt="RE/MAX Unique" className="w-64 object-contain" />
+                <div className="bg-white/90 rounded-3xl w-full h-full flex flex-col items-center justify-center relative">
+                  {/* RE/MAX Balloon Logo - Filling the entire space */}
+                  <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+                    <img src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" alt="RE/MAX Unique" className="w-[90%] h-[40%] object-contain" />
                   </div>
                   
-                  {/* FOLLOW YOUR DREAMS text - Moved down */}
-                  <div className="mt-44 text-center">
+                  {/* FOLLOW YOUR DREAMS text - Moved to bottom */}
+                  <div className="absolute bottom-36 w-full text-center">
                     <p className="text-3xl font-bold text-[#1a56a7]">FOLLOW</p>
                     <p className="text-3xl font-bold text-[#1a56a7]">YOUR</p>
                     <p className="text-4xl font-bold text-[#e41b13]">DREAMS</p>
                   </div>
                   
                   {/* Hebrew text */}
-                  <div className="mt-4 text-center">
+                  <div className="absolute bottom-16 w-full text-center">
                     <p className="text-3xl font-bold text-[#1a56a7]">ליחן</p>
                     <p className="text-3xl font-bold text-[#1a56a7]">ביטון</p>
                     <p className="text-xl font-medium text-[#e41b13]">אשת הנדל״ן שלך</p>
                   </div>
                   
                   {/* Phone number */}
-                  <div className="mt-4 text-center">
+                  <div className="absolute bottom-4 w-full text-center">
                     <p className="text-2xl font-bold text-[#1a56a7]">050-5150002</p>
                   </div>
                 </div>
@@ -55,8 +55,8 @@ export const HeroSection = ({
           </CardContainer>
         </div>
         
-        {/* Social media icons at the bottom */}
-        <div className="mt-auto mb-10">
+        {/* Social media icons at the bottom - moved up closer to the card */}
+        <div>
           <RainbowButton onClick={scrollToContact} className="text-lg mb-4">
             צור קשר עכשיו
           </RainbowButton>
