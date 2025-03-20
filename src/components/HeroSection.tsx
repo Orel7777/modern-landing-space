@@ -1,10 +1,13 @@
 
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
+import { AuthorCard } from "@/components/ui/author-card";
+
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
   scrollToContact: () => void;
 }
+
 export const HeroSection = ({
   heroRef,
   scrollToContact
@@ -19,15 +22,22 @@ export const HeroSection = ({
       </div>
       
       <div className="relative container mx-auto text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-2">
-          ליחן ביטון אשת הנדל״ן שלך
-        </h1>
-        <div className="mb-8">
-          <p className="text-3xl md:text-4xl font-light italic tracking-wider text-[#E5DEFF] drop-shadow-lg">FOLLOW YOUR DREAMS</p>
-          <div className="w-40 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mx-auto mt-3 rounded-full opacity-80"></div>
+        <div className="flex flex-col items-center justify-center mb-8 space-y-6">
+          <AuthorCard
+            className="w-full max-w-md h-auto md:h-[500px] backdrop-blur-sm bg-black/30 rounded-xl"
+            backgroundImage="/lovable-uploads/80e53cee-066f-4c62-bf20-0483bfd6c137.png"
+            author={{
+              name: "RE/MAX Unique",
+              avatar: "/lovable-uploads/3d536c21-8209-4bb8-8391-12be27e309f2.png",
+              readTime: "ליחן ביטון"
+            }}
+            content={{
+              title: "FOLLOW YOUR DREAMS",
+              description: "אשת הנדל״ן שלך"
+            }}
+          />
         </div>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">מציאת הבית המושלם עבורך היא המשימה שלי</p>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 mt-4">
           <RainbowButton onClick={scrollToContact} className="text-lg">
             צור קשר עכשיו
           </RainbowButton>
