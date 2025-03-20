@@ -1,7 +1,6 @@
 
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
-import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
   scrollToContact: () => void;
@@ -16,53 +15,25 @@ export const HeroSection = ({
           <source src="/lovable-uploads/video.mp4" type="video/mp4" />
           The dream home
         </video>
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
       </div>
       
-      <div className="relative container mx-auto flex flex-col items-center justify-between h-full py-10">
-        {/* 3D Card Component in the middle of the video */}
-        <div className="flex-grow flex items-center justify-center mb-10">
-          <CardContainer className="w-[350px] h-[400px]">
-            <CardBody className="w-full h-full">
-              <CardItem translateZ="100" className="w-full h-full rounded-3xl overflow-hidden shadow-xl">
-                <div className="bg-white/90 rounded-3xl w-full h-full flex flex-col items-center justify-center relative">
-                  {/* RE/MAX Balloon Logo - Filling the entire space */}
-                  <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-                    <img src="/lovable-uploads/bea22aae-fcda-422b-a048-34dcd7a466db.png" alt="RE/MAX Unique" className="w-[90%] h-[40%] object-contain" />
-                  </div>
-                  
-                  {/* FOLLOW YOUR DREAMS text - Moved to bottom */}
-                  <div className="absolute bottom-36 w-full text-center">
-                    <p className="text-3xl font-bold text-[#1a56a7]">FOLLOW</p>
-                    <p className="text-3xl font-bold text-[#1a56a7]">YOUR</p>
-                    <p className="text-4xl font-bold text-[#e41b13]">DREAMS</p>
-                  </div>
-                  
-                  {/* Hebrew text */}
-                  <div className="absolute bottom-16 w-full text-center">
-                    <p className="text-3xl font-bold text-[#1a56a7]">ליחן</p>
-                    <p className="text-3xl font-bold text-[#1a56a7]">ביטון</p>
-                    <p className="text-xl font-medium text-[#e41b13]">אשת הנדל״ן שלך</p>
-                  </div>
-                  
-                  {/* Phone number */}
-                  <div className="absolute bottom-4 w-full text-center">
-                    <p className="text-2xl font-bold text-[#1a56a7]">050-5150002</p>
-                  </div>
-                </div>
-              </CardItem>
-            </CardBody>
-          </CardContainer>
+      <div className="relative container mx-auto text-center">
+        <h1 className="text-5xl md:text-6xl font-bold mb-2">
+          ליחן ביטון אשת הנדל״ן שלך
+        </h1>
+        <div className="mb-8">
+          <p className="text-3xl md:text-4xl font-light italic tracking-wider text-[#E5DEFF] drop-shadow-lg">FOLLOW YOUR DREAMS</p>
+          <div className="w-40 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mx-auto mt-3 rounded-full opacity-80"></div>
         </div>
-        
-        {/* Social media icons at the bottom - moved up closer to the card */}
-        <div>
-          <RainbowButton onClick={scrollToContact} className="text-lg mb-4">
+        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">מציאת הבית המושלם עבורך היא המשימה שלי</p>
+        <div className="flex flex-col items-center gap-4">
+          <RainbowButton onClick={scrollToContact} className="text-lg">
             צור קשר עכשיו
           </RainbowButton>
-          <ul className="flex justify-center gap-4 mt-4">
+          <ul className="flex justify-center gap-4">
             <li className="group relative">
-              <a href="https://wa.me/972505150002" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">
+              <a href="https://wa.me/972500000000" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group-hover:bg-[#25D366]">
                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="text-gray-600 group-hover:text-white transition-colors">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
