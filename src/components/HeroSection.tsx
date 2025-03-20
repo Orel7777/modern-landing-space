@@ -24,7 +24,7 @@ export const HeroSection = ({
       <div className="relative container mx-auto text-center">
         <div className="flex flex-col items-center justify-center mb-8 space-y-6">
           <AuthorCard
-            className="w-full max-w-md h-auto md:h-[500px] backdrop-blur-sm bg-black/30 rounded-xl"
+            className="w-full max-w-md h-auto md:h-[400px] backdrop-blur-sm bg-black/30 rounded-xl"
             backgroundImage="/lovable-uploads/80e53cee-066f-4c62-bf20-0483bfd6c137.png"
             author={{
               name: "RE/MAX Unique",
@@ -32,8 +32,8 @@ export const HeroSection = ({
               readTime: "ליחן ביטון"
             }}
             content={{
-              title: "FOLLOW YOUR DREAMS",
-              description: "אשת הנדל״ן שלך"
+              title: "",
+              description: ""
             }}
           />
         </div>

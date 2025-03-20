@@ -27,7 +27,7 @@ export const AuthorCard = ({
     <div className="max-w-xs w-full group/card mx-auto">
       <div
         className={cn(
-          "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover",
+          "cursor-pointer overflow-hidden relative card h-72 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover",
           className
         )}
         style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -47,14 +47,6 @@ export const AuthorCard = ({
               <p className="text-sm text-gray-400">{author.readTime}</p>
             )}
           </div>
-        </div>
-        <div className="text content">
-          <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-            {content.title}
-          </h1>
-          <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-            {content.description}
-          </p>
         </div>
       </div>
     </div>
