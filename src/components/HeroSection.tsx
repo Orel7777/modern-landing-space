@@ -1,3 +1,4 @@
+
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
 import { Tilt } from "@/components/ui/tilt";
@@ -25,7 +26,7 @@ export const HeroSection = ({
         </Tilt>
       </div>
       
-      <div className="relative container mx-auto text-center">
+      <div className="relative container mx-auto text-center mt-16">
         <h1 className="text-5xl md:text-6xl font-bold mb-2">
           ליחן ביטון אשת הנדל״ן שלך
         </h1>
