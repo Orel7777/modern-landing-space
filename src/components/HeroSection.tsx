@@ -1,10 +1,13 @@
 
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
+import { Tilt } from "@/components/ui/tilt";
+
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
   scrollToContact: () => void;
 }
+
 export const HeroSection = ({
   heroRef,
   scrollToContact
@@ -16,6 +19,17 @@ export const HeroSection = ({
           The dream home
         </video>
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+      </div>
+      
+      {/* 3D Tilt Image - Only show on medium and large screens */}
+      <div className="absolute top-6 right-6 hidden md:block z-10">
+        <Tilt className="w-48 h-48 rounded-lg overflow-hidden shadow-xl" rotationFactor={10}>
+          <img 
+            src="/lovable-uploads/3835289b-4e98-44e5-9d6f-4cc7d8889185.png" 
+            alt="RE/MAX Unique - Lihen Biton" 
+            className="w-full h-full object-cover"
+          />
+        </Tilt>
       </div>
       
       <div className="relative container mx-auto text-center">
