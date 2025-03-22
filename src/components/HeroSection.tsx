@@ -26,7 +26,7 @@ export const HeroSection = ({
         </Tilt>
       </div>
       
-      <div className="relative container mx-auto text-center mt-16">
+      <div className="relative container mx-auto text-center mt-32">
         <h1 className="text-5xl md:text-6xl font-bold mb-2">
           ליחן ביטון אשת הנדל״ן שלך
         </h1>
