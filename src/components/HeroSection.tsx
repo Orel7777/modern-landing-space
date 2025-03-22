@@ -2,14 +2,19 @@
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Facebook, Instagram } from "lucide-react";
 import { Tilt } from "@/components/ui/tilt";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 interface HeroSectionProps {
   heroRef: React.RefObject<HTMLElement>;
   scrollToContact: () => void;
 }
+
 export const HeroSection = ({
   heroRef,
   scrollToContact
 }: HeroSectionProps) => {
+  const isMobile = useIsMobile();
+  
   return <section ref={heroRef} className="relative h-[90vh] flex items-center justify-center text-white">
       <div className="absolute inset-0">
         <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover">
@@ -19,15 +24,18 @@ export const HeroSection = ({
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
       </div>
       
-      {/* 3D Tilt Image - Only show on medium and large screens */}
-      <div className="absolute top-0 right-0 hidden md:block z-10">
-        <Tilt className="w-48 h-48 rounded-bl-lg overflow-hidden shadow-xl" rotationFactor={10}>
+      {/* 3D Tilt Image - Show on all screen sizes */}
+      <div className="absolute top-0 right-0 z-10">
+        <Tilt 
+          className={`rounded-bl-lg overflow-hidden shadow-xl ${isMobile ? 'w-24 h-24' : 'w-48 h-48'}`} 
+          rotationFactor={isMobile ? 5 : 10}
+        >
           <img src="/lovable-uploads/3835289b-4e98-44e5-9d6f-4cc7d8889185.png" alt="RE/MAX Unique - Lihen Biton" className="w-full h-full object-fill" />
         </Tilt>
       </div>
       
-      <div className="relative container mx-auto text-center mt-32">
-        <h1 className="text-5xl md:text-6xl font-bold mb-2">
+      <div className="relative container mx-auto text-center mt-32 md:mt-32">
+        <h1 className="text-4xl md:text-6xl font-bold mb-2">
           ליחן ביטון אשת הנדל״ן שלך
         </h1>
         <div className="w-40 h-1 bg-gradient-to-r from-[#E5DEFF] via-[#FDE1D3] to-[#D3E4FD] mx-auto mt-3 rounded-full opacity-80"></div>
